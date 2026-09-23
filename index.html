@@ -233,7 +233,7 @@ const UI={
  cal:T(`今後の予定`,`Coming up`,`앞으로의 일정`),
  search:T(`キーワードで絞り込み(例:NVDA、円、Claude)`,`Filter by keyword (e.g. NVDA, yen, Claude)`,`키워드로 필터 (예: NVDA, 엔, Claude)`),
  colorHint:T(`色の規則:日本語・韓国語は上昇=赤/下落=青、英語は上昇=緑/下落=赤`,`Colors: Japanese and Korean use red = up, blue = down; English uses green = up, red = down`,`색상 규칙: 일본어·한국어는 상승=빨강/하락=파랑, 영어는 상승=초록/하락=빨강`),
- asof:T(`データ取得:2026年9月22日。東京市場は9/21〜23が祝日で休場中。数値は終値・時間外・先物が混在する参考値です。`,`Data retrieved Sep 22, 2026. Tokyo markets are closed for holidays Sep 21-23. Figures mix closes, after-hours and futures and are for reference.`,`데이터 조회: 2026년 9월 22일. 도쿄 시장은 9/21~23 공휴일로 휴장 중. 수치는 종가·시간외·선물이 섞인 참고값입니다.`),
+ asof:T(`データ取得:2026年9月23日12時00分(東京時間)。東京市場は9/21〜23が祝日で休場中。数値は終値・時間外・先物が混在する参考値です。`,`Data retrieved Sep 23, 2026, 12:00 Tokyo time. Tokyo markets are closed for holidays Sep 21-23. Figures mix closes, after-hours and futures and are for reference.`,`데이터 조회: 2026년 9월 23일 12:00(도쿄 시간). 도쿄 시장은 9/21~23 공휴일로 휴장 중. 수치는 종가·시간외·선물이 섞인 참고값입니다.`),
  expandAll:T(`すべて開く`,`Expand all`,`모두 펼치기`),
  collapseAll:T(`すべて閉じる`,`Collapse all`,`모두 접기`),
  sources:T(`出典`,`Sources`,`출처`),
@@ -257,12 +257,12 @@ const UI={
 
 const TAPE=[
  {l:T(`日経平均`,`Nikkei 225`,`닛케이 225`),v:`65,019`,c:1.38},
- {l:T(`ドル円`,`USD/JPY`,`달러/엔`),v:`157.28`,c:0.17},
- {l:T(`S&P 500`,`S&P 500`,`S&P 500`),v:`7,764.70`,c:1.49},
+ {l:T(`ドル円`,`USD/JPY`,`달러/엔`),v:`157.50`,c:0.08},
+ {l:T(`S&P 500`,`S&P 500`,`S&P 500`),v:`7,771.56`,c:0.09},
  {l:T(`エヌビディア`,`NVIDIA`,`엔비디아`),v:`$227.38`,c:2.30},
- {l:T(`WTI原油`,`WTI crude`,`WTI 원유`),v:`$95.59`,c:-4.69},
- {l:T(`金`,`Gold`,`금`),v:`$4,368`,c:0.44},
- {l:T(`米10年債利回り`,`US 10Y yield`,`미 10년물 금리`),v:`4.96%`,c:null},
+ {l:T(`WTI原油`,`WTI crude`,`WTI 원유`),v:`$89.80`,c:-1.24},
+ {l:T(`金`,`Gold`,`금`),v:`$4,350.23`,c:-0.43},
+ {l:T(`米10年債利回り`,`US 10Y yield`,`미 10년물 금리`),v:`4.97%`,c:null},
  {l:T(`ドルウォン`,`USD/KRW`,`달러/원`),v:`1,381`,c:-0.36}
 ];
 
@@ -512,8 +512,8 @@ robo:[
  src:[[`Tesla IR`,`https://ir.tesla.com/`]]}
 ],
 movers:[
-{id:`m1`,country:`US`,tick:`RGTI`,name:T(`リゲッティ・コンピューティング`,`Rigetti Computing`,`리게티 컴퓨팅`),date:`09/17`,px:`$15.99`,chg:8.11,
- why:T(`IonQがOak Ridge・NVIDIAと共同研究論文を発表、量子セクター全体が連れ高`,`Rose after IonQ published joint research with Oak Ridge and NVIDIA, lifting the whole quantum sector`,`IonQ가 Oak Ridge·NVIDIA와 공동 연구 논문을 발표, 양자 섹터 전체가 동반 상승`)},
+{id:`m1`,country:`US`,tick:`RGTI`,name:T(`リゲッティ・コンピューティング`,`Rigetti Computing`,`리게티 컴퓨팅`),date:`09/22`,px:`$16.52`,chg:4.89,
+ why:T(`IonQの量子分野での技術的ブレークスルー発表を受け、QBTS・QUBTなど量子セクター全体が連れ高`,`Rose after IonQ announced a quantum-computing technical breakthrough, lifting quantum peers like QBTS and QUBT too`,`IonQ의 양자 분야 기술적 돌파구 발표 이후 QBTS·QUBT 등 양자 섹터 전체가 동반 상승`)},
 {id:`m2`,country:`US`,tick:`CRWV`,name:T(`コアウィーブ`,`CoreWeave`,`코어위브`),date:`09/21`,px:`$122.54`,chg:6.41,
  why:T(`AIインフラ需要への楽観が支えと報道`,`Reported support from optimism on AI infrastructure demand`,`AI 인프라 수요 낙관이 지지 요인으로 보도`)},
 {id:`m3`,country:`US`,tick:`ACN`,name:T(`アクセンチュア`,`Accenture`,`액센츄어`),date:`09/18`,px:`$195.50`,chg:7.84,
