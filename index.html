@@ -233,7 +233,7 @@ const UI={
  cal:T(`今後の予定`,`Coming up`,`앞으로의 일정`),
  search:T(`キーワードで絞り込み(例:NVDA、円、Claude)`,`Filter by keyword (e.g. NVDA, yen, Claude)`,`키워드로 필터 (예: NVDA, 엔, Claude)`),
  colorHint:T(`色の規則:日本語・韓国語は上昇=赤/下落=青、英語は上昇=緑/下落=赤`,`Colors: Japanese and Korean use red = up, blue = down; English uses green = up, red = down`,`색상 규칙: 일본어·한국어는 상승=빨강/하락=파랑, 영어는 상승=초록/하락=빨강`),
- asof:T(`データ取得:2026年9月21日。数値は終値・時間外・先物が混在する参考値です。`,`Data retrieved Sep 21, 2026. Figures mix closes, after-hours and futures and are for reference.`,`데이터 조회: 2026년 9월 21일. 수치는 종가·시간외·선물이 섞인 참고값입니다.`),
+ asof:T(`データ取得:2026年9月22日。東京市場は9/21〜23が祝日で休場中。数値は終値・時間外・先物が混在する参考値です。`,`Data retrieved Sep 22, 2026. Tokyo markets are closed for holidays Sep 21-23. Figures mix closes, after-hours and futures and are for reference.`,`데이터 조회: 2026년 9월 22일. 도쿄 시장은 9/21~23 공휴일로 휴장 중. 수치는 종가·시간외·선물이 섞인 참고값입니다.`),
  expandAll:T(`すべて開く`,`Expand all`,`모두 펼치기`),
  collapseAll:T(`すべて閉じる`,`Collapse all`,`모두 접기`),
  sources:T(`出典`,`Sources`,`출처`),
@@ -257,36 +257,35 @@ const UI={
 
 const TAPE=[
  {l:T(`日経平均`,`Nikkei 225`,`닛케이 225`),v:`65,019`,c:1.38},
- {l:T(`ドル円`,`USD/JPY`,`달러/엔`),v:`157.01`,c:0.08},
- {l:T(`S&P 500`,`S&P 500`,`S&P 500`),v:`7,680.65`,c:0.39},
- {l:T(`エヌビディア`,`NVIDIA`,`엔비디아`),v:`$222.27`,c:1.34},
- {l:T(`WTI原油`,`WTI crude`,`WTI 원유`),v:`$98.27`,c:-2.03},
- {l:T(`金`,`Gold`,`금`),v:`$4,349`,c:-0.79},
- {l:T(`米10年債利回り`,`US 10Y yield`,`미 10년물 금리`),v:`4.97%`,c:null},
+ {l:T(`ドル円`,`USD/JPY`,`달러/엔`),v:`157.28`,c:0.17},
+ {l:T(`S&P 500`,`S&P 500`,`S&P 500`),v:`7,764.70`,c:1.49},
+ {l:T(`エヌビディア`,`NVIDIA`,`엔비디아`),v:`$227.38`,c:2.30},
+ {l:T(`WTI原油`,`WTI crude`,`WTI 원유`),v:`$95.59`,c:-4.69},
+ {l:T(`金`,`Gold`,`금`),v:`$4,368`,c:0.44},
+ {l:T(`米10年債利回り`,`US 10Y yield`,`미 10년물 금리`),v:`4.96%`,c:null},
  {l:T(`ドルウォン`,`USD/KRW`,`달러/원`),v:`1,381`,c:-0.36}
 ];
 
 const BRIEF=[
- {h:T(`日米そろって利上げ`,`Twin hikes: the Fed and the BOJ`,`미·일 동시 금리 인상`),
-  t:T(`FRBは政策金利を3.75–4.00%へ引き上げ(2023年以来)、日銀も1.25%へ(31年ぶり水準)。ドル円は157円台で、東京市場の連休中も介入への警戒が続く。`,
-      `The Fed lifted its target range to 3.75–4.00%, its first hike since 2023, and the BOJ moved to 1.25%, a 31-year high. USD/JPY sits near 157 with intervention risk while Tokyo is on holiday.`,
-      `연준은 기준금리를 3.75–4.00%로 올렸고(2023년 이후 첫 인상), 일본은행도 1.25%로 인상했다(31년 만의 최고 수준). 달러/엔은 157엔대로, 도쿄 시장 휴장 중에도 개입 경계가 이어진다.`)},
- {h:T(`AI・半導体は反発、焦点は資金調達`,`AI and chips rebound; funding is the watch item`,`AI·반도체 반등, 관건은 자금 조달`),
-  t:T(`9/18の日経平均は65,019円(+1.38%)。一方でFTはビッグテックのオフバランスAI債務を約3,000億ドルと報じ、ソフトバンクはOpenAI向け資金として約110億ドルの債券を発行する予定。`,
-      `The Nikkei closed 9/18 at 65,019 (+1.38%). The FT puts Big Tech's off-balance-sheet AI exposure near $300B, and SoftBank plans about $11B of bonds to fund its next OpenAI tranche.`,
-      `9/18 닛케이 평균은 65,019(+1.38%). 한편 FT는 빅테크의 장부 외 AI 관련 부채를 약 3,000억 달러로 보도했고, 소프트뱅크는 OpenAI 추가 출자를 위해 약 110억 달러 채권을 발행할 예정이다.`)},
- {h:T(`9/24は米中首脳会談`,`Trump–Xi summit on 9/24`,`9/24 미중 정상회담`),
-  t:T(`焦点は関税休戦(11/10期限)、イラン戦争、AI対話。トランプ氏は「AI Force」の新設とAI担当官の任命を表明した。`,
-      `Focus: the tariff truce (expires 11/10), the Iran war and an AI dialogue. Trump announced plans for an AI Force and an AI czar.`,
-      `쟁점은 관세 휴전(11/10 만료), 이란 전쟁, AI 대화. 트럼프 대통령은 'AI Force' 신설과 AI 총괄 임명 계획을 밝혔다.`)}
+ {h:T(`NY株が過去最高値、AI関連が牽引`,`Wall Street hits fresh records, led by AI names`,`뉴욕 증시 사상 최고치, AI 관련주가 견인`),
+  t:T(`9/21のNYダウは+0.71%、S&P500は+1.49%(7,764.70)、ナスダックは+2.26%の27,122.09で最高値更新。AMDが時価総額1兆ドル突破、インテル+12%、クアルコム+9%超と半導体株が急伸。原油下落と長期金利低下が追い風に。`,
+      `On 9/21 the Dow rose 0.71%, the S&P 500 gained 1.49% to 7,764.70, and the Nasdaq jumped 2.26% to a record 27,122.09. AMD's market cap topped $1 trillion, Intel rose 12% and Qualcomm over 9% as chip stocks surged, helped by falling oil prices and Treasury yields.`,
+      `9/21 다우는 +0.71%, S&P500은 +1.49%(7,764.70), 나스닥은 +2.26% 오른 27,122.09로 사상 최고치를 경신했다. AMD의 시가총액이 1조 달러를 돌파했고 인텔 +12%, 퀄컴 +9%대로 반도체주가 급등했다. 유가 하락과 장기 금리 하락이 순풍이 되었다.`)},
+ {h:T(`東京市場は3連休、先物は大幅高`,`Tokyo on a 3-day holiday; futures point sharply higher`,`도쿄 증시 3연휴, 선물은 큰 폭 상승`),
+  t:T(`東京の現物市場は9/21〜23が祝日で休場。大阪の日経平均先物(12月限)は夜間立会で66,380円まで上昇し、9/18の現物終値65,100円を1,280円上回る。NY株高と円安(157円台)が押し上げ材料。`,
+      `Tokyo's cash market is closed 9/21-23 for holidays. Osaka's Nikkei 225 futures (December contract) rose to 66,380 in night trading, 1,280 points above the 9/18 cash close of 65,100, lifted by Wall Street's rally and a weaker yen near 157.`,
+      `도쿄 현물 시장은 9/21~23 공휴일로 휴장. 오사카 닛케이225 선물(12월물)은 야간 거래에서 66,380엔까지 올라 9/18 현물 종가 65,100엔을 1,280엔 웃돌았다. 뉴욕 증시 강세와 엔화 약세(157엔대)가 상승 요인이다.`)},
+ {h:T(`サムスンがHBM4を発表、AIメモリ競争が加速`,`Samsung unveils HBM4 as the AI-memory race accelerates`,`삼성, HBM4 공개로 AI 메모리 경쟁 가속`),
+  t:T(`サムスン電子は9/21、次世代AI向け高帯域幅メモリ「HBM4」を発表。SK hynixやキオクシアと並びAIメモリ供給網での競争が続く。Anthropicはビジネス向けの低価格新モデルをIPO前に投入する方針と報じられた。`,
+      `Samsung Electronics unveiled its next-generation AI memory chip, HBM4, on 9/21, keeping competition with SK hynix and Kioxia in AI memory supply intense. Separately, Anthropic was reported to be readying a cheaper, business-focused model ahead of its IPO.`,
+      `삼성전자는 9/21 차세대 AI 메모리 'HBM4'를 공개했다. SK하이닉스, 키오크시아와 함께 AI 메모리 공급망 경쟁이 계속된다. 한편 Anthropic은 IPO를 앞두고 저가형 비즈니스용 신모델을 준비 중이라고 보도되었다.`)}
 ];
 
 const CAL=[
- {d:`09/21–23`,t:T(`東京市場は連休で休場`,`Tokyo markets closed for holidays`,`도쿄 증시 연휴 휴장`)},
- {d:`09/22`,t:T(`国連総会ハイレベル週間が始まる`,`UN General Assembly high-level week begins`,`유엔 총회 고위급 주간 시작`)},
+ {d:`09/21–23`,t:T(`東京市場は連休で休場(先物は大幅高)`,`Tokyo markets closed for holidays (futures sharply higher)`,`도쿄 증시 연휴 휴장(선물은 큰 폭 상승)`)},
  {d:`09/24`,t:T(`米中首脳会談(ワシントン)/ソフトバンク債の条件決定(予定)`,`Trump–Xi summit in Washington / SoftBank bond pricing (expected)`,`미중 정상회담(워싱턴) / 소프트뱅크 채권 조건 확정(예정)`)},
  {d:`09/29`,t:T(`ファナック権利落ち日/ソフトバンク債の受渡(予定)`,`Fanuc ex-dividend / SoftBank bond settlement (expected)`,`화낙 권리락일 / 소프트뱅크 채권 결제(예정)`)},
- {d:`10/09`,t:T(`安川電機の決算発表`,`Yaskawa Electric earnings`,`야스카와전기 실적 발표`)},
+ {d:`10/09`,t:T(`安川電機・Sansanの決算発表`,`Yaskawa Electric and Sansan earnings`,`야스카와전기·Sansan 실적 발표`)},
  {d:`10/15`,t:T(`StepFun Step 5のオープンウェイト公開予定`,`StepFun Step 5 open weights due`,`StepFun Step 5 오픈 웨이트 공개 예정`)},
  {d:`11/10`,t:T(`米中関税休戦の期限`,`US–China tariff truce expires`,`미중 관세 휴전 만료`)},
  {d:`11月`,t:T(`Anthropic IPO(報道ベース)`,`Anthropic IPO (per reports)`,`Anthropic IPO(보도 기준)`)}
@@ -466,7 +465,7 @@ semi:[
      `Per Reuters and other outlets, SoftBank Group is planning roughly $11 billion in combined yen- and dollar-denominated bonds to help fund further investment in OpenAI, with pricing expected around 9/24 and settlement around 9/29. The company's large cumulative OpenAI commitment keeps AI-related financing activity a key share-price driver.`,
      `로이터 등에 따르면 소프트뱅크그룹은 OpenAI 추가 투자 재원으로 엔화·달러 표시를 조합한 약 110억 달러 규모의 채권 발행을 계획하고 있으며, 조건 확정은 9/24 전후, 결제는 9/29 전후로 예상된다. 회사의 누적 OpenAI 투자 규모가 크기 때문에 AI 관련 자금 조달 동향이 주가 재료로 계속 주목받고 있다.`),
  src:[[`Reuters`,`https://www.reuters.com/technology/`]]},
-{id:`s8`,country:`US`,tick:`NVDA`,name:T(`エヌビディア`,`NVIDIA`,`엔비디아`),date:`09/18`,px:`$222.27`,chg1d:1.34,chg1m:5.0,chg1y:90.0,mcap:5400,
+{id:`s8`,country:`US`,tick:`NVDA`,name:T(`エヌビディア`,`NVIDIA`,`엔비디아`),date:`09/21`,px:`$227.38`,chg1d:2.30,chg1m:8.0,chg1y:95.0,mcap:5500,
  h:T(`AI投資への楽観再燃で続伸`,`Extends gains on renewed AI capex optimism`,`AI 투자 낙관 재점화로 상승 지속`),
  s:T(`データセンター向け需要への期待が引き続き支え。`,`Expectations for data-center demand continue to underpin shares.`,`데이터센터向け 수요 기대가 계속 지지.`),
  d:T(`半導体セクター全体の上昇の中でNVIDIAも買われ、$222付近まで上昇した。ハイパースケーラーのAI投資継続への期待に加え、FT報道のオフバランスAI債務問題など資金調達面の話題も引き続き市場の関心を集めている。`,
@@ -481,12 +480,12 @@ semi:[
      `2027년 3월기 1분기는 생성 AI向け 데이터센터 수요 급증으로 매출이 전년 동기 대비 415.5% 증가한 1조 7,671억 엔, 영업이익 1조 2,700억 엔, 분기이익 8,422억 엔으로 모두 크게 늘었다. 주가는 상장 후 최고가 11만 엔대에서 한때 6만 엔 아래까지 급락하는 조정이 이어졌으나 9/18에는 전일 대비 +9.40%인 54,570엔까지 급반등했다. 다음 실적 발표는 11/12 예정. 시가총액은 대략 8조 엔 규모다.`),
  src:[[`Yahoo!ファイナンス`,`https://finance.yahoo.co.jp/quote/285A.T`],[`松井証券`,`https://finance.matsui.co.jp/stock/285A/index`]]}
 ,
-{id:`s16`,country:`KR`,tick:`005930.KS`,name:T(`サムスン電子`,`Samsung Electronics`,`삼성전자`),date:`09/18`,px:`₩260,000`,chg1d:2.46,chg1m:10.0,chg1y:80.0,mcap:1375,
- h:T(`HBM引き合いで営業益が過去最高、目標株価の引き上げ相次ぐ`,`HBM demand drives record operating profit; targets raised sharply`,`HBM 수요로 영업이익 사상 최대, 목표주가 잇따라 상향`),
+{id:`s16`,country:`KR`,tick:`005930.KS`,name:T(`サムスン電子`,`Samsung Electronics`,`삼성전자`),date:`09/21`,px:`₩280,750`,chg1d:2.46,chg1m:12.0,chg1y:85.0,mcap:1400,
+ h:T(`次世代HBM4を発表、AIメモリ競争でリード狙う`,`Unveils next-gen HBM4, aiming to lead the AI-memory race`,`차세대 HBM4 공개, AI 메모리 경쟁 선점 노려`),
  s:T(`2Q営業利益89.4兆ウォンでエヌビディアを上回る規模。ゴールドマンは目標株価49万ウォンに。`,`Q2 operating profit of ₩89.4T topped Nvidia's; Goldman raised its target to ₩490,000.`,`2분기 영업이익 89.4조원으로 엔비디아를 상회. 골드만은 목표주가를 49만원으로 상향.`),
- d:T(`サムスン電子は2026年第2四半期に連結営業利益89兆4,000億ウォンの過去最高益を記録したと報じられている。AI向け高帯域幅メモリ(HBM)とDRAMの品薄が背景で、ゴールドマン・サックスはHBM・DRAMの供給不足を理由に普通株の目標株価を49万ウォン(従来比94.1%引き上げ)とした。9/18の株価は26万ウォンで終えたが、9/22時点では28万750ウォン付近まで上昇(前日比+2.46%)。8月には優先株込みの時価総額が2,000兆ウォンを突破。第3四半期には約30兆ウォン規模の配当・自社株買いも予定されているとされ、メモリ市況の変動性が今後の焦点。`,
-     `Samsung Electronics reportedly posted a record consolidated operating profit of ₩89.4 trillion in Q2 2026, driven by tight supply of AI-oriented high-bandwidth memory (HBM) and DRAM. Citing the HBM/DRAM shortage, Goldman Sachs raised its common-share target to ₩490,000, a 94.1% increase. Shares closed at ₩260,000 on 9/18 and had risen to around ₩280,750 by 9/22 (+2.46% that day). Market cap including preferred shares topped ₩2,000 trillion in August. The company is also reported to plan roughly ₩30 trillion in Q3 dividends and buybacks, with memory-market volatility the key thing to watch from here.`,
-     `삼성전자는 2026년 2분기 연결 영업이익 89조 4,000억 원의 사상 최대 실적을 기록했다고 보도되었다. AI向け 고대역폭 메모리(HBM)와 D램 공급 부족이 배경이며, 골드만삭스는 HBM·D램 공급 부족을 근거로 보통주 목표주가를 49만 원(기존 대비 94.1% 상향)으로 제시했다. 9/18 주가는 26만 원으로 마감했으나 9/22 기준 28만 750원 부근까지 상승(전일 대비 +2.46%). 8월에는 우선주를 포함한 시가총액이 2,000조 원을 돌파했다. 3분기에는 약 30조 원 규모의 배당·자사주 매입도 계획된 것으로 전해지며, 메모리 시황의 변동성이 향후 관건이다.`),
+ d:T(`サムスン電子は9/21、次世代AI向け高帯域幅メモリ「HBM4」を発表し、SK hynix・キオクシアとのAIメモリ供給網競争でリードを狙う姿勢を示した。2026年第2四半期には連結営業利益89兆4,000億ウォンの過去最高益を記録したと報じられており、AI向けHBM・DRAMの品薄が背景。ゴールドマン・サックスはHBM・DRAMの供給不足を理由に普通株の目標株価を49万ウォン(従来比94.1%引き上げ)とした。株価は9/21時点で28万750ウォン付近(前日比+2.46%)。8月には優先株込みの時価総額が2,000兆ウォンを突破。第3四半期には約30兆ウォン規模の配当・自社株買いも予定されているとされ、メモリ市況の変動性が今後の焦点。`,
+     `Samsung Electronics unveiled its next-generation AI memory chip HBM4 on 9/21, signaling intent to lead the AI-memory race against SK hynix and Kioxia. It reportedly posted a record consolidated operating profit of ₩89.4 trillion in Q2 2026, driven by tight supply of AI-oriented high-bandwidth memory (HBM) and DRAM. Citing that shortage, Goldman Sachs raised its common-share target to ₩490,000, a 94.1% increase. Shares stood around ₩280,750 on 9/21 (+2.46% that day). Market cap including preferred shares topped ₩2,000 trillion in August. The company is also reported to plan roughly ₩30 trillion in Q3 dividends and buybacks, with memory-market volatility the key thing to watch from here.`,
+     `삼성전자는 9/21 차세대 AI 메모리 'HBM4'를 공개하며 SK하이닉스·키오크시아와의 AI 메모리 공급망 경쟁에서 주도권을 노리는 모습을 보였다. 2026년 2분기 연결 영업이익 89조 4,000억 원의 사상 최대 실적을 기록했다고 보도되었으며, AI向け HBM·D램 공급 부족이 배경이다. 골드만삭스는 이 공급 부족을 근거로 보통주 목표주가를 49만 원(기존 대비 94.1% 상향)으로 제시했다. 주가는 9/21 기준 28만 750원 부근(전일 대비 +2.46%). 8월에는 우선주를 포함한 시가총액이 2,000조 원을 돌파했다. 3분기에는 약 30조 원 규모의 배당·자사주 매입도 계획된 것으로 전해지며, 메모리 시황의 변동성이 향후 관건이다.`),
  src:[[`글로벌이코노믹`,`https://www.g-enews.com/article/Global-Biz/2026/09/202609210656395048fbbec65dfb_1`],[`서울신문`,`https://www.seoul.co.kr/news/economy/2026/05/29/20260529500167`]]}
 ],
 robo:[
@@ -580,7 +579,14 @@ const MACRO=[
  d:T(`ドルウォンは1,381ウォン近辺で推移し、ウォン安基調が続いている。FRBの利上げによる米金利上昇や、中東・米中関係を巡る地政学リスクが背景として指摘されている。`,
      `USD/KRW has been trading near 1,381, with the won staying on a weakening trend. Higher US rates following the Fed hike and geopolitical risk around the Middle East and US-China relations are cited as contributing factors.`,
      `달러/원은 1,381원대에서 움직이며 원화 약세 흐름이 이어지고 있다. 연준의 금리 인상에 따른 미 금리 상승과 중동·미중 관계를 둘러싼 지정학 리스크가 배경으로 지목된다.`),
- src:[[`Investing.com`,`https://www.investing.com/currencies/usd-krw`]]}
+ src:[[`Investing.com`,`https://www.investing.com/currencies/usd-krw`]]},
+{id:`x7`,date:`09/21`,imp:3,
+ h:T(`NY株が過去最高値、原油と長期金利の低下が追い風`,`Wall Street hits record highs as oil and yields retreat`,`뉴욕 증시 사상 최고치, 유가·장기금리 하락이 순풍`),
+ s:T(`ナスダックは+2.26%で最高値更新。WTIは4営業日続落で$95台。`,`Nasdaq rose 2.26% to a record; WTI fell for a 4th straight session to the mid-$90s.`,`나스닥은 +2.26%로 사상 최고치. WTI는 4거래일 연속 하락해 $95대.`),
+ d:T(`9/21のNY株式市場はダウ+0.71%、S&P500+1.49%(7,764.70)、ナスダック+2.26%(27,122.09、最高値更新)。米・イラン間の緊張緩和への期待からWTI原油は4営業日続落し$95.59まで下落、米10年債利回りも4.96%まで低下した。原油安・金利低下がインフレ懸念を和らげ、AI関連株を中心に買いが広がった。半導体のAMDは時価総額1兆ドルを突破。`,
+     `On 9/21, the Dow rose 0.71%, the S&P 500 gained 1.49% to 7,764.70, and the Nasdaq jumped 2.26% to a record 27,122.09. WTI crude fell for a fourth straight session to $95.59 on hopes of easing US-Iran tensions, while the US 10-year yield eased to 4.96%. Lower oil and yields calmed inflation worries and broadened buying into AI-related stocks; AMD's market cap crossed $1 trillion.`,
+     `9/21 뉴욕 증시는 다우 +0.71%, S&P500 +1.49%(7,764.70), 나스닥 +2.26%(27,122.09, 사상 최고치)를 기록했다. 미-이란 긴장 완화 기대로 WTI 원유는 4거래일 연속 하락해 $95.59까지 내렸고, 미 10년물 금리도 4.96%로 낮아졌다. 유가·금리 하락이 인플레이션 우려를 완화하며 AI 관련주를 중심으로 매수세가 확산됐다. AMD는 시가총액 1조 달러를 돌파했다.`),
+ src:[[`Trading Economics`,`https://tradingeconomics.com/united-states/stock-market`],[`Washington Post`,`https://www.washingtonpost.com/business/2026/09/21/wall-street-stocks-dow-nasdaq/`]]}
 ];
 let LANG='ja';
 const $=(s,r=document)=>r.querySelector(s);
