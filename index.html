@@ -114,6 +114,9 @@ h2.sec-h{margin:0 0 12px;font-size:13px;font-weight:600;color:var(--ink-2)}
 .ih-top{display:flex;align-items:flex-start;gap:10px;width:100%}
 .meta{flex:1 1 auto;min-width:0;display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 8px;font-size:12px;color:var(--ink-2)}
 .meta .tg{background:var(--chip);border-radius:3px;padding:0 6px;font-weight:500;color:var(--ink);white-space:nowrap}
+.meta .tg.imp{background:var(--down-a);color:#fff;font-weight:700}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .meta .tg.imp{background:var(--down-b);color:#0F1828}}
+:root[data-theme="dark"] .meta .tg.imp{background:var(--down-b);color:#0F1828}
 .meta .tk{font-family:var(--f-num);font-weight:700;font-size:15px;color:var(--ink);letter-spacing:.02em;white-space:nowrap}
 .meta .tkname{font-weight:600;font-size:13px;color:var(--ink);white-space:nowrap}
 .meta .cc{white-space:nowrap}
@@ -247,8 +250,9 @@ const UI={
  searchAll:T(`検索中は全カテゴリを横断して表示しています。`,`While searching, all categories are shown together.`,`검색 중에는 모든 카테고리를 함께 표시합니다.`),
  moversNote:T(`9/17〜18の上昇率。要因は報道ベースで、個別の確認が必要です。`,`Gains on 9/17-18. Reasons come from reports and need checking.`,`9/17~18 상승률. 요인은 보도 기준이며 개별 확인이 필요합니다.`),
  disc1:T(`本ページは情報整理を目的としたもので、投資助言ではありません。株価・為替などの数値は各出典の公開時点の参考値で、遅延や誤差を含む場合があります。売買判断の前に、取引所や企業IRなどの一次情報をご確認ください。`,`This page organizes information and is not investment advice. Prices and rates are reference values as of each source and may be delayed or inaccurate. Check primary sources such as exchanges and company IR before making decisions.`,`이 페이지는 정보 정리를 위한 것으로 투자 조언이 아닙니다. 주가·환율 등 수치는 각 출처 시점의 참고값이며 지연이나 오차가 있을 수 있습니다. 매매 판단 전에 거래소, 기업 IR 등 1차 자료를 확인하세요.`),
- disc2:T(`更新:自動取得ではなく、Claudeが最新情報を検索して同じURLの内容を差し替えます(毎日の更新を想定)。各項目の出典リンクで原文をご確認ください。`,`Updates: not live-fed. Claude searches for the latest information and replaces the contents at the same URL (intended daily). See each item's source links for the originals.`,`업데이트: 자동 수집이 아니라 Claude가 최신 정보를 검색해 같은 URL의 내용을 교체합니다(매일 갱신 전제). 각 항목의 출처 링크에서 원문을 확인하세요.`),
+ disc2:T(`更新:Claudeが最新情報を検索して同じURLの内容を差し替えます(毎日の更新を想定)。各項目の出典リンクで原文をご確認ください。`,`Updates: Claude searches for the latest information and replaces the contents at the same URL (intended daily). See each item's source links for the originals.`,`업데이트: Claude가 최신 정보를 검색해 같은 URL의 내용을 교체합니다(매일 갱신 전제). 각 항목의 출처 링크에서 원문을 확인하세요.`),
  support:T(`コーヒーをおごる`,`Buy me a coffee`,`커피 한 잔 후원하기`),
+ important:T(`重要`,`Important`,`중요`),
  tags:{
   model:T(`モデル`,`Models`,`모델`), sec:T(`セキュリティ`,`Security`,`보안`), dev:T(`開発者向け`,`Developers`,`개발자`),
   open:T(`オープン・中国勢`,`Open & China`,`오픈·중국`), invest:T(`投資・資金`,`Funding`,`투자·자금`),
@@ -325,7 +329,7 @@ const AI=[
      `Fable 5.1 became generally available on 9/1 at the same $10/$50 per million tokens as Fable 5, with cache reads cut from $1 to $0.25. Anthropic reportedly expects roughly 25% lower cost on typical usage-based Fable workloads. The self-reported Terminal-Bench-Science score is 52.6 (Fable 5: 24.7). Current list prices: Opus 5 $5/$25, Sonnet 5 $2/$10, Haiku 4.5 $1/$5. Mythos 5.1 is the trusted-access sibling.`,
      `Fable 5.1은 9/1 정식 출시되어 입력·출력 단가를 Fable 5와 같은 100만 토큰당 $10/$50으로 유지하고, 캐시 읽기 단가를 $1에서 $0.25로 낮췄다. Anthropic은 캐시 비중이 높은 워크로드에서 비용이 약 25% 줄 것으로 본다고 전해진다. 자체 보고한 Terminal-Bench-Science 점수는 52.6(Fable 5는 24.7). 현행 정가는 Opus 5 $5/$25, Sonnet 5 $2/$10, Haiku 4.5 $1/$5이며, Mythos 5.1은 제한적으로 제공되는 자매 모델이다.`),
  src:[[`llm-stats`,`https://llm-stats.com/ai-news`],[`BenchLM`,`https://benchlm.ai/anthropic/api-pricing`]]},
-{id:`a10`,type:`ai`,tag:`invest`,date:`09/19`,
+{id:`a10`,important:true,type:`ai`,tag:`invest`,date:`09/19`,
  h:T(`Anthropicの年換算売上が1,000億ドル規模に、IPOは11月へ延期`,`Anthropic revenue pace hits $100B; IPO pushed to November`,`Anthropic 연환산 매출 1,000억 달러 페이스, IPO는 11월로 연기`),
  s:T(`Claude CodeとCoworkが牽引。目標評価額は約2兆ドルと報道。`,`Driven by Claude Code and Cowork. Reported target valuation is about $2T.`,`Claude Code와 Cowork가 견인. 목표 기업가치는 약 2조 달러로 보도.`),
  d:T(`NYTの報道(Axios/Yahoo Finance経由)によると、Anthropicの年換算売上は今年1,000億ドル超のペースで、7月時点の650億ドルから約50%増、2025年末の10倍超。牽引役はClaude CodeとCoworkの企業導入。IPOは10月から11月に延期され、第3四半期の決算を含める狙いで、目標評価額は約2兆ドル、史上最大級のIPOになる可能性がある。\n別件として、Anthropicは9/18にAccentureのFaculty部門を初の組み込み型評価機関に指名し、双方が5年で最低10億ドルを拠出する。Accenture株は時間外で約8%上昇した。`,
@@ -463,7 +467,7 @@ semi:[
      `The Nikkei 225 closed 9/18 at 65,019 (+1.38%), with reports crediting chip-equipment names for leading the advance. Inflows were observed into related names such as Lasertec, a key player in EUV inspection tools.`,
      `9/18 닛케이 평균은 65,019엔(+1.38%)으로 마감했고, 반도체 장비주가 상승을 견인했다고 보도되었다. EUV 검사 장비 강자인 레이저텍 등 관련 종목으로 자금 유입이 관측되었다.`),
  src:[[`NewsOnJapan`,`https://newsonjapan.com/`]]},
-{id:`s7`,country:`JP`,tick:`9984.T`,name:T(`ソフトバンクグループ`,`SoftBank Group`,`소프트뱅크그룹`),date:`09/19`,px:`¥19,830`,chg1d:2.1,chg1m:8.0,chg1y:60.0,mcap:200,
+{id:`s7`,important:true,country:`JP`,tick:`9984.T`,name:T(`ソフトバンクグループ`,`SoftBank Group`,`소프트뱅크그룹`),date:`09/19`,px:`¥19,830`,chg1d:2.1,chg1m:8.0,chg1y:60.0,mcap:200,
  h:T(`OpenAI向け追加出資の原資として約110億ドルの社債を計画`,`Plans roughly $11B in bonds to fund more OpenAI investment`,`OpenAI 추가 투자 재원으로 약 110억 달러 채권 계획`),
  s:T(`条件決定は9/24前後、決済は9/29前後の見込みと報道。`,`Pricing expected around 9/24, settlement around 9/29, per reports.`,`조건 확정은 9/24 전후, 결제는 9/29 전후로 보도.`),
  d:T(`ロイターなどによると、ソフトバンクグループはOpenAIへの追加出資の原資として、円建て・ドル建てを組み合わせ約110億ドル相当の社債発行を計画している。条件決定は9/24前後、受け渡しは9/29前後と見込まれる。同社はOpenAIへの累計コミットメントが大きく、AI関連の資金調達動向が株価材料として注目され続けている。`,
@@ -477,7 +481,7 @@ semi:[
      `NVIDIA rose along with the broader semiconductor rally to around $222. Alongside continued expectations for hyperscaler AI capex, financing-side topics such as the FT's reporting on off-balance-sheet AI debt continue to draw market attention.`,
      `반도체 섹터 전반의 상승 속에 NVIDIA도 매수되며 $222 부근까지 올랐다. 하이퍼스케일러의 AI 투자 지속 기대와 더불어 FT가 보도한 장부 외 AI 부채 문제 등 자금 조달 관련 화제도 계속 시장의 관심을 끌고 있다.`),
  src:[[`Investing.com`,`https://www.investing.com/news/stock-market-news`]]},
-{id:`s15`,country:`JP`,tick:`285A.T`,name:T(`キオクシアホールディングス`,`Kioxia Holdings`,`키오크시아 홀딩스`),date:`09/18`,px:`¥54,570`,chg1d:9.4,chg1m:15.0,chg1y:120.0,mcap:81,
+{id:`s15`,important:true,country:`JP`,tick:`285A.T`,name:T(`キオクシアホールディングス`,`Kioxia Holdings`,`키오크시아 홀딩스`),date:`09/18`,px:`¥54,570`,chg1d:9.4,chg1m:15.0,chg1y:120.0,mcap:81,
  h:T(`生成AI需要でNAND急拡大、株価も急反発`,`Generative-AI demand drives a NAND boom; shares rebound sharply`,`생성 AI 수요로 NAND 급팽창, 주가도 급반등`),
  s:T(`9/18は前日比+9.4%の5万4,570円。年初来高値11万円台から一時6万円割れまで急落する荒い値動き。`,`Rose 9.4% on 9/18 to ¥54,570. Swung wildly from an 11万-yen 52-week high down to under ¥60,000.`,`9/18 전일 대비 +9.4%인 54,570엔. 연중 고점 11만 엔대에서 한때 6만 엔 아래까지 급락하는 등 변동성이 크다.`),
  d:T(`2027年3月期第1四半期は、生成AI向けデータセンター需要の急拡大を背景に売上収益が前年同期比415.5%増の1兆7,671億円、営業利益1兆2,700億円、四半期利益8,422億円といずれも飛躍的に拡大。株価は上場来高値11万円台から一時6万円割れまで急落する調整局面が続いていたが、9/18は前日比+9.40%の5万4,570円まで急反発した。次回決算発表は11/12の見込み。時価総額は概算で約8兆円規模。`,
@@ -485,7 +489,7 @@ semi:[
      `2027년 3월기 1분기는 생성 AI向け 데이터센터 수요 급증으로 매출이 전년 동기 대비 415.5% 증가한 1조 7,671억 엔, 영업이익 1조 2,700억 엔, 분기이익 8,422억 엔으로 모두 크게 늘었다. 주가는 상장 후 최고가 11만 엔대에서 한때 6만 엔 아래까지 급락하는 조정이 이어졌으나 9/18에는 전일 대비 +9.40%인 54,570엔까지 급반등했다. 다음 실적 발표는 11/12 예정. 시가총액은 대략 8조 엔 규모다.`),
  src:[[`Yahoo!ファイナンス`,`https://finance.yahoo.co.jp/quote/285A.T`],[`松井証券`,`https://finance.matsui.co.jp/stock/285A/index`]]}
 ,
-{id:`s16`,country:`KR`,tick:`005930.KS`,name:T(`サムスン電子`,`Samsung Electronics`,`삼성전자`),date:`09/21`,px:`₩280,750`,chg1d:2.46,chg1m:12.0,chg1y:85.0,mcap:1400,
+{id:`s16`,important:true,country:`KR`,tick:`005930.KS`,name:T(`サムスン電子`,`Samsung Electronics`,`삼성전자`),date:`09/21`,px:`₩280,750`,chg1d:2.46,chg1m:12.0,chg1y:85.0,mcap:1400,
  h:T(`次世代HBM4を発表、AIメモリ競争でリード狙う`,`Unveils next-gen HBM4, aiming to lead the AI-memory race`,`차세대 HBM4 공개, AI 메모리 경쟁 선점 노려`),
  s:T(`2Q営業利益89.4兆ウォンでエヌビディアを上回る規模。ゴールドマンは目標株価49万ウォンに。`,`Q2 operating profit of ₩89.4T topped Nvidia's; Goldman raised its target to ₩490,000.`,`2분기 영업이익 89.4조원으로 엔비디아를 상회. 골드만은 목표주가를 49만원으로 상향.`),
  d:T(`サムスン電子は9/21、次世代AI向け高帯域幅メモリ「HBM4」を発表し、SK hynix・キオクシアとのAIメモリ供給網競争でリードを狙う姿勢を示した。2026年第2四半期には連結営業利益89兆4,000億ウォンの過去最高益を記録したと報じられており、AI向けHBM・DRAMの品薄が背景。ゴールドマン・サックスはHBM・DRAMの供給不足を理由に普通株の目標株価を49万ウォン(従来比94.1%引き上げ)とした。株価は9/21時点で28万750ウォン付近(前日比+2.46%)。8月には優先株込みの時価総額が2,000兆ウォンを突破。第3四半期には約30兆ウォン規模の配当・自社株買いも予定されているとされ、メモリ市況の変動性が今後の焦点。`,
@@ -529,7 +533,7 @@ movers:[
  why:T(`月次動向と好決算を手がかりに買われる`,`Bought on monthly trends and strong earnings`,`월간 동향과 호실적을 계기로 매수`)}
 ],
 down:[
-{id:`d1`,country:`JP`,tick:`4755.T`,name:T(`楽天グループ`,`Rakuten Group`,`라쿠텐 그룹`),date:`09/25`,px:`¥680`,chg:-33.7,
+{id:`d1`,important:true,country:`JP`,tick:`4755.T`,name:T(`楽天グループ`,`Rakuten Group`,`라쿠텐 그룹`),date:`09/25`,px:`¥680`,chg:-33.7,
  why:T(`6営業日続落で年初来安値679円を更新。米系証券2社が目標株価を800円・850円に引き下げ`,`Down for a 6th straight session to a new 52-week low of ¥679; two US brokerages cut targets to ¥800 and ¥850`,`6거래일 연속 하락해 연중 최저치 679엔 경신. 미국계 증권사 2곳이 목표주가를 800엔·850엔으로 하향`),
  d:T(`楽天グループ株は9/25、一時679円まで下げ年初来安値を更新、6営業日続落となっている。8/10発表の2026年1〜6月期決算はIFRS営業損益が504億円の黒字に転換したもののQUICKコンセンサス(708億円)に届かず10%超安。その後も戻りは鈍く、9/10〜11には米系大手証券2社が目標株価をそれぞれ800円、850円へ引き下げた。9/25時点の株価680円は、年初来高値(1/13、1,026円)から約34%低い水準。時価総額は約1兆4,850億円。楽天モバイルの2026年通期設備投資は約2,000億円規模の計画で黒字化には時間がかかる見通しに加え、2025年12月期は無配、配当再開時期も「未定」としており、株主還元への不透明感が株価の重荷になっているとされる。`,
      `Rakuten Group shares fell to a new 52-week low of ¥679 on 9/25, extending a 6-session losing streak. Results reported 8/10 for January-June 2026 showed IFRS operating profit swing to a gain of ¥50.4B, but that missed the QUICK consensus of ¥70.8B and shares fell over 10% that day. The stock has struggled to recover since, and on 9/10-11 two major US brokerages cut their targets to ¥800 and ¥850. The 9/25 price of ¥680 sits roughly 34% below the 52-week high of ¥1,026 (1/13). Market cap is about ¥1.485 trillion. Rakuten Mobile's FY2026 capex plan of roughly ¥200B means profitability is still some way off, and with no dividend paid for FY2025 and no timeline set to resume one, shareholder-return uncertainty is seen weighing on the stock.`,
@@ -543,21 +547,21 @@ down:[
  src:[[`Robinhood`,`https://robinhood.com/us/en/stocks/SOUN/`],[`CNN`,`https://www.cnn.com/markets/stocks/SOUN`]]}
 ]};
 const MACRO=[
-{id:`x1`,date:`09/18`,imp:3,
+{id:`x1`,important:true,date:`09/18`,imp:3,
  h:T(`FRBが政策金利を3.75〜4.00%に引き上げ、2023年以来の利上げ`,`The Fed raises rates to 3.75-4.00%, its first hike since 2023`,`연준, 정책금리 3.75~4.00%로 인상, 2023년 이후 첫 인상`),
  s:T(`インフレ再加速への対応。市場は追加利上げの有無を注視。`,`A response to reaccelerating inflation; markets watch for further hikes.`,`인플레이션 재가속 대응. 시장은 추가 인상 여부를 주시.`),
  d:T(`FRBは9/18のFOMCで政策金利を3.75〜4.00%のレンジへ引き上げた。利下げ局面からの転換とされ、2023年以来の利上げとして報じられている。背景にはインフレ圧力の再燃があるとみられ、市場では今後の追加利上げの有無とペースに関心が集まっている。`,
      `At its 9/18 meeting the Fed raised its target range to 3.75-4.00%, marking its first hike since 2023 and a reversal from the prior easing stance. The move is attributed to renewed inflation pressure, with markets now focused on whether and how fast further hikes might follow.`,
      `연준은 9/18 FOMC에서 정책금리를 3.75~4.00% 범위로 인상했다. 완화 국면에서의 전환으로, 2023년 이후 첫 인상으로 보도된다. 배경에는 인플레이션 압력 재燃이 있는 것으로 보이며, 시장은 향후 추가 인상 여부와 속도에 관심을 두고 있다.`),
  src:[[`Federal Reserve`,`https://www.federalreserve.gov/monetarypolicy.htm`]]},
-{id:`x2`,date:`09/18`,imp:3,
+{id:`x2`,important:true,date:`09/18`,imp:3,
  h:T(`日銀が政策金利を1.25%に、31年ぶりの水準`,`BOJ lifts its policy rate to 1.25%, a 31-year high`,`일본은행, 정책금리 1.25%로, 31년 만의 수준`),
  s:T(`ドル円は157円台で推移、東京市場の休場中も介入警戒。`,`USD/JPY hovers near 157, with intervention risk flagged even during Tokyo's holiday.`,`달러/엔은 157엔대, 도쿄 휴장 중에도 개입 경계.`),
  d:T(`日銀は9/18、政策金利を1.25%へ引き上げた。この水準は約31年ぶりとされる。利上げ後もドル円は157円前後で推移しており、東京市場が9/21〜23の連休で休場となる中、当局による為替介入への警戒感が市場で意識されている。`,
      `The Bank of Japan raised its policy rate to 1.25% on 9/18, described as a 31-year high. USD/JPY has continued to trade near 157 even after the hike, and with Tokyo markets closed for holidays 9/21-23, traders are flagging intervention risk from Japanese authorities.`,
      `일본은행은 9/18 정책금리를 1.25%로 인상했다. 이는 약 31년 만의 수준으로 평가된다. 인상 후에도 달러/엔은 157엔 안팎에서 움직이고 있으며, 도쿄 시장이 9/21~23 연휴로 휴장인 가운데 당국의 외환 개입 경계감이 시장에서 의식되고 있다.`),
  src:[[`Bank of Japan`,`https://www.boj.or.jp/en/`]]},
-{id:`x3`,date:`09/24`,imp:3,
+{id:`x3`,important:true,date:`09/24`,imp:3,
  h:T(`トランプ・習近平の首脳会談がワシントンで9/24に予定`,`Trump-Xi summit set for Washington on 9/24`,`트럼프-시진핑 정상회담, 9/24 워싱턴에서 예정`),
  s:T(`関税休戦(11/10期限)、イラン戦争、AI対話が焦点。`,`Focus areas: the tariff truce (expires 11/10), the Iran war and an AI dialogue.`,`관세 휴전(11/10 만료), 이란 전쟁, AI 대화가 초점.`),
  d:T(`米中首脳会談が9/24にワシントンで開催予定と報じられている。主な議題として、11/10に期限を迎える関税休戦の扱い、イラン戦争を巡る立場、AI政策に関する対話が挙げられている。トランプ氏は会談に先立ち、AI政策を統括する「AI Force」の新設とAI担当官の任命方針を表明したと報じられた。`,
@@ -639,7 +643,7 @@ function newsItemHTML(it,quoteHTML){
   return `<div class="item" data-open="false" data-id="${it.id}">
     <button type="button" class="item-head" data-open-btn>
       <div class="ih-top">
-        <span class="meta">${it.tag?`<span class="tg">${esc(UI.tags[it.tag][LANG])}</span>`:''}${countryTag(it)}${it.unlisted?`<span class="tg">${esc(UI.unlisted[LANG])}</span>`:''}${nameTag(it)}<time>${esc(it.date)}</time></span>
+        <span class="meta">${it.important?`<span class="tg imp">${esc(UI.important[LANG])}</span>`:''}${it.tag?`<span class="tg">${esc(UI.tags[it.tag][LANG])}</span>`:''}${countryTag(it)}${it.unlisted?`<span class="tg">${esc(UI.unlisted[LANG])}</span>`:''}${nameTag(it)}<time>${esc(it.date)}</time></span>
         <span class="ih-right">${quoteHTML?`<span class="quote">${quoteHTML}</span>`:''}<span class="chev" aria-hidden="true"></span></span>
       </div>
       <span class="h">${esc(it.h[LANG])}</span>
@@ -700,7 +704,7 @@ function rankItemHTML(it,idx){
     <button type="button" class="rk-head" data-open-btn>
       <span class="rk-num">${idx+1}</span>
       <span class="rk-body">
-        <span class="rk-nm">${countryTag(it)}<b>${esc(it.name[LANG])}</b><em>（${esc(codeOf(it.tick))}）</em></span>
+        <span class="rk-nm">${it.important?`<span class="tg imp">${esc(UI.important[LANG])}</span>`:''}${countryTag(it)}<b>${esc(it.name[LANG])}</b><em>（${esc(codeOf(it.tick))}）</em></span>
         <span class="rk-why">${esc(it.why[LANG])}</span>
         <span class="bar"><i class="${cls}" style="width:${w}%"></i></span>
       </span>
