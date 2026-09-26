@@ -155,6 +155,9 @@ h2.sec-h{margin:0 0 12px;font-size:13px;font-weight:600;color:var(--ink-2)}
 
 footer{border-top:1px solid var(--rule);padding-block:20px 32px;color:var(--ink-2);font-size:12.5px}
 footer p{margin:0 0 6px;max-width:100ch}
+footer p.support{margin-top:14px}
+footer .support a{color:var(--ink);font-weight:500;text-decoration:none;border-bottom:1px solid var(--ink-3)}
+footer .support a:hover{border-color:var(--ink)}
 @media(max-width:560px){
   .tape{grid-template-columns:repeat(8,124px)}
   .brand span{display:none}
@@ -220,6 +223,7 @@ footer p{margin:0 0 6px;max-width:100ch}
 <footer><div class="wrap">
   <p data-i18n="disc1"></p>
   <p data-i18n="disc2"></p>
+  <p class="support"><a href="https://buymeacoffee.com/suramappagi" target="_blank" rel="noopener noreferrer">☕ <span data-i18n="support"></span></a></p>
 </div></footer>
 <script>
 const T=(ja,en,ko)=>({ja,en,ko});
@@ -233,7 +237,7 @@ const UI={
  cal:T(`今後の予定`,`Coming up`,`앞으로의 일정`),
  search:T(`キーワードで絞り込み(例:NVDA、円、Claude)`,`Filter by keyword (e.g. NVDA, yen, Claude)`,`키워드로 필터 (예: NVDA, 엔, Claude)`),
  colorHint:T(`色の規則:日本語・韓国語は上昇=赤/下落=青、英語は上昇=緑/下落=赤`,`Colors: Japanese and Korean use red = up, blue = down; English uses green = up, red = down`,`색상 규칙: 일본어·한국어는 상승=빨강/하락=파랑, 영어는 상승=초록/하락=빨강`),
- asof:T(`データ取得:2026年9月25日16時15分(東京時間)。数値は終値・時間外・先物が混在する参考値です。`,`Data retrieved Sep 25, 2026, 16:15 Tokyo time. Figures mix closes, after-hours and futures and are for reference.`,`데이터 조회: 2026년 9월 25일 16:15(도쿄 시간). 수치는 종가·시간외·선물이 섞인 참고값입니다.`),
+ asof:T(`データ取得:2026年9月26日07時00分(東京時間)。土曜日のため主要市場は休場中。株価は9/25(金)の終値、為替は週末未明時点の値です。`,`Data retrieved Sep 26, 2026, 07:00 Tokyo time. Major markets are closed for the weekend. Equity prices are Friday 9/25's close; FX reflects the early Saturday level.`,`데이터 조회: 2026년 9월 26일 07:00(도쿄 시간). 토요일이라 주요 시장은 휴장 중. 주가는 9/25(금) 종가, 환율은 주말 새벽 시점 값입니다.`),
  expandAll:T(`すべて開く`,`Expand all`,`모두 펼치기`),
  collapseAll:T(`すべて閉じる`,`Collapse all`,`모두 접기`),
  sources:T(`出典`,`Sources`,`출처`),
@@ -244,6 +248,7 @@ const UI={
  moversNote:T(`9/17〜18の上昇率。要因は報道ベースで、個別の確認が必要です。`,`Gains on 9/17-18. Reasons come from reports and need checking.`,`9/17~18 상승률. 요인은 보도 기준이며 개별 확인이 필요합니다.`),
  disc1:T(`本ページは情報整理を目的としたもので、投資助言ではありません。株価・為替などの数値は各出典の公開時点の参考値で、遅延や誤差を含む場合があります。売買判断の前に、取引所や企業IRなどの一次情報をご確認ください。`,`This page organizes information and is not investment advice. Prices and rates are reference values as of each source and may be delayed or inaccurate. Check primary sources such as exchanges and company IR before making decisions.`,`이 페이지는 정보 정리를 위한 것으로 투자 조언이 아닙니다. 주가·환율 등 수치는 각 출처 시점의 참고값이며 지연이나 오차가 있을 수 있습니다. 매매 판단 전에 거래소, 기업 IR 등 1차 자료를 확인하세요.`),
  disc2:T(`更新:自動取得ではなく、Claudeが最新情報を検索して同じURLの内容を差し替えます(毎日の更新を想定)。各項目の出典リンクで原文をご確認ください。`,`Updates: not live-fed. Claude searches for the latest information and replaces the contents at the same URL (intended daily). See each item's source links for the originals.`,`업데이트: 자동 수집이 아니라 Claude가 최신 정보를 검색해 같은 URL의 내용을 교체합니다(매일 갱신 전제). 각 항목의 출처 링크에서 원문을 확인하세요.`),
+ support:T(`コーヒーをおごる`,`Buy me a coffee`,`커피 한 잔 후원하기`),
  tags:{
   model:T(`モデル`,`Models`,`모델`), sec:T(`セキュリティ`,`Security`,`보안`), dev:T(`開発者向け`,`Developers`,`개발자`),
   open:T(`オープン・中国勢`,`Open & China`,`오픈·중국`), invest:T(`投資・資金`,`Funding`,`투자·자금`),
@@ -257,7 +262,7 @@ const UI={
 
 const TAPE=[
  {l:T(`日経平均`,`Nikkei 225`,`닛케이 225`),v:`66,364.20`,c:1.30},
- {l:T(`ドル円`,`USD/JPY`,`달러/엔`),v:`157.50`,c:0.08},
+ {l:T(`ドル円`,`USD/JPY`,`달러/엔`),v:`157.26`,c:-0.15},
  {l:T(`S&P 500`,`S&P 500`,`S&P 500`),v:`7,771.56`,c:0.09},
  {l:T(`エヌビディア`,`NVIDIA`,`엔비디아`),v:`$227.38`,c:2.30},
  {l:T(`WTI原油`,`WTI crude`,`WTI 원유`),v:`$89.80`,c:-1.24},
@@ -514,8 +519,8 @@ robo:[
 movers:[
 {id:`m1`,country:`US`,tick:`RGTI`,name:T(`リゲッティ・コンピューティング`,`Rigetti Computing`,`리게티 컴퓨팅`),date:`09/22`,px:`$16.52`,chg:4.89,
  why:T(`IonQの量子分野での技術的ブレークスルー発表を受け、QBTS・QUBTなど量子セクター全体が連れ高`,`Rose after IonQ announced a quantum-computing technical breakthrough, lifting quantum peers like QBTS and QUBT too`,`IonQ의 양자 분야 기술적 돌파구 발표 이후 QBTS·QUBT 등 양자 섹터 전체가 동반 상승`)},
-{id:`m2`,country:`US`,tick:`CRWV`,name:T(`コアウィーブ`,`CoreWeave`,`코어위브`),date:`09/21`,px:`$122.54`,chg:6.41,
- why:T(`AIインフラ需要への楽観が支えと報道`,`Reported support from optimism on AI infrastructure demand`,`AI 인프라 수요 낙관이 지지 요인으로 보도`)},
+{id:`m2`,country:`US`,tick:`CRWV`,name:T(`コアウィーブ`,`CoreWeave`,`코어위브`),date:`09/23`,px:`$86.44`,chg:4.5,
+ why:T(`JPMorganが「オーバーウェイト」に格上げし目標株価125ドルに。ただし52週高値からは依然約44%安`,`JPMorgan upgraded shares to Overweight with a $125 target, though the stock remains about 44% below its 52-week high`,`JPMorgan이 '비중확대'로 상향하고 목표주가 125달러 제시. 다만 52주 고점 대비 여전히 약 44% 낮은 수준`)},
 {id:`m3`,country:`US`,tick:`ACN`,name:T(`アクセンチュア`,`Accenture`,`액센츄어`),date:`09/18`,px:`$195.50`,chg:7.84,
  why:T(`Anthropicとの評価パートナーシップ(5年で双方10億ドル以上)発表を受け時間外で急伸`,`Jumped after hours on the Anthropic evaluation partnership ($1B+ each over 5 years)`,`Anthropic와의 평가 파트너십(5년간 각 10억 달러 이상) 발표 후 시간외 급등`)},
 {id:`m4`,country:`JP`,tick:`285A.T`,name:T(`キオクシアホールディングス`,`Kioxia Holdings`,`키오크시아 홀딩스`),date:`09/18`,px:`¥54,570`,chg:9.4,
