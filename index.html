@@ -64,6 +64,7 @@ button{font:inherit;color:inherit;cursor:pointer}
 .tl{font-size:12px;color:var(--ink-2);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .tv{font-family:var(--f-num);font-weight:600;font-size:clamp(24px,3vw,40px);line-height:1.05;letter-spacing:.005em;font-variant-numeric:tabular-nums;margin:2px 0;white-space:nowrap}
 .tc{font-size:12.5px;font-variant-numeric:tabular-nums;font-weight:500;white-space:nowrap}
+.td{display:block;font-size:10.5px;color:var(--ink-3);font-variant-numeric:tabular-nums;white-space:nowrap;margin-top:1px}
 .up{color:var(--up)} .down{color:var(--down)} .flat{color:var(--ink-3)}
 .note{font-size:12px;color:var(--ink-3);margin:8px 0 0}
 
@@ -265,14 +266,14 @@ const UI={
 };
 
 const TAPE=[
- {l:T(`日経平均`,`Nikkei 225`,`닛케이 225`),v:`68,956.72`,c:3.30},
- {l:T(`ドル円`,`USD/JPY`,`달러/엔`),v:`157.60`,c:0.71},
- {l:T(`S&P 500`,`S&P 500`,`S&P 500`),v:`7,654`,c:-0.23},
- {l:T(`エヌビディア`,`NVIDIA`,`엔비디아`),v:`$228.38`,c:0.51},
- {l:T(`WTI原油`,`WTI crude`,`WTI 원유`),v:`$89.38`,c:-3.48},
- {l:T(`金`,`Gold`,`금`),v:`$4,378.60`,c:0.65},
- {l:T(`米10年債利回り`,`US 10Y yield`,`미 10년물 금리`),v:`5.30%`,c:null},
- {l:T(`ドルウォン`,`USD/KRW`,`달러/원`),v:`1,383`,c:0.14}
+ {l:T(`日経平均`,`Nikkei 225`,`닛케이 225`),v:`68,956.72`,c:3.30,d:`10/01`},
+ {l:T(`ドル円`,`USD/JPY`,`달러/엔`),v:`157.60`,c:0.71,d:`10/01`},
+ {l:T(`S&P 500`,`S&P 500`,`S&P 500`),v:`7,654`,c:-0.23,d:`09/30`},
+ {l:T(`エヌビディア`,`NVIDIA`,`엔비디아`),v:`$228.38`,c:0.51,d:`09/30`},
+ {l:T(`WTI原油`,`WTI crude`,`WTI 원유`),v:`$89.38`,c:-3.48,d:`09/30`},
+ {l:T(`金`,`Gold`,`금`),v:`$4,378.60`,c:0.65,d:`09/30`},
+ {l:T(`米10年債利回り`,`US 10Y yield`,`미 10년물 금리`),v:`5.30%`,c:null,d:`09/30`},
+ {l:T(`ドルウォン`,`USD/KRW`,`달러/원`),v:`1,383`,c:0.14,d:`10/01`}
 ];
 
 const BRIEF=[
@@ -677,7 +678,7 @@ function applyStatic(){
 
 function renderTape(){
   const el=$('#tape');
-  el.innerHTML=TAPE.map(t=>`<div class="tile" role="listitem"><div class="tl">${esc(t.l[LANG])}</div><div class="tv">${esc(t.v)}</div><div class="tc ${chgClass(t.c)}">${fmtChg(t.c)}</div></div>`).join('');
+  el.innerHTML=TAPE.map(t=>`<div class="tile" role="listitem"><div class="tl">${esc(t.l[LANG])}</div><div class="tv">${esc(t.v)}</div><div class="tc ${chgClass(t.c)}">${fmtChg(t.c)}</div>${t.d?`<div class="td">${esc(t.d)}</div>`:''}</div>`).join('');
 }
 function renderBrief(){
   $('#points').innerHTML=BRIEF.map(b=>`<div><b>${esc(b.h[LANG])}</b><span>${esc(b.t[LANG])}</span></div>`).join('');
@@ -770,7 +771,7 @@ function rankItemHTML(it,idx){
         <span class="rk-why">${esc(it.why[LANG])}</span>
         <span class="bar"><i class="${cls}" style="width:${w}%"></i></span>
       </span>
-      <span class="rk-quote"><span class="px">${esc(it.px)}</span><span class="chg ${cls}">${fmtChg(it.chg)}</span></span>
+      <span class="rk-quote"><span class="px">${esc(it.px)}</span><span class="chg ${cls}">${fmtChg(it.chg)}</span>${it.date?`<span class="td">${esc(it.date)}</span>`:''}</span>
       <span class="chev" aria-hidden="true"></span>
     </button>
     <div class="item-body"><div class="inner"><div><p>${esc(it.why[LANG])}</p>${srcLine(it.src)}</div></div></div>
