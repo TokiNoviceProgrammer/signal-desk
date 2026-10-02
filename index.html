@@ -240,7 +240,7 @@ const UI={
  cal:T(`今後の予定`,`Coming up`,`앞으로의 일정`),
  search:T(`キーワードで絞り込み(例:NVDA、円、Claude)`,`Filter by keyword (e.g. NVDA, yen, Claude)`,`키워드로 필터 (예: NVDA, 엔, Claude)`),
  colorHint:T(`色の規則:日本語・韓国語は上昇=赤/下落=青、英語は上昇=緑/下落=赤`,`Colors: Japanese and Korean use red = up, blue = down; English uses green = up, red = down`,`색상 규칙: 일본어·한국어는 상승=빨강/하락=파랑, 영어는 상승=초록/하락=빨강`),
- asof:T(`データ取得:2026年10月1日14時55分(東京時間)。日経平均・ドル円は取引時間中の値(まだ終値ではありません)。米国指標は9月30日(現地時間)の終値です。`,`Data retrieved Oct 1, 2026, 14:55 Tokyo time. Nikkei and USD/JPY are intraday (not yet the day's final close); US figures are Sep 30 (local time) closing values.`,`데이터 조회: 2026년 10월 1일 14:55(도쿄 시간). 닛케이평균·달러/엔은 거래 중 수치(아직 종가 아님). 미국 지표는 9월 30일(현지 시간) 종가입니다.`),
+ asof:T(`データ取得:2026年10月2日(東京時間)。日経平均は10月1日の終値、ドル円は10月1日夕刻時点の値。米国指標は9月30日(現地時間)の終値です。`,`Data retrieved Oct 2, 2026 (Tokyo time). Nikkei is Oct 1's final close; USD/JPY is the Oct 1 evening level. US figures are Sep 30 (local time) closing values.`,`데이터 조회: 2026년 10월 2일(도쿄 시간). 닛케이평균은 10월 1일 종가, 달러/엔은 10월 1일 저녁 시점 수치. 미국 지표는 9월 30일(현지 시간) 종가입니다.`),
  expandAll:T(`すべて開く`,`Expand all`,`모두 펼치기`),
  collapseAll:T(`すべて閉じる`,`Collapse all`,`모두 접기`),
  sources:T(`出典`,`Sources`,`출처`),
@@ -265,7 +265,7 @@ const UI={
 };
 
 const TAPE=[
- {l:T(`日経平均`,`Nikkei 225`,`닛케이 225`),v:`68,416.31`,c:2.49},
+ {l:T(`日経平均`,`Nikkei 225`,`닛케이 225`),v:`68,956.72`,c:3.30},
  {l:T(`ドル円`,`USD/JPY`,`달러/엔`),v:`157.60`,c:0.71},
  {l:T(`S&P 500`,`S&P 500`,`S&P 500`),v:`7,654`,c:-0.23},
  {l:T(`エヌビディア`,`NVIDIA`,`엔비디아`),v:`$228.38`,c:0.51},
@@ -284,10 +284,10 @@ const BRIEF=[
   t:T(`Anthropicは9/29、Frontier Red Teamの報告書でZhipu AI製「GLM-5.3」を「有効な安全対策なしに公開された」と指摘。模擬テストでの脱獄成功率がGLM-5.3では64〜100%だったのに対し、安全対策済みのClaudeでは0%だったと主張。`,
       `On 9/29 Anthropic's Frontier Red Team report said Zhipu AI's GLM-5.3 was "released without meaningful safeguards," claiming simulated jailbreak attempts succeeded 64-100% of the time against GLM-5.3 versus zero successful attempts against safeguarded Claude models.`,
       `Anthropic는 9/29 Frontier Red Team 보고서에서 Zhipu AI의 'GLM-5.3'이 '유효한 안전 장치 없이 공개됐다'고 지적했다. 모의 테스트에서 탈옥 성공률이 GLM-5.3은 64~100%였던 반면 안전장치를 갖춘 Claude 모델은 0%였다고 주장했다.`)},
- {h:T(`日経平均が一時2000円超高、1月半ぶりに6万8000円台回復`,`Nikkei surges over 2,000 points, back above 68,000 for the first time in 6 weeks`,`닛케이평균 한때 2000엔 넘게 급등, 1개월 반 만에 68,000엔대 회복`),
-  t:T(`10/1の日経平均は半導体関連の上昇を支えに大幅続伸、前日比+2.49%の68,416円台まで上昇し1月半ぶりに6万8000円台を回復した。同日朝発表の日銀短観は大企業製造業の業況判断指数(DI)が+24となり、前回6月調査の+22から改善(市場予想+25には届かず)。短観発表後、ドル円は売られて157円台後半まで上昇し、円安が輸出株を支えている。`,
-      `The Nikkei extended its rally on 10/1, up 2.49% to around 68,416, back above 68,000 for the first time in about six weeks, led by semiconductor-related names. The BOJ's Tankan survey, released that morning, showed large manufacturers' sentiment index (DI) at +24, up from +22 in June though short of the +25 forecast. USD/JPY weakened to the upper-157 range after the release, with yen softness supporting exporters.`,
-      `10/1 닛케이평균은 반도체 관련주 상승에 힘입어 큰 폭으로 계속 올라 전일 대비 +2.49%인 68,416엔대까지 상승, 1개월 반 만에 6만8000엔대를 회복했다. 같은 날 아침 발표된 일본은행 단칸 조사는 대기업 제조업 업황판단지수(DI)가 +24로 전회 6월 조사의 +22에서 개선됐다(시장 예상 +25에는 못 미침). 발표 후 달러/엔은 매도되어 157엔 후반대까지 올랐고, 엔화 약세가 수출주를 지지하고 있다.`)},
+ {h:T(`日経平均が終値で2200円超高、1月半ぶりに6万8900円台回復`,`Nikkei closes up over 2,200 points, back above 68,900 for the first time in 6 weeks`,`닛케이평균 종가 기준 2200엔 넘게 급등, 1개월 반 만에 68,900엔대 회복`),
+  t:T(`10/1の日経平均は半導体関連の上昇を支えに大幅続伸、終値は前日比+2,203.00円(+3.30%)の68,956.72円となり1月半ぶりに6万8000円台を回復した。同日朝発表の日銀短観は大企業製造業の業況判断指数(DI)が+24となり、前回6月調査の+22から改善(市場予想+25には届かず)。短観発表後、ドル円は売られて157円台後半まで上昇し、円安が輸出株を支えている。`,
+      `The Nikkei extended its rally on 10/1, closing up 2,203.00 points (+3.30%) at 68,956.72, back above 68,000 for the first time in about six weeks, led by semiconductor-related names. The BOJ's Tankan survey, released that morning, showed large manufacturers' sentiment index (DI) at +24, up from +22 in June though short of the +25 forecast. USD/JPY weakened to the upper-157 range after the release, with yen softness supporting exporters.`,
+      `10/1 닛케이평균은 반도체 관련주 상승에 힘입어 큰 폭으로 계속 올라 종가는 전일 대비 +2,203.00엔(+3.30%)인 68,956.72엔을 기록, 1개월 반 만에 6만8000엔대를 회복했다. 같은 날 아침 발표된 일본은행 단칸 조사는 대기업 제조업 업황판단지수(DI)가 +24로 전회 6월 조사의 +22에서 개선됐다(시장 예상 +25에는 못 미침). 발표 후 달러/엔은 매도되어 157엔 후반대까지 올랐고, 엔화 약세가 수출주를 지지하고 있다.`)},
  {h:T(`NY株式市場は9月最終日に続落、Nasdaqのみ小幅高`,`Wall Street slips on September's final day; only the Nasdaq edges higher`,`뉴욕 증시, 9월 마지막 날 소폭 하락, 나스닥만 소폭 상승`),
   t:T(`9/30のNY市場はS&P500が前日比-0.23%の7,654、ダウ工業株30種が-0.86%の50,906.05、ナスダック総合は+0.24%の26,861と小幅ながら上昇。米経済指標が底堅く金利高止まりへの警戒が続く中、NVIDIAは+0.51%の228.38ドルで終え、追加150億ドルの自社株買い(総額2,350億ドルに拡大)を発表した。`,
       `On 9/30 the S&P 500 fell 0.23% to 7,654 and the Dow slid 0.86% to 50,906.05, while the Nasdaq Composite edged up 0.24% to 26,861. Resilient economic data kept rate worries elevated; NVIDIA closed up 0.51% at $228.38 after authorizing an additional $15B buyback, lifting its total to $235B.`,
@@ -427,6 +427,17 @@ UI.country={
  TW:T(`台湾`,`Taiwan`,`대만`),
  KR:T(`韓国`,`Korea`,`한국`)
 };
+UI.sector={
+ semi:T(`半導体・AIインフラ`,`Semis & AI infra`,`반도체·AI 인프라`),
+ saas:T(`SaaS・クラウド`,`SaaS & cloud`,`SaaS·클라우드`),
+ robo:T(`ロボット・フィジカルAI`,`Robotics & physical AI`,`로봇·피지컬 AI`),
+ ai_dc:T(`AIインフラ・データセンター`,`AI infra & data centers`,`AI 인프라·데이터센터`),
+ motor:T(`精密機器・電子部品`,`Precision & electronic parts`,`정밀기기·전자부품`),
+ hr:T(`人材サービス`,`Staffing & HR services`,`인재 서비스`),
+ telecom:T(`通信・EC`,`Telecom & e-commerce`,`통신·이커머스`),
+ quantum:T(`量子コンピューティング`,`Quantum computing`,`퀀텀 컴퓨팅`),
+ voice:T(`音声・会話AI`,`Voice & conversational AI`,`음성·대화형 AI`)
+};
 const STOCKS={
 saas:[
 {id:`s1`,country:`US`,tick:`CRM`,name:T(`セールスフォース`,`Salesforce`,`세일즈포스`),date:`09/24`,px:`$259.23`,chg1d:-1.97,chg1m:2.0,chg1y:-12.0,mcap:249,
@@ -548,27 +559,35 @@ robo:[
  src:[[`Yahoo Finance`,`https://finance.yahoo.com/quote/TSLA/`]]}
 ],
 movers:[
-{id:`m2`,country:`US`,tick:`CRWV`,name:T(`コアウィーブ`,`CoreWeave`,`코어위브`),date:`09/23`,px:`$86.44`,chg:4.5,
- why:T(`JPMorganが「オーバーウェイト」に格上げし目標株価125ドルに。ただし52週高値からは依然約44%安`,`JPMorgan upgraded shares to Overweight with a $125 target, though the stock remains about 44% below its 52-week high`,`JPMorgan이 '비중확대'로 상향하고 목표주가 125달러 제시. 다만 52주 고점 대비 여전히 약 44% 낮은 수준`)},
-{id:`m4`,country:`JP`,tick:`285A.T`,name:T(`キオクシアホールディングス`,`Kioxia Holdings`,`키오크시아 홀딩스`),date:`10/01`,px:`¥17,880(分割後)`,chg:9.4,
- why:T(`AI向けNAND需要の急拡大を示す決算が評価され直近まで急反発。本日1対3株式分割が効力発生し分割後ベースの価格で取引開始`,`Rebounded sharply on results showing surging AI-driven NAND demand; its 1-for-3 split took effect today, so trading is now on a post-split basis`,`AI向け NAND 수요 급증을 보여준 실적이 호평받아 급반등. 오늘 1대 3 액면분할이 효력 발생해 분할 후 기준으로 거래 시작`)},
-{id:`m5`,country:`JP`,tick:`4443.T`,name:T(`Sansan`,`Sansan`,`산산`),date:`09/14`,px:`¥2,110`,chg:7.6,
+{id:`m6`,important:true,country:`JP`,tick:`9246.T`,sector:`hr`,name:T(`プロジェクトホールディングス`,`Project Holdings`,`프로젝트 홀딩스`),date:`10/01`,px:`¥1,442`,chg:26.3,
+ why:T(`テクノプロ・HD傘下による1株2,200円(前日終値比+92.6%)のTOBを受け一時ストップ高`,`Hit its daily limit-up after TechnoPro Holdings' unit offered a ¥2,200/share tender (a 92.6% premium to the prior close)`,`테크노프로HD 계열사가 주당 2,200엔(전일 종가比 +92.6%)에 TOB를 제시해 한때 상한가`)},
+{id:`m4`,country:`JP`,tick:`285A.T`,sector:`semi`,name:T(`キオクシアホールディングス`,`Kioxia Holdings`,`키오크시아 홀딩스`),date:`10/01`,px:`¥18,900(分割後)`,chg:4.45,
+ why:T(`マイクロンの好決算(AI向けメモリ需要は2028年まで逼迫との見通し)を受けて続伸`,`Extended gains after Micron's strong earnings signaled AI memory demand staying tight through 2028`,`마이크론의 호실적(AI向け 메모리 수요가 2028년까지 타이트하다는 전망)에 힘입어 계속 상승`)},
+{id:`m7`,country:`KR`,tick:`000660.KS`,sector:`semi`,name:T(`SKハイニックス`,`SK hynix`,`SK하이닉스`),date:`10/01`,px:`₩1,833,000`,chg:3.21,
+ why:T(`マイクロンの受注バックログ拡大(220億→320億ドル)を好感しAI記憶メモリ需要への楽観が強まる`,`Investors welcomed Micron's expanded order backlog ($22B→$32B), lifting optimism on AI memory demand`,`마이크론의 수주 잔고 확대($220억→$320억)를 호재로 AI 메모리 수요 낙관이 강화`)},
+{id:`m5`,country:`JP`,tick:`4443.T`,sector:`saas`,name:T(`Sansan`,`Sansan`,`산산`),date:`09/14`,px:`¥2,110`,chg:7.6,
  why:T(`月次動向と好決算を手がかりに買われる`,`Bought on monthly trends and strong earnings`,`월간 동향과 호실적을 계기로 매수`)}
 ],
 down:[
-{id:`d1`,important:true,country:`JP`,tick:`4755.T`,name:T(`楽天グループ`,`Rakuten Group`,`라쿠텐 그룹`),date:`09/28`,px:`¥687.8`,chg:-33.0,
+{id:`d4`,important:true,country:`JP`,tick:`6594.T`,sector:`motor`,name:T(`ニデック`,`Nidec`,`니덱`),date:`10/01`,px:`¥1,888`,chg:-18.47,
+ why:T(`2026年3月期有報でPwCジャパンが3度目の「意見不表明」。上場廃止リスク懸念で年初来安値`,`PwC Japan declined to give an opinion on its FY2026/3 filing for the third time; delisting-risk fears sent shares to a 52-week low`,`2026년 3월기 유보에서 PwC재팬이 세 번째 '의견 불표명'. 상장폐지 우려로 연중 최저치`),
+ d:T(`ニデックは9/30の取引終了後、2026年3月期の有価証券報告書を提出したが、監査法人PwCジャパンは3度目となる「意見不表明」の判定を下した。不適切な会計処理を受けた人事的な是正措置が一部完了しておらず、不正に関与した役職員の一部が依然財務報告プロセスで責任ある立場にあることなどから、「意見表明の基礎となる十分かつ適切な監査証拠を入手できなかった」という。これを受け10/1の株価は急落し年初来安値を更新、上場廃止リスクを警戒した処分売りが広がった。`,
+     `After Tokyo trading closed on 9/30, Nidec filed its FY2026/3 annual securities report, but auditor PwC Japan declined to give an opinion for the third time, saying it could not obtain sufficient appropriate audit evidence — citing incomplete personnel remediation over earlier improper accounting and the fact that some staff involved in the misconduct still hold responsible roles in financial reporting. Shares plunged to a 52-week low on 10/1 as investors sold on fears of a possible delisting.`,
+     `니덱은 9/30 거래 종료 후 2026년 3월기 유가증권보고서를 제출했지만, 감사법인 PwC재팬은 세 번째로 '의견 불표명' 판정을 내렸다. 부적절한 회계처리에 대한 인사 시정조치가 일부 완료되지 않았고, 부정에 관여한 일부 임직원이 여전히 재무보고 과정에서 책임 있는 위치에 있어 '의견 표명의 근거가 되는 충분하고 적절한 감사 증거를 입수할 수 없었다'고 한다. 이를 받아 10/1 주가는 급락해 연중 최저치를 경신했고, 상장폐지 우려에 따른 처분 매물이 확산됐다.`),
+ src:[[`Bloomberg`,`https://www.bloomberg.com/jp/news/articles/2026-10-01/TM7D1LKJH6V400`],[`株探`,`https://s.kabutan.jp/news/n202610010350/`]]},
+{id:`d1`,important:true,country:`JP`,tick:`4755.T`,sector:`telecom`,name:T(`楽天グループ`,`Rakuten Group`,`라쿠텐 그룹`),date:`09/28`,px:`¥687.8`,chg:-33.0,
  why:T(`9/28に年初来安値677.3円を更新。米系証券2社が目標株価を800円・850円に引き下げ済み`,`Set a new 52-week low of ¥677.3 on 9/28; two US brokerages have already cut targets to ¥800 and ¥850`,`9/28 연중 최저치 677.3엔 경신. 미국계 증권사 2곳이 목표주가를 800엔·850엔으로 이미 하향`),
  d:T(`楽天グループ株は9/28に一時677.3円まで下げ年初来安値を更新し、同日終値は687.8円(前日比+1.12%)。8/10発表の2026年1〜6月期決算はIFRS営業損益が504億円の黒字に転換したもののQUICKコンセンサス(708億円)に届かず10%超安。その後も戻りは鈍く、9/10〜11には米系大手証券2社が目標株価をそれぞれ800円、850円へ引き下げた。9/28時点の株価687.8円は、年初来高値(1/13、1,026円)から約33%低い水準。楽天モバイルの2026年通期設備投資は約2,000億円規模の計画で黒字化には時間がかかる見通しに加え、2025年12月期は無配、配当再開時期も「未定」としており、株主還元への不透明感が株価の重荷になっているとされる。`,
      `Rakuten Group shares hit a new 52-week low of ¥677.3 on 9/28 before closing at ¥687.8 that day (+1.12%). Results reported 8/10 for January-June 2026 showed IFRS operating profit swing to a gain of ¥50.4B, but that missed the QUICK consensus of ¥70.8B and shares fell over 10% that day. The stock has struggled to recover since, and on 9/10-11 two major US brokerages cut their targets to ¥800 and ¥850. The 9/28 price of ¥687.8 sits roughly 33% below the 52-week high of ¥1,026 (1/13). Rakuten Mobile's FY2026 capex plan of roughly ¥200B means profitability is still some way off, and with no dividend paid for FY2025 and no timeline set to resume one, shareholder-return uncertainty is seen weighing on the stock.`,
      `라쿠텐 그룹 주가는 9/28 한때 677.3엔까지 내려 연중 최저치를 경신했고, 같은 날 종가는 687.8엔(전일 대비 +1.12%)이었다. 8/10 발표된 2026년 1~6월기 실적은 IFRS 영업손익이 504억 엔 흑자로 전환했지만 QUICK 컨센서스(708억 엔)에 못 미쳐 당일 10% 넘게 급락했다. 이후에도 반등은 더뎠고, 9/10~11에는 미국계 대형 증권사 2곳이 목표주가를 각각 800엔, 850엔으로 하향했다. 9/28 기준 주가 687.8엔은 연중 고점(1/13, 1,026엔) 대비 약 33% 낮은 수준이다. 라쿠텐 모바일의 2026 회계연도 설비투자 계획은 약 2,000억 엔 규모로 흑자 전환까지는 시간이 걸릴 전망이며, 2025년 12월기 무배당에 배당 재개 시기도 '미정'이라 주주환원 불확실성이 주가에 부담이 되고 있다.`),
  src:[[`Yahoo!ファイナンス`,`https://finance.yahoo.co.jp/quote/4755.T/history`],[`松井証券`,`https://finance.matsui.co.jp/stock/4755/index`]]},
-{id:`d3`,country:`US`,tick:`RGTI`,name:T(`リゲッティ・コンピューティング`,`Rigetti Computing`,`리게티 컴퓨팅`),date:`09/28`,px:`$15.95`,chg:-4.3,
+{id:`d3`,country:`US`,tick:`RGTI`,sector:`quantum`,name:T(`リゲッティ・コンピューティング`,`Rigetti Computing`,`리게티 컴퓨팅`),date:`09/28`,px:`$15.95`,chg:-4.3,
  why:T(`CEOのインサイダー売却やWeiss Ratingsの格下げが重し。年初来-28%、1年では-48.9%`,`Weighed down by CEO insider selling and a Weiss Ratings downgrade; down 28% YTD and 48.9% over the past year`,`CEO의 내부자 매도와 Weiss Ratings 강등이 부담. 연초 대비 -28%, 1년간 -48.9%`),
  d:T(`Rigetti Computing株は9/28に4.3%安の15.95ドルで取引を終えた。9/9にはCEOが約188万ドル相当の自社株を売却したことが明らかになっているほか、Weiss Ratingsが格下げを行うなど、量子コンピューティング関連株全般で利益確定売りが出ている。株価は年初来で28%安、過去1年では48.9%安となっている。9月中旬にはIonQの技術的ブレークスルー発表を受け一時急伸する場面もあったが、その後の上げ幅は概ね剥落している。`,
      `Rigetti Computing shares fell 4.3% to $15.95 on 9/28. A CEO stock sale worth about $1.88M disclosed on 9/9, along with a Weiss Ratings downgrade, have weighed on the stock amid broader profit-taking across quantum-computing names. Shares are down 28% year-to-date and 48.9% over the past year. A mid-September pop tied to IonQ's technical breakthrough announcement has since largely faded.`,
      `Rigetti Computing 주가는 9/28 4.3% 하락한 15.95달러로 거래를 마쳤다. 9/9 공개된 CEO의 약 188만 달러 상당 자사주 매도와 Weiss Ratings의 등급 하향이 겹쳐, 양자컴퓨팅 관련주 전반의 차익 실현 매물 속에 주가가 눌렸다. 주가는 연초 대비 28%, 지난 1년간 48.9% 하락했다. 9월 중순 IonQ의 기술적 돌파구 발표로 일시 급등했던 상승분은 이후 대부분 반납했다.`),
  src:[[`StockTwits`,`https://stocktwits.com/symbol/RGTI`],[`Yahoo Finance`,`https://finance.yahoo.com/quote/RGTI/`]]},
-{id:`d2`,country:`US`,tick:`SOUN`,name:T(`サウンドハウンドAI`,`SoundHound AI`,`사운드하운드 AI`),date:`09/21`,px:`$5.93`,chg:-73.0,
+{id:`d2`,country:`US`,tick:`SOUN`,sector:`voice`,name:T(`サウンドハウンドAI`,`SoundHound AI`,`사운드하운드 AI`),date:`09/21`,px:`$5.93`,chg:-73.0,
  why:T(`52週高値から急落。増収は続くも採算・インサイダー売却への懸念で年初来安値圏`,`Down sharply from its 52-week high; revenue keeps growing but margin worries and insider sales weigh, near 52-week lows`,`52주 고점 대비 급락. 매출 증가는 계속되나 수익성·내부자 매도 우려로 연중 저점권`),
  d:T(`SoundHound AIは2026年に入って年初来で約20〜30%下落しており、52週高値$22.17(2025/10/14)からは直近安値圏の$5.93(9/21)まで約73%の下落。第2四半期は売上高6,190万ドル(前年同期比45%増)と成長は続くものの、直近1か月では約15%下落した。共同創業者による約87万ドル相当の自社株売却が報じられたほか、複数のアナリストが目標株価を引き下げており、採算性への懸念が株価の重荷になっているとみられる。LivePerson買収を完了・統合を進めており、統合の進捗が今後の材料になる。`,
      `SoundHound AI is down roughly 20-30% year to date in 2026, and about 73% from its 52-week high of $22.17 (10/14/2025) to a recent level of $5.93 (9/21). Q2 revenue grew to $61.9M (+45% YoY), so growth continues, but the stock fell about 15% over the past month. Reports of a co-founder selling roughly $869K of stock, plus several analyst price-target cuts, appear to be weighing on shares amid profitability concerns. The company has completed its LivePerson acquisition and is integrating it, which will be a watch item going forward.`,
@@ -747,7 +766,7 @@ function rankItemHTML(it,idx){
     <button type="button" class="rk-head" data-open-btn>
       <span class="rk-num">${idx+1}</span>
       <span class="rk-body">
-        <span class="rk-nm">${it.important?`<span class="tg imp">${esc(UI.important[LANG])}</span>`:''}${countryTag(it)}<b>${esc(it.name[LANG])}</b><em>（${esc(codeOf(it.tick))}）</em></span>
+        <span class="rk-nm">${it.important?`<span class="tg imp">${esc(UI.important[LANG])}</span>`:''}${countryTag(it)}${it.sector?`<span class="tg cc">${esc(UI.sector[it.sector][LANG])}</span>`:''}<b>${esc(it.name[LANG])}</b><em>（${esc(codeOf(it.tick))}）</em></span>
         <span class="rk-why">${esc(it.why[LANG])}</span>
         <span class="bar"><i class="${cls}" style="width:${w}%"></i></span>
       </span>
