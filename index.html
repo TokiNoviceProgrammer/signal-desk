@@ -241,7 +241,7 @@ const UI={
  cal:T(`今後の予定`,`Coming up`,`앞으로의 일정`),
  search:T(`キーワードで絞り込み(例:NVDA、円、Claude)`,`Filter by keyword (e.g. NVDA, yen, Claude)`,`키워드로 필터 (예: NVDA, 엔, Claude)`),
  colorHint:T(`色の規則:日本語・韓国語は上昇=赤/下落=青、英語は上昇=緑/下落=赤`,`Colors: Japanese and Korean use red = up, blue = down; English uses green = up, red = down`,`색상 규칙: 일본어·한국어는 상승=빨강/하락=파랑, 영어는 상승=초록/하락=빨강`),
- asof:T(`データ取得:2026年10月3日(東京時間)。日経平均・各銘柄は10月2日の終値、米国指標は10月2日(現地時間)の終値です。各カードの日付表示で個別の時点を確認できます。`,`Data retrieved Oct 3, 2026 (Tokyo time). Nikkei and individual stocks are Oct 2 closes; US figures are Oct 2 (local time) closing values. Check each card's date tag for its specific point in time.`,`데이터 조회: 2026년 10월 3일(도쿄 시간). 닛케이평균·개별 종목은 10월 2일 종가, 미국 지표는 10월 2일(현지 시간) 종가입니다. 각 카드의 날짜 표시로 개별 시점을 확인할 수 있습니다.`),
+ asof:T(`データ取得:2026年10月5日14時台(東京時間)。日経平均・ドル円は取引時間中の値(まだ終値ではありません)。米国指標は10月2日(現地時間)の終値です。各カードの日付表示で個別の時点を確認できます。`,`Data retrieved around 14:00 Tokyo time on Oct 5, 2026. Nikkei and USD/JPY are intraday (not yet the day's final close); US figures are Oct 2 (local time) closing values. Check each card's date tag for its specific point in time.`,`데이터 조회: 2026년 10월 5일 14시경(도쿄 시간). 닛케이평균·달러/엔은 거래 중 수치(아직 종가 아님). 미국 지표는 10월 2일(현지 시간) 종가입니다. 각 카드의 날짜 표시로 개별 시점을 확인할 수 있습니다.`),
  expandAll:T(`すべて開く`,`Expand all`,`모두 펼치기`),
  collapseAll:T(`すべて閉じる`,`Collapse all`,`모두 접기`),
  sources:T(`出典`,`Sources`,`출처`),
@@ -266,14 +266,14 @@ const UI={
 };
 
 const TAPE=[
- {l:T(`日経平均`,`Nikkei 225`,`닛케이 225`),v:`68,309.46`,c:-0.94,d:`10/02`},
- {l:T(`ドル円`,`USD/JPY`,`달러/엔`),v:`157.60`,c:0.0,d:`10/02`},
+ {l:T(`日経平均`,`Nikkei 225`,`닛케이 225`),v:`69,731.25`,c:2.08,d:`10/05`},
+ {l:T(`ドル円`,`USD/JPY`,`달러/엔`),v:`157.93`,c:0.21,d:`10/05`},
  {l:T(`S&P 500`,`S&P 500`,`S&P 500`),v:`7,722.72`,c:0.73,d:`10/02`},
  {l:T(`エヌビディア`,`NVIDIA`,`엔비디아`),v:`$233.95`,c:1.34,d:`10/02`},
- {l:T(`WTI原油`,`WTI crude`,`WTI 원유`),v:`$89.96`,c:-3.13,d:`10/02`},
- {l:T(`金`,`Gold`,`금`),v:`$4,189.79`,c:0.28,d:`10/02`},
- {l:T(`米10年債利回り`,`US 10Y yield`,`미 10년물 금리`),v:`5.23%`,c:null,d:`10/02`},
- {l:T(`ドルウォン`,`USD/KRW`,`달러/원`),v:`1,350`,c:-0.69,d:`10/02`}
+ {l:T(`WTI原油`,`WTI crude`,`WTI 원유`),v:`$90.16`,c:-1.04,d:`10/05`},
+ {l:T(`金`,`Gold`,`금`),v:`$4,139.59`,c:-0.01,d:`10/05`},
+ {l:T(`米10年債利回り`,`US 10Y yield`,`미 10년물 금리`),v:`5.27%`,c:null,d:`10/05`},
+ {l:T(`ドルウォン`,`USD/KRW`,`달러/원`),v:`1,343`,c:0.0,d:`10/04`}
 ];
 
 const BRIEF=[
@@ -285,10 +285,10 @@ const BRIEF=[
   t:T(`Anthropicは9/29、Frontier Red Teamの報告書でZhipu AI製「GLM-5.3」を「有効な安全対策なしに公開された」と指摘。模擬テストでの脱獄成功率がGLM-5.3では64〜100%だったのに対し、安全対策済みのClaudeでは0%だったと主張。`,
       `On 9/29 Anthropic's Frontier Red Team report said Zhipu AI's GLM-5.3 was "released without meaningful safeguards," claiming simulated jailbreak attempts succeeded 64-100% of the time against GLM-5.3 versus zero successful attempts against safeguarded Claude models.`,
       `Anthropic는 9/29 Frontier Red Team 보고서에서 Zhipu AI의 'GLM-5.3'이 '유효한 안전 장치 없이 공개됐다'고 지적했다. 모의 테스트에서 탈옥 성공률이 GLM-5.3은 64~100%였던 반면 안전장치를 갖춘 Claude 모델은 0%였다고 주장했다.`)},
- {h:T(`日経平均は反落、前日急伸の反動で利益確定売り優勢`,`Nikkei pulls back as investors take profits after the prior day's surge`,`닛케이평균 반락, 전일 급등에 대한 이익 확정 매물 우세`),
-  t:T(`10/2の日経平均は前日比647.26円安(-0.94%)の68,309.46円で終え、前日に約3,500円急伸した反動で利益確定売りが優勢となった。原油高や日本の高金利持続への警戒も重荷となったが、下げ幅は限定的だった。半導体関連では安川電機やファナックなど前日に急伸した銘柄に戻り売りが出た一方、キオクシアは分割後ベースで小幅続伸した。`,
-      `The Nikkei closed 10/2 down 647.26 points (-0.94%) at 68,309.46, as investors booked profits after the roughly 3,500-point surge the day before. Rising oil prices and persistent concern over elevated domestic interest rates also weighed, though the decline was limited. Names that had jumped the prior day, such as Yaskawa Electric and Fanuc, saw some profit-taking, while Kioxia edged higher again on a post-split basis.`,
-      `10/2 닛케이평균은 전일 대비 647.26엔 하락(-0.94%)한 68,309.46엔으로 마감, 전일 약 3,500엔 급등한 데 대한 이익 확정 매물이 우세했다. 원유 가격 상승과 일본의 높은 금리 지속에 대한 경계도 부담이 됐지만 하락폭은 제한적이었다. 반도체 관련주에서는 전일 급등한 야스카와전기·화낙 등에 되돌림 매물이 나온 반면, 키오크시아는 분할 후 기준으로 소폭 계속 상승했다.`)},
+ {h:T(`日経平均、一時7万円台を回復 約3カ月ぶり`,`Nikkei briefly tops 70,000 for the first time in about 3 months`,`닛케이평균, 한때 7만 엔대 회복, 약 3개월 만`),
+  t:T(`10/5の日経平均は大幅続伸し、午前に一時70,072円まで上昇して約3カ月ぶりに7万円台を回復した。前場は前日比+1,728円の70,037円で終え、後場も買い優勢で始まった。米国の追加利上げ観測が後退したことやFOMCでの政策金利据え置き期待が背景とされ、電気機器・精密機器などが上昇を主導している。節目の7万円付近では利益確定売りも出やすく、終値までの値動きが注目される。`,
+      `The Nikkei extended its rally on 10/5, briefly touching 70,072 in the morning session to top the 70,000 level for the first time in about three months. The morning session closed up 1,728 points at 70,037, and the afternoon session opened with buying still dominant. The move is attributed to fading expectations of further US rate hikes and hopes the Fed will hold rates steady at its FOMC meeting, with electrical/precision-equipment names leading the advance. Profit-taking tends to emerge around the psychologically important 70,000 mark, so the closing level bears watching.`,
+      `10/5 닛케이평균은 큰 폭으로 계속 올라 오전 한때 70,072엔까지 상승해 약 3개월 만에 7만 엔대를 회복했다. 전장은 전일 대비 +1,728엔인 70,037엔으로 마감했고, 후장도 매수 우위로 시작했다. 미국의 추가 금리 인상 관측 후퇴와 FOMC에서의 정책금리 동결 기대가 배경으로 꼽히며, 전기기기·정밀기기 등이 상승을 주도하고 있다. 7만 엔이라는 심리적 분수령 부근에서는 이익 확정 매물도 나오기 쉬워 종가까지의 움직임이 주목된다.`)},
  {h:T(`NY株式市場は雇用統計の下振れで上昇、アクセンチュアは翌日に反落`,`Wall Street rises on a soft jobs report; Accenture gives back gains the next day`,`뉴욕 증시, 고용지표 부진에 상승, 액센츄어는 다음 날 반락`),
   t:T(`10/2のNY市場はS&P500が前日比+0.73%の7,722.72、NVIDIAは+1.34%の233.95ドル、TSMCのADRは+2.96%の472.78ドルとAI・半導体関連が堅調。雇用統計が市場予想より弱く、FRBの追加引き締め観測が後退したことが相場を支えた。一方、好決算を背景に10/1に+18.5%急騰したアクセンチュアは10/2に-6.31%の198.90ドルへ反落し、増益サイクル後の持続性を見極める動きとなった。`,
       `On 10/2 the S&P 500 rose 0.73% to 7,722.72, with NVIDIA up 1.34% at $233.95 and TSMC's ADR up 2.96% at $472.78 as AI/semiconductor names stayed firm. A weaker-than-expected jobs report eased bets on further Fed tightening, supporting the broader market. Accenture, which had jumped 18.5% on 10/1 on strong earnings, gave back some of that gain, falling 6.31% to $198.90 on 10/2 as investors weighed how durable the growth re-acceleration will be.`,
