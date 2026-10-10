@@ -1,3 +1,4 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <!doctype html>
 <html lang="ja" data-lang="ja">
 <head>
@@ -169,6 +170,14 @@ footer .support a:hover{border-color:var(--ink)}
   .rk-quote .px{font-size:16px}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* data breaches */
+.bc{padding-bottom:40px}
+.bc-note{font-size:12px;color:var(--ink-3);margin:2px 0 8px;overflow-wrap:anywhere}
+#bc-list{display:grid;grid-template-columns:minmax(0,1fr)}
+#breach .item,#breach .h,#breach .s,#breach .inner p,#breach .src{overflow-wrap:anywhere;word-break:break-word}
+#breach .chips{gap:6px}
+@media(min-width:900px){#bc-list{grid-template-columns:repeat(2,minmax(0,1fr));column-gap:32px}#bc-list .item:nth-child(2){border-top:0}}
 </style>
 </head>
 <body>
@@ -176,7 +185,7 @@ footer .support a:hover{border-color:var(--ink)}
   <div class="wrap">
     <div class="brand"><b>Signal Desk</b><span data-i18n="tagline"></span></div>
     <nav class="nav" aria-label="Sections">
-      <a href="#ai" data-i18n="navAI"></a><a href="#stocks" data-i18n="navStocks"></a><a href="#macro" data-i18n="navMacro"></a>
+      <a href="#ai" data-i18n="navAI"></a><a href="#stocks" data-i18n="navStocks"></a><a href="#macro" data-i18n="navMacro"></a><a href="#breach" data-i18n="navBreach"></a>
     </nav>
     <div class="seg" role="group" aria-label="Language">
       <button type="button" data-lang="ja" aria-pressed="true">日本語</button>
@@ -223,6 +232,14 @@ footer .support a:hover{border-color:var(--ink)}
       </section>
     </div>
   </div>
+<div class="wrap bc">
+  <section class="col" id="breach" aria-labelledby="bc-h">
+    <div class="col-h"><h2 id="bc-h" data-i18n="navBreach"></h2><span class="count" id="bc-count"></span></div>
+    <p class="bc-note" data-i18n="breachNote"></p>
+    <div class="chips" id="bc-chips" role="group"></div>
+    <div id="bc-list"></div>
+  </section>
+</div>
 </main>
 <footer><div class="wrap">
   <p data-i18n="disc1"></p>
@@ -233,7 +250,7 @@ footer .support a:hover{border-color:var(--ink)}
 const T=(ja,en,ko)=>({ja,en,ko});
 const UI={
  title:T(`Signal Desk｜AI・株・マクロ`,`Signal Desk | AI, stocks & macro`,`Signal Desk | AI·주식·매크로`),
- tagline:T(`AI・株・マクロを一画面で`,`AI, stocks and macro on one screen`,`AI·주식·매크로를 한 화면에`),
+ tagline:T(`AI・株・マクロ・情報漏洩を一画面で`,`AI, stocks, macro and data breaches on one screen`,`AI·주식·매크로·정보 유출을 한 화면에`),
  navAI:T(`AIトレンド`,`AI trends`,`AI 트렌드`),
  navStocks:T(`企業IR・株価`,`Stocks & IR`,`기업 IR·주가`),
  navMacro:T(`マクロニュース`,`Macro news`,`매크로 뉴스`),
@@ -241,7 +258,7 @@ const UI={
  cal:T(`今後の予定`,`Coming up`,`앞으로의 일정`),
  search:T(`キーワードで絞り込み(例:NVDA、円、Claude)`,`Filter by keyword (e.g. NVDA, yen, Claude)`,`키워드로 필터 (예: NVDA, 엔, Claude)`),
  colorHint:T(`色の規則:日本語・韓国語は上昇=赤/下落=青、英語は上昇=緑/下落=赤`,`Colors: Japanese and Korean use red = up, blue = down; English uses green = up, red = down`,`색상 규칙: 일본어·한국어는 상승=빨강/하락=파랑, 영어는 상승=초록/하락=빨강`),
- asof:T(`データ取得:2026年10月6日夕刻(東京時間)。日経平均・各銘柄は10月6日の終値、米国指標は10月5日(現地時間)の終値です。各カードの日付表示で個別の時点を確認できます。`,`Data retrieved on the evening of Oct 6, 2026 (Tokyo time). Nikkei and individual stocks are Oct 6 closes; US figures are Oct 5 (local time) closing values. Check each card's date tag for its specific point in time.`,`데이터 조회: 2026년 10월 6일 저녁(도쿄 시간). 닛케이평균·개별 종목은 10월 6일 종가, 미국 지표는 10월 5일(현지 시간) 종가입니다. 각 카드의 날짜 표시로 개별 시점을 확인할 수 있습니다.`),
+  asof:T(`データ取得:2026年10月10日(土)正午頃(東京時間)。日本株は10月9日の終値、米国株・原油・金は10月9日(米国時間)の終値です。ドル円は10月9日夜の水準、米10年債は10月9日朝の値です。個別銘柄のうちセールスフォース、シノプシス、TSMC、サウンドハウンドAI、サムスン電子、SKハイニックス、プロジェクトHDは最新値を確認できず、カードの日付表示の時点のままです。`,`Data retrieved around noon Tokyo time on Saturday, Oct 10, 2026. Japanese stocks are Oct 9 closes; US stocks, crude and gold are Oct 9 US-session closes. USD/JPY is the Oct 9 evening level and the US 10Y yield is the Oct 9 morning reading. Salesforce, Synopsys, TSMC, SoundHound AI, Samsung Electronics, SK hynix and Project Holdings could not be updated and still show the earlier date printed on their cards.`,`데이터 조회: 2026년 10월 10일(토) 도쿄 시간 정오경. 일본 주식은 10월 9일 종가, 미국 주식·원유·금은 10월 9일(미국 시간) 종가입니다. 달러/엔은 10월 9일 저녁 수준, 미 10년물 금리는 10월 9일 아침 값입니다. 개별 종목 중 세일즈포스, 시놉시스, TSMC, 사운드하운드 AI, 삼성전자, SK하이닉스, 프로젝트 홀딩스는 최신 값을 확인하지 못해 카드에 표시된 이전 날짜 기준 그대로입니다.`),
  expandAll:T(`すべて開く`,`Expand all`,`모두 펼치기`),
  collapseAll:T(`すべて閉じる`,`Collapse all`,`모두 접기`),
  sources:T(`出典`,`Sources`,`출처`),
@@ -266,48 +283,83 @@ const UI={
 };
 
 const TAPE=[
- {l:T(`日経平均`,`Nikkei 225`,`닛케이 225`),v:`70,683.98`,c:1.05,d:`10/06`},
- {l:T(`ドル円`,`USD/JPY`,`달러/엔`),v:`158.12`,c:0.13,d:`10/06`},
- {l:T(`S&P 500`,`S&P 500`,`S&P 500`),v:`7,776.82`,c:0.66,d:`10/05`},
- {l:T(`エヌビディア`,`NVIDIA`,`엔비디아`),v:`$238.90`,c:2.12,d:`10/05`},
- {l:T(`WTI原油`,`WTI crude`,`WTI 원유`),v:`$87.95`,c:-1.65,d:`10/06`},
- {l:T(`金`,`Gold`,`금`),v:`$4,151.77`,c:0.29,d:`10/06`},
- {l:T(`米10年債利回り`,`US 10Y yield`,`미 10년물 금리`),v:`5.28%`,c:null,d:`10/06`},
- {l:T(`ドルウォン`,`USD/KRW`,`달러/원`),v:`1,343`,c:-0.01,d:`10/05`}
+ {l:T(`日経平均`,`Nikkei 225`,`닛케이 225`),v:`69,030.92`,c:-0.02,d:`10/09`},
+ {l:T(`ドル円`,`USD/JPY`,`달러/엔`),v:`158.31`,c:null,d:`10/09`},
+ {l:T(`S&P 500`,`S&P 500`,`S&P 500`),v:`7,811.54`,c:0.59,d:`10/09`},
+ {l:T(`ナスダック総合`,`Nasdaq Comp.`,`나스닥 종합`),v:`27,366.17`,c:0.64,d:`10/09`},
+ {l:T(`エヌビディア`,`NVIDIA`,`엔비디아`),v:`$229.28`,c:-0.52,d:`10/09`},
+ {l:T(`WTI原油`,`WTI crude`,`WTI 원유`),v:`$91.85`,c:0.39,d:`10/09`},
+ {l:T(`金(先物)`,`Gold (fut.)`,`금(선물)`),v:`$4,216.30`,c:1.43,d:`10/09`},
+ {l:T(`米10年債利回り`,`US 10Y yield`,`미 10년물 금리`),v:`5.23%`,c:null,d:`10/09`}
 ];
 
 const BRIEF=[
- {h:T(`OpenAIがDevDayで「GPT-6.1 Sol」を発表`,`OpenAI unveils "GPT-6.1 Sol" at DevDay 2026`,`OpenAI, DevDay에서 'GPT-6.1 Sol' 공개`),
-  t:T(`OpenAIはDevDay 2026(9/29)で新モデル「GPT-6.1 Sol」と新製品「Dots」を発表。同日「フロンティアAI訓練の安全性ケース」と題する論文も公開し、9/25に公表した訓練停止問題を踏まえた安全性への取り組みを強調した。`,
-      `At DevDay 2026 (9/29) OpenAI introduced a new model, "GPT-6.1 Sol," and a new product called "Dots." The same day it published a paper titled "Towards Safety Cases for Frontier AI Training," underscoring its safety efforts following the training-pause disclosure on 9/25.`,
-      `OpenAI는 DevDay 2026(9/29)에서 신모델 'GPT-6.1 Sol'과 신제품 'Dots'를 발표했다. 같은 날 '프런티어 AI 훈련의 안전성 케이스'라는 논문도 공개해, 9/25 공표한 훈련 중단 문제를 반영한 안전 노력을 강조했다.`)},
- {h:T(`Anthropicが中国製AI「GLM-5.3」の安全性を批判`,`Anthropic criticizes China's GLM-5.3 over safety gaps`,`Anthropic, 중국 AI 'GLM-5.3' 안전성 비판`),
-  t:T(`Anthropicは9/29、Frontier Red Teamの報告書でZhipu AI製「GLM-5.3」を「有効な安全対策なしに公開された」と指摘。模擬テストでの脱獄成功率がGLM-5.3では64〜100%だったのに対し、安全対策済みのClaudeでは0%だったと主張。`,
-      `On 9/29 Anthropic's Frontier Red Team report said Zhipu AI's GLM-5.3 was "released without meaningful safeguards," claiming simulated jailbreak attempts succeeded 64-100% of the time against GLM-5.3 versus zero successful attempts against safeguarded Claude models.`,
-      `Anthropic는 9/29 Frontier Red Team 보고서에서 Zhipu AI의 'GLM-5.3'이 '유효한 안전 장치 없이 공개됐다'고 지적했다. 모의 테스트에서 탈옥 성공률이 GLM-5.3은 64~100%였던 반면 안전장치를 갖춘 Claude 모델은 0%였다고 주장했다.`)},
- {h:T(`日経平均、終値で7万円台を回復 約3カ月ぶり アドバンテストが2日連続けん引`,`Nikkei closes above 70,000 for the first time in about 3 months, Advantest leads for a second day`,`닛케이평균, 종가 기준 7만 엔대 회복, 약 3개월 만, 어드반테스트가 2일 연속 견인`),
-  t:T(`10/6の日経平均は4日続伸し、終値は前日比+737.12円(+1.05%)の70,683.98円となり、約3カ月ぶりに節目の7万円台を終値で回復した。前日(10/5)に日中で一時70,072円まで上昇したものの終値は69,946.17円(+2.40%)と僅かに届かなかったが、10/6はアドバンテストが前日比+3.62%の41,760円まで続伸し指数を約334円押し上げ、米国株の底堅さも支援材料となった。`,
-      `The Nikkei extended its advance for a fourth straight session on 10/6, closing up 737.12 points (+1.05%) at 70,683.98 — its first close above the psychologically important 70,000 level in about three months. The index had briefly touched 70,072 intraday on 10/5 but closed just short at 69,946.17 (+2.40%) that day; on 10/6, Advantest extended its rally, up 3.62% to ¥41,760 and contributing roughly 334 points to the index, while resilience in US equities also provided support.`,
-      `10/6 닛케이평균은 4일 연속 올라 종가는 전일 대비 +737.12엔(+1.05%)인 70,683.98엔을 기록, 약 3개월 만에 심리적 분수령인 7만 엔대를 종가 기준으로 회복했다. 전일(10/5)에는 장중 한때 70,072엔까지 올랐지만 종가는 69,946.17엔(+2.40%)으로 살짝 못 미쳤는데, 10/6에는 어드반테스트가 전일 대비 +3.62%인 41,760엔까지 계속 올라 지수를 약 334엔 끌어올렸고, 미국 증시의 견조함도 지지 요인이 됐다.`)},
- {h:T(`NY株式市場、NVIDIAとナスダックが連日で最高値を更新`,`NVIDIA and the Nasdaq post fresh record highs on Wall Street`,`뉴욕 증시, NVIDIA와 나스닥이 연일 최고치 경신`),
-  t:T(`10/5のNY市場はハイテク株の強さが債券安(利回り上昇)を上回り、S&P500が前日比+0.66%の7,776.82、NVIDIAは+2.12%の238.90ドルで取引時間中に史上最高値を更新し時価総額は6兆ドルに迫った。ナスダック総合も連日で終値の最高値を更新。米長期金利は上昇したものの、AI関連株への資金流入が相場を支えた。`,
-      `On 10/5 strength in tech shares outweighed weakness in bonds (rising yields): the S&P 500 rose 0.66% to 7,776.82, and NVIDIA gained 2.12% to $238.90, touching a fresh all-time intraday high and pushing its market cap close to $6 trillion. The Nasdaq Composite also closed at a fresh record for a second straight session. Treasury yields rose, but continued inflows into AI-related names kept the broader market supported.`,
-      `10/5 뉴욕 증시는 기술주의 강세가 채권 약세(금리 상승)를 압도해 S&P500이 전일 대비 +0.66%인 7,776.82, NVIDIA는 +2.12%인 238.90달러로 거래 중 사상 최고치를 경신하며 시가총액이 6조 달러에 근접했다. 나스닥 종합도 연일 종가 기준 최고치를 경신했다. 미 장기금리는 상승했지만 AI 관련주로의 자금 유입이 전체 시장을 지지했다.`)}
+ {h:T(`米国株は3指数そろって反発、OpenAIの売上巡る懸念が一服`,`US stocks rebound across the three indexes as OpenAI revenue worries ease`,`미국 증시 3대 지수 동반 반등, OpenAI 매출 우려 진정`),
+  t:T(`10/9のNY市場はダウが+423.31ドルの51,654.95ドル(+0.83%)、S&P500が+0.59%の7,811.54、ナスダック総合が+0.64%の27,366.17。OpenAIの年換算売上高が年内に700億ドル以上に達する見通しと伝わり、前日の売りが巻き戻った。SNOWは+7.42%、NVIDIAは-0.52%の229.28ドル。一方、ストラテジストからは、AI関連株が急速なV字回復をする可能性は低いとの見方も出ている。`,
+      `On 10/9 the Dow rose 423.31 to 51,654.95 (+0.83%), the S&P 500 gained 0.59% to 7,811.54 and the Nasdaq Composite 0.64% to 27,366.17. Reports that OpenAI's annualized revenue should reach $70B or more by year-end reversed the prior day's selling. Snowflake rose 7.42% while NVIDIA slipped 0.52% to $229.28. Some strategists cautioned that a quick V-shaped recovery in AI shares is unlikely.`,
+      `10/9 뉴욕 증시에서 다우는 423.31포인트 오른 51,654.95(+0.83%), S&P500은 +0.59%인 7,811.54, 나스닥 종합은 +0.64%인 27,366.17을 기록했다. OpenAI의 연환산 매출이 연내 700억 달러 이상에 이를 전망이라는 보도에 전날의 매도가 되돌려졌다. SNOW는 +7.42%, NVIDIA는 -0.52%인 229.28달러. 다만 AI 관련주가 빠르게 V자 회복할 가능성은 낮다는 전략가 의견도 나왔다.`)},
+ {h:T(`日経平均は小幅3日続落の69,030円、SBGは-3.9%、安川電機は営業益予想を下方修正`,`Nikkei slips for a third day to 69,030; SBG -3.9%, Yaskawa trims its operating profit forecast`,`닛케이평균 소폭 3일 연속 하락한 69,030엔, SBG -3.9%, 야스카와전기 영업이익 예상 하향`),
+  t:T(`10/9の日経平均は前日比11.19円安の69,030.92円で、TOPIXは+13.35の4,104.81。ソフトバンクグループは-3.92%の5,803円、ニデックは-6.07%の2,010円と下げ、アドバンテストは+1.66%の41,610円、ラクスは+4.66%の1,134円だった。引け後に安川電機は通期の売上高予想を6,000億円に上げる一方、営業利益予想を600億円から575億円に引き下げ、Sansanの6-8月期経常利益は前年同期の4.5倍の23.6億円だった。東京市場は10/10〜12が3連休で、再開は10/13。`,
+      `The Nikkei closed down 11.19 points at 69,030.92 on 10/9, while TOPIX rose 13.35 to 4,104.81. SoftBank Group fell 3.92% to 5,803 yen and Nidec fell 6.07% to 2,010 yen, while Advantest rose 1.66% to 41,610 yen and Rakus rose 4.66% to 1,134 yen. After the close Yaskawa raised its full-year sales forecast to 600 billion yen but cut its operating profit forecast from 60 billion to 57.5 billion yen, and Sansan's June-August ordinary profit was 4.5 times a year earlier at 2.36 billion yen. Tokyo is closed 10/10-12 and reopens 10/13.`,
+      `10/9 닛케이평균은 전일 대비 11.19엔 내린 69,030.92엔, TOPIX는 +13.35인 4,104.81이었다. 소프트뱅크그룹은 -3.92%인 5,803엔, 니덱은 -6.07%인 2,010엔으로 내렸고 어드반테스트는 +1.66%인 41,610엔, 라쿠스는 +4.66%인 1,134엔이었다. 장 마감 후 야스카와전기는 통기 매출 예상을 6,000억 엔으로 올렸지만 영업이익 예상은 600억 엔에서 575억 엔으로 낮췄고, Sansan의 6~8월 경상이익은 전년 동기의 4.5배인 23.6억 엔이었다. 도쿄 시장은 10/10~12 3연휴이며 10/13 재개된다.`)},
+ {h:T(`WTIは91.85ドル、金は+1.43%の4,216ドル FOMCは10/27〜28`,`WTI at $91.85, gold up 1.43% to $4,216; FOMC meets 10/27-28`,`WTI 91.85달러, 금 +1.43% 4,216달러, FOMC는 10/27~28`),
+  t:T(`10/9のWTI11月物は+0.39%の91.85ドルで、メキシコ湾に接近するハリケーンによる米海上油田の減産が買い材料だった。COMEX金12月限は+1.43%の4,216.30ドルで続伸した。10/7公表のFOMC議事要旨は年末までの追加利上げが適切との内容と報じられており(時事)、10/9の米消費者信頼感指数の結果は10月FOMCで据え置きとなる可能性を示唆したと伝えられた。ドル円は10/9夜に158円台前半、米10年債利回りは10/9朝に5.231%だった。`,
+      `WTI November futures rose 0.39% to $91.85 on 10/9, supported by output cuts at US offshore fields as a hurricane approached the Gulf of Mexico. COMEX December gold rose a second day, up 1.43% to $4,216.30. Jiji reported that the FOMC minutes published 10/7 favored another hike by year-end, and it was reported that the 10/9 consumer sentiment survey hinted the October FOMC might hold. USD/JPY was in the low 158s on the evening of 10/9 and the US 10-year yield was 5.231% on the morning of 10/9.`,
+      `10/9 WTI 11월물은 +0.39%인 91.85달러로, 멕시코만에 접근하는 허리케인에 따른 미국 해상 유전 감산이 매수 재료였다. COMEX 금 12월물은 +1.43%인 4,216.30달러로 이틀 연속 올랐다. 시사통신은 10/7 공개된 FOMC 의사요지가 연내 추가 인상이 적절하다는 내용이라고 보도했고, 10/9 미시간대 소비자신뢰지수 결과는 10월 FOMC에서 동결될 가능성을 시사했다고 전해졌다. 달러/엔은 10/9 저녁 158엔대 초반, 미 10년물 금리는 10/9 아침 5.231%였다.`)},
+ {h:T(`GPT-6がChatGPTに展開、AnthropicはHaiku 5.5とサイバーミッションを発表`,`GPT-6 rolls out in ChatGPT; Anthropic unveils Haiku 5.5 and a Cyber Mission`,`GPT-6 ChatGPT 적용 시작, Anthropic은 Haiku 5.5와 사이버 미션 공개`),
+  t:T(`OpenAIは10/7にChatGPTでGPT-6とIntelligent UIの展開を開始した(有料プランはSol、Free/Goは10/8からLuna)。Google Cloudは10/8にGemini agentを非公開プレビューで発表し、Claudeモデルにも対応するとした。Anthropicは10/8にClaude Haiku 5.5、重要インフラ防御とOSS Scannerからなるサイバーミッション、Claude DashboardsとMotionのベータを公開した。`,
+      `OpenAI began rolling out GPT-6 with Intelligent UI in ChatGPT on 10/7 (Sol for paid plans, Luna for Free and Go from 10/8). Google Cloud announced the Gemini agent in private preview on 10/8, saying it also runs on Claude models. On 10/8 Anthropic released Claude Haiku 5.5, launched its Cyber Mission (critical-infrastructure defense plus the OSS Scanner), and opened betas of Claude Dashboards and Claude Motion.`,
+      `OpenAI는 10/7 ChatGPT에서 GPT-6와 Intelligent UI 적용을 시작했다(유료 플랜은 Sol, Free/Go는 10/8부터 Luna). Google Cloud는 10/8 Gemini agent를 비공개 프리뷰로 발표하며 Claude 모델도 지원한다고 밝혔다. Anthropic은 10/8 Claude Haiku 5.5, 핵심 인프라 방어와 OSS Scanner로 구성된 사이버 미션, Claude Dashboards와 Motion 베타를 공개했다.`)}
 ];
 
 const CAL=[
- {d:`09/24`,t:T(`米中首脳会談(ワシントン)開催`,`Trump–Xi summit held in Washington`,`미중 정상회담(워싱턴) 개최`)},
- {d:`09/28`,t:T(`3月期決算企業の中間配当の権利付き最終売買日`,`Record date for interim dividends at March-fiscal-year companies`,`3월 결산 기업 중간배당 권리부 마지막 거래일`)},
- {d:`09/29`,t:T(`ファナック権利落ち日/ソフトバンク債の受渡(予定)`,`Fanuc ex-dividend / SoftBank bond settlement (expected)`,`화낙 권리락일 / 소프트뱅크 채권 결제(예정)`)},
- {d:`09/30`,t:T(`キオクシアHD、1対3株式分割の基準日`,`Kioxia Holdings' 1-for-3 stock split record date`,`키오크시아HD, 1대 3 액면분할 기준일`)},
- {d:`10/01`,t:T(`キオクシアHDの株式分割が効力発生(1株→3株)`,`Kioxia Holdings' stock split takes effect (1 share → 3)`,`키오크시아HD 액면분할 효력 발생(1주→3주)`)},
- {d:`10/09`,t:T(`安川電機・Sansanの決算発表`,`Yaskawa Electric and Sansan earnings`,`야스카와전기·Sansan 실적 발표`)},
+ {d:`10/10-12`,t:T(`東京市場は3連休(再開は10/13)`,`Tokyo markets closed for a three-day weekend (reopen 10/13)`,`도쿄 시장 3연휴(10/13 재개)`)},
  {d:`10/15`,t:T(`StepFun Step 5のオープンウェイト公開予定`,`StepFun Step 5 open weights due`,`StepFun Step 5 오픈 웨이트 공개 예정`)},
+ {d:`10/23`,t:T(`ファナックの決算発表予定`,`Fanuc earnings scheduled`,`파낙 실적 발표 예정`)},
+ {d:`10/27-28`,t:T(`FOMC(結果は日本時間10/29未明、ドットチャートなし)`,`FOMC (decision early 10/29 Tokyo time; no dot plot)`,`FOMC(결과는 한국·일본 시간 10/29 새벽, 점도표 없음)`)},
+ {d:`10/29-30`,t:T(`日銀金融政策決定会合(10/30に展望レポート)`,`BOJ policy meeting (Outlook Report on 10/30)`,`일본은행 금융정책결정회의(10/30 경제·물가 전망 보고서)`)},
+ {d:`11/03`,t:T(`米中間選挙`,`US midterm elections`,`미국 중간선거`)},
  {d:`11/10`,t:T(`米中関税休戦の期限`,`US–China tariff truce expires`,`미중 관세 휴전 만료`)},
- {d:`11月`,t:T(`Anthropic IPO(報道ベース)`,`Anthropic IPO (per reports)`,`Anthropic IPO(보도 기준)`)}
+ {d:`11/12`,t:T(`Anthropic新利用規約の発効日`,`Anthropic's new usage policy takes effect`,`Anthropic 새 이용약관 발효일`)},
+ {d:`11月`,t:T(`Anthropic IPO(報道ベース、最新状況は未確認)`,`Anthropic IPO (per reports; latest status not re-verified)`,`Anthropic IPO(보도 기준, 최신 상황 미확인)`)}
 ];
 
 const AI=[
+{id:`a15`,type:`ai`,tag:`invest`,important:true,date:`10/09`,
+ h:T(`OpenAIの売上巡る懸念は一服、年内に年換算700億ドル以上との見通しが伝わる`,`OpenAI revenue worries ease as reports say annualized revenue should reach $70B or more by year-end`,`OpenAI 매출 우려 진정, 연내 연환산 700억 달러 이상 전망 전해져`),
+ s:T(`10/8にFT報道で下落したAI株は10/9に反発。9月末は約500億ドルのまま、算出手法の違いも指摘された。`,`AI shares that fell on the 10/8 FT report rebounded on 10/9; end-September stays near $50B, with differences in calculation methods noted.`,`10/8 FT 보도로 내린 AI주는 10/9 반등. 9월 말은 약 500억 달러 수준이며 산출 방식 차이도 지적됨.`),
+ d:T(`みんかぶの米国株概況によると、10/8にFT報道を受けて下落したAI関連株は、10/9にOpenAIの年換算売上高が年内に700億ドルに達するか上回る見通しと伝わったことで買い戻された。9月末時点の年換算売上高は約500億ドル規模のままで、直近の予想を巡っては算出手法の違いによる相違も指摘された。ストラテジストからは、今回の売りは偏った投資家ポジションの調整を反映しており、AI関連株全体が急速にV字回復する可能性は低いとの指摘が出ている。また、AIを巡る問題は総額ベースか純額ベースかではなく、最先端モデルを独立して開発する企業の事業の魅力低下や、巨額の債券・株式発行への市場の抵抗だとの見方も伝えられた。OpenAI側の公式な数字は本カードでは確認していない。10/8にはSBGが一時-7%安となり、10/9は-3.92%の5,803円で引けた。`,
+     `Per Minkabu's US market wrap, AI shares that fell on the 10/8 FT report were bought back on 10/9 after reports said OpenAI's annualized revenue should reach $70B or more by year-end. End-September annualized revenue remains around $50B, and differences in calculation methods were also noted. A strategist said the selloff reflected adjustment of heavily crowded positions and that a quick V-shaped recovery across AI shares is unlikely; another view was that the real issue is not gross versus net ARR but the waning appeal of businesses that independently build frontier models and market resistance to huge debt and equity issuance. OpenAI's own figures were not verified for this card. SoftBank Group fell as much as 7% on 10/8 and closed 10/9 at 5,803 yen (-3.92%).`,
+     `민카부의 미국 증시 개황에 따르면 10/8 FT 보도로 내린 AI 관련주는 10/9 OpenAI의 연환산 매출이 연내 700억 달러에 이르거나 웃돌 전망이라는 보도에 되사들여졌다. 9월 말 연환산 매출은 약 500억 달러 수준이며 산출 방식 차이도 지적됐다. 전략가는 이번 매도가 쏠린 투자자 포지션의 조정을 반영하며 AI 관련주 전반이 빠르게 V자 회복할 가능성은 낮다고 지적했고, 문제의 본질은 총액·순액 기준이 아니라 최첨단 모델을 독자 개발하는 기업의 사업 매력 저하와 거액의 채권·주식 발행에 대한 시장의 저항이라는 시각도 전해졌다. OpenAI 측 공식 수치는 이 카드에서 확인하지 못했다. SBG는 10/8 한때 -7%까지 내렸고 10/9 -3.92%인 5,803엔에 마감했다.`),
+ src:[[`みんかぶ(米国株概況)`,`https://fx.minkabu.jp/news/381268`],[`日本経済新聞`,`https://www.nikkei.com/article/DGXZQOFL1000C0Q6A011C2000000/`],[`日本経済新聞(SBG株価)`,`https://nikkei.com/article/DGXZQOFL090UT0Z01C26A0000000`]]},
+{id:`a16`,type:`ai`,tag:`model`,important:true,date:`10/07`,
+ h:T(`ChatGPTでGPT-6とIntelligent UIの展開が開始`,`GPT-6 and Intelligent UI start rolling out in ChatGPT`,`ChatGPT에서 GPT-6와 Intelligent UI 적용 시작`),
+ s:T(`有料プランはGPT-6 Sol(10/7)、Free/GoはGPT-6 Luna(10/8)。回答にチャートやフォームなどを埋め込める。`,`GPT-6 Sol for paid plans (10/7), GPT-6 Luna for Free and Go (10/8); answers can embed charts, forms and tools.`,`유료 플랜은 GPT-6 Sol(10/7), Free/Go는 GPT-6 Luna(10/8). 답변에 차트·폼 등을 넣을 수 있음.`),
+ d:T(`OpenAIのリリースノートによると、10/7からChatGPTのChatタブでGPT-6とIntelligent UIの展開が始まった。Plus、Pro、Business、EnterpriseはGPT-6 Sol、Free/Goは10/8からGPT-6 Lunaを使う。Intelligent UIは回答にテキストと図、ボタン、小さなツールなどを組み合わせる機能で、Instantから Extra Highまでの推論設定で使える。Proの推論設定は引き続きGPT-6 Astraで、Intelligent UIには対応しない。SolとLunaは9/22にWorkとCodex向けに先行して発表されている。`,
+     `Per OpenAI's release notes, GPT-6 with Intelligent UI began rolling out in ChatGPT's Chat tab on 10/7. Plus, Pro, Business and Enterprise use GPT-6 Sol, while Free and Go move to GPT-6 Luna from 10/8. Intelligent UI combines text with visuals, buttons and small tools in an answer and works from Instant through Extra High reasoning. The Pro reasoning option still uses GPT-6 Astra and does not support Intelligent UI. Sol and Luna were introduced earlier, on 9/22, for Work and Codex.`,
+     `OpenAI 릴리스 노트에 따르면 10/7부터 ChatGPT의 Chat 탭에서 GPT-6와 Intelligent UI 적용이 시작됐다. Plus, Pro, Business, Enterprise는 GPT-6 Sol을, Free/Go는 10/8부터 GPT-6 Luna를 쓴다. Intelligent UI는 답변에 텍스트와 시각 자료, 버튼, 작은 도구 등을 결합하는 기능으로 Instant부터 Extra High까지의 추론 설정에서 쓸 수 있다. Pro 추론 설정은 계속 GPT-6 Astra를 쓰며 Intelligent UI를 지원하지 않는다. Sol과 Luna는 9/22에 Work와 Codex용으로 먼저 공개됐다.`),
+ src:[[`OpenAI Help Center`,`https://help.openai.com/en/articles/6825453-chatgpt-release-notes`]]},
+{id:`a17`,type:`ai`,tag:`sec`,date:`10/08`,
+ h:T(`Anthropic、重要インフラ防御とOSS Scannerを担う「サイバーミッション」を開始`,`Anthropic launches a Cyber Mission: critical-infrastructure defense and an OSS Scanner`,`Anthropic, 핵심 인프라 방어와 OSS Scanner를 담은 '사이버 미션' 시작`),
+ s:T(`11社の創設パートナーと、オープンソースを無償でスキャンするオプトイン型サービスの2本立て。`,`Two programs: 11 founding partners plus a free opt-in service that scans open-source software.`,`11개 창립 파트너와, 오픈소스를 무료로 스캔하는 옵트인 서비스의 두 축.`),
+ d:T(`報道によると、Anthropicは10/8にAnthropic サイバーミッションを発表した。公共が依存するシステムを守る長期的な取り組みで、11社の創設パートナーが参加する重要インフラ防御プログラムと、同社の最先端モデルでオープンソースソフトウェアを定期的にセキュリティスキャンする無料のオプトインサービス「OSS Scanner」から始まる。別の報道では、登録したリポジトリの未確認レポートを再現手順と修正パッチ付きでメール送付するとされる。`,
+     `Reports say Anthropic announced the Anthropic Cyber Mission on 10/8, a long-term effort to protect systems the public depends on. It starts with a critical-infrastructure defense program backed by 11 founding partners and the OSS Scanner, a free opt-in service that regularly security-scans open-source software with its frontier models. Another report says it emails unreviewed findings for enrolled repositories with reproducers and patches.`,
+     `보도에 따르면 Anthropic은 10/8 Anthropic 사이버 미션을 발표했다. 대중이 의존하는 시스템을 지키기 위한 장기 프로젝트로, 11개 창립 파트너가 참여하는 핵심 인프라 방어 프로그램과, 최첨단 모델로 오픈소스 소프트웨어를 정기적으로 보안 스캔하는 무료 옵트인 서비스 'OSS Scanner'로 시작한다. 다른 보도에 따르면 등록한 저장소의 미검토 보고서를 재현 절차와 수정 패치와 함께 이메일로 보낸다.`),
+ src:[[`Unite.AI`,`https://unite.ai/ja/anthropic-launches-cyber-mission-for-critical-infrastructure-open-source`]]},
+{id:`a18`,type:`ai`,tag:`product`,date:`10/08`,
+ h:T(`Claude Haiku 5.5を公開、Claude DashboardsとMotionがベータに`,`Claude Haiku 5.5 released; Claude Dashboards and Motion enter beta`,`Claude Haiku 5.5 공개, Claude Dashboards·Motion 베타 시작`),
+ s:T(`小型モデルの最新版が即日提供。社内データからライブダッシュボード、文章やグラフからMP4動画を生成。`,`Latest small model available immediately; build live dashboards from internal data and turn text or charts into MP4 video.`,`소형 모델 최신판 즉시 제공. 사내 데이터로 라이브 대시보드, 글·그래프로 MP4 영상 생성.`),
+ d:T(`報道によると、Anthropicは10/8に小型モデルの最新版「Claude Haiku 5.5」を発表し、即日提供を始めた。同日、Claude Dashboards(自然な言葉の質問から社内データのライブダッシュボードを構築)とClaude Motion(文章やグラフをMP4動画にする)をベータ版で公開した。対象プランや接続先の詳細は出典先を参照。`,
+     `Reports say Anthropic announced its latest small model, Claude Haiku 5.5, on 10/8 and made it available immediately. The same day it opened betas of Claude Dashboards, which builds live dashboards on internal data from plain-language questions, and Claude Motion, which turns text or charts into MP4 video. See the sources for eligible plans and connections.`,
+     `보도에 따르면 Anthropic은 10/8 소형 모델 최신판 'Claude Haiku 5.5'를 발표하고 즉시 제공을 시작했다. 같은 날 Claude Dashboards(자연어 질문으로 사내 데이터의 라이브 대시보드 구축)와 Claude Motion(글이나 그래프를 MP4 영상으로 변환)을 베타로 공개했다. 대상 플랜과 연결처 등 자세한 내용은 출처를 참고.`),
+ src:[[`Yahoo!ニュース(リアルサウンド)`,`https://news.yahoo.co.jp/articles/f8a4d3ddacc68d8150916faf3ff5a0813596459b`],[`pasqualepillitteri.it`,`https://pasqualepillitteri.it/ja/news/21711/claude-dashboards-motion-beta-anthropic-ja`]]},
+{id:`a19`,type:`ai`,tag:`product`,date:`10/08`,
+ h:T(`Google Cloud、仕事向け汎用エージェント「Gemini agent」を発表`,`Google Cloud unveils Gemini agent, a general-purpose work agent`,`Google Cloud, 업무용 범용 에이전트 'Gemini agent' 공개`),
+ s:T(`GeminiとClaudeのモデルを使い分けて動く。非公開プレビューで、価格と一般提供の時期は未発表。`,`Runs on both Gemini and Claude models; private preview, with pricing and general availability not announced.`,`Gemini와 Claude 모델을 함께 활용. 비공개 프리뷰이며 가격과 일반 제공 시기는 미발표.`),
+ d:T(`Google Cloudは10/8の「Gemini at Work 2026」で、仕事向けの汎用エージェント「Gemini agent」を発表した。単一のプロンプト欄から目標を受け取り、計画、ツール利用、社内システムへの接続を行い、成果物をGmailやDocsなどに届ける。GeminiモデルとAnthropicのClaudeモデルを使い分けるが、現時点では非公開プレビューで、価格、提供地域、一般提供の時期は示されていない。`,
+     `At Gemini at Work 2026 on 10/8, Google Cloud announced the Gemini agent, a general-purpose agent for work. It takes a goal from a single prompt box, plans, uses tools, connects to internal systems and delivers outputs to Gmail, Docs and other apps. It uses both Gemini and Anthropic's Claude models, but it is in private preview and pricing, regions and general availability have not been announced.`,
+     `Google Cloud는 10/8 'Gemini at Work 2026'에서 업무용 범용 에이전트 'Gemini agent'를 발표했다. 하나의 프롬프트 창에서 목표를 받아 계획하고 도구를 사용하며 사내 시스템에 연결해 결과물을 Gmail, Docs 등에 전달한다. Gemini 모델과 Anthropic의 Claude 모델을 함께 쓰지만 현재는 비공개 프리뷰이며 가격, 제공 지역, 일반 제공 시기는 공개되지 않았다.`),
+ src:[[`pasqualepillitteri.it`,`https://pasqualepillitteri.it/ja/news/21753/google-gemini-agent-happyo-claude`]]},
 {id:`a13`,type:`ai`,tag:`model`,date:`09/29`,
  h:T(`OpenAI、DevDay 2026で新モデル「GPT-6.1 Sol」と新製品「Dots」を発表`,`OpenAI unveils "GPT-6.1 Sol" and a new product, "Dots," at DevDay 2026`,`OpenAI, DevDay 2026에서 신모델 'GPT-6.1 Sol'과 신제품 'Dots' 공개`),
  s:T(`同日、フロンティアAI訓練の安全性に関する論文も公開。9/25の訓練停止公表を踏まえた対応とみられる。`,`The same day it also published a paper on frontier AI training safety, seen as a response following its 9/25 training-pause disclosure.`,`같은 날 프런티어 AI 훈련 안전성에 관한 논문도 공개. 9/25 훈련 중단 공표에 대응한 것으로 보임.`),
@@ -450,14 +502,14 @@ saas:[
      `At Dreamforce 2026 (9/16-18) Salesforce unveiled Agentforce 360, framing Slack as a "coordination engine" and Data Cloud as the "context layer," but shares stayed near 52-week lows around $249. BofA raised its target to $380 from $375 and Evercore ISI to $290 from $275, both keeping buy ratings. The market's worry appears to be pressure on legacy license revenue as the platform shifts toward agents.`,
      `Dreamforce 2026(9/16-18)에서 Salesforce는 Agentforce 360을 공개하며 Slack을 '조율 엔진', Data Cloud를 '컨텍스트 기반'으로 내세웠지만 주가는 52주 저점권인 $249 부근에 머물렀다. BofA는 목표주가를 $375에서 $380으로, Evercore ISI는 $275에서 $290으로 올리며 매수 의견을 유지했다. 시장의 우려는 에이전트 전환에 따른 기존 라이선스 매출 영향으로 보인다.`),
  src:[[`Investing.com`,`https://www.investing.com/news/stock-market-news/salesforce-stock-slips-despite-agentforce-360-launch-at-dreamforce-93CH-4372432`]]},
-{id:`s2`,country:`US`,tick:`SNOW`,name:T(`スノーフレイク`,`Snowflake`,`스노우플레이크`),date:`10/05`,px:`$338.99`,chg1d:-0.60,chg1m:15.0,chg1y:52.0,mcap:118,
+{id:`s2`,country:`US`,tick:`SNOW`,name:T(`スノーフレイク`,`Snowflake`,`스노우플레이크`),date:`10/09`,px:`$368.89`,chg1d:7.42,chg1m:15.0,chg1y:52.0,mcap:118,
  h:T(`AI関連引き合いが好調、Truistが目標株価を$285に`,`AI-related demand strong; Truist lifts target to $285`,`AI 관련 수요 호조, Truist 목표주가 $285로`),
  s:T(`データ基盤×AIエージェントの需要が続くとの見立て。次回決算は11月下旬の見込み。`,`Analysts cite continued demand at the intersection of data platforms and AI agents; next earnings expected late November.`,`데이터 플랫폼과 AI 에이전트 수요 지속 전망. 다음 실적 발표는 11월 말 예정.`),
  d:T(`Snowflakeは直近決算でAI関連製品の採用拡大を強調しており、複数のセルサイドはデータクラウドとエージェント需要の掛け合わせを強気材料として指摘している。次回決算発表は11月下旬が見込まれる。`,
      `Snowflake's most recent quarter highlighted expanding adoption of its AI-related products, and several sell-side desks cite the combination of data-cloud and agent demand as a bullish driver. Next earnings are expected in late November.`,
      `Snowflake는 최근 실적에서 AI 관련 제품 채택 확대를 강조했으며, 여러 매도측 데스크는 데이터 클라우드와 에이전트 수요의 결합을 강세 요인으로 지목한다. 다음 실적 발표는 11월 말로 예상된다.`),
  src:[[`StockTwits`,`https://stocktwits.com/symbol/SNOW`]]},
-{id:`s3`,country:`US`,tick:`NOW`,name:T(`サービスナウ`,`ServiceNow`,`서비스나우`),date:`10/05`,px:`$136.08`,chg1d:1.27,chg1m:-5.0,chg1y:null,mcap:147,
+{id:`s3`,country:`US`,tick:`NOW`,name:T(`サービスナウ`,`ServiceNow`,`서비스나우`),date:`10/09`,px:`$140.86`,chg1d:0.79,chg1m:-5.0,chg1y:null,mcap:147,
  h:T(`5対1の株式分割後、年初来では軟調`,`Underwater year-to-date since its 5-for-1 stock split`,`5대 1 액면분할 이후 연초 대비 부진`),
  s:T(`2025年12月18日付で5対1の株式分割を実施。分割後ベースで年初来では軟調な値動きが続く。`,`Completed a 5-for-1 stock split effective Dec 18, 2025; on a split-adjusted basis shares remain weak year-to-date.`,`2025년 12월 18일자로 5대 1 액면분할 실시. 분할 조정 기준으로 연초 대비 부진한 흐름이 이어짐.`),
  d:T(`ServiceNowは2025年12月18日付で普通株式を5対1で分割しており、株価は分割後ベースで比較する必要がある。分割調整後で見ると、同社は今年のエンタープライズソフトウェア株の中でも年初来パフォーマンスが目立って弱いとされ、AIによる混乱への懸念からソフトウェア株が売られた局面で他のクラウド銘柄と共に一時的に反発する場面もあった。次回決算発表と新製品の発表スケジュールが注目材料。`,
@@ -471,14 +523,14 @@ saas:[
      `Through late 2025 Synopsys pushed ahead on AI initiatives such as an expanded Arm partnership on AGI-oriented CPU collaboration, but it also carried out a multi-billion-dollar private placement of common shares that reportedly brought in Elliott Investment Management as a major holder. Dilution concerns and valuation worries have driven the stock sharply lower from around $470 in April to near $397 recently, well off its 52-week high of $651.73. Analyst sentiment leans mildly positive, but the valuation debate continues.`,
      `Synopsys는 2025년 후반 Arm과의 제휴 확대(AGI向け CPU 협업) 등 AI 관련 행보를 이어가는 한편, 수십억 달러 규모의 보통주 사모증자를 실시해 Elliott Investment Management가 주요 주주로 참여했다고 보도되었다. 증자에 따른 희석 우려와 높은 밸류에이션 경계감으로 주가는 4월 $470대에서 최근 $397대까지 크게 하락해 52주 고점 $651.73에서 크게 멀어진 연중 저점권에 머물러 있다. 애널리스트 의견은 다소 긍정적이지만 밸류에이션 논쟁은 계속되고 있다.`),
  src:[[`Robinhood`,`https://robinhood.com/stocks/SNPS`],[`Benzinga`,`https://kr.benzinga.com/quote/snps`]]},
-{id:`s12`,country:`JP`,tick:`4443.T`,name:T(`Sansan`,`Sansan`,`산산`),date:`10/06`,px:`¥2,170`,chg1d:3.73,chg1m:-2.0,chg1y:20.0,mcap:1.75,
+{id:`s12`,country:`JP`,tick:`4443.T`,name:T(`Sansan`,`Sansan`,`산산`),date:`10/09`,px:`¥2,219`,chg1d:4.03,chg1m:-2.0,chg1y:20.0,mcap:1.75,
  h:T(`決算好調で急伸、次回決算は10/9`,`Jumps on strong results; next earnings 10/9`,`실적 호조로 급등, 다음 실적 발표는 10/9`),
  s:T(`主力のSansan・Bill Oneが牽引し増収増益。13期連続増収、4期連続増益。`,`Core Sansan and Bill One products drove higher sales and profit; a 13th straight year of revenue growth and 4th of profit growth.`,`주력 Sansan·Bill One이 견인해 증수증익. 13기 연속 증수, 4기 연속 증익.`),
  d:T(`7/13発表の2026年5月期はSansan・Bill Oneの成長により売上高が前年同期比24.4%増の537.61億円、調整後営業利益が137.0%増の84.27億円。連結経常利益は前期比3.0倍の81.7億円で、13期連続増収・4期連続増益。次回決算発表は2026年10月9日の予定で、27年5月期はAI機能拡充による増収と利益率改善の両立を目指すとしている。時価総額は約2,860億円。`,
      `Results reported 7/13 for the year ended May 2026 showed sales up 24.4% year on year to ¥53.761B and adjusted operating profit up 137.0% to ¥8.427B, driven by the core Sansan and Bill One products. Consolidated ordinary profit tripled to ¥8.17B, marking a 13th straight year of revenue growth and 4th of profit growth. Next earnings are due October 9, 2026; guidance for FY2027/5 targets both growth and margin improvement through expanded AI features. Market cap is roughly ¥286 billion.`,
      `7/13 발표된 2026년 5월기 실적은 Sansan·Bill One의 성장으로 매출이 전년 동기 대비 24.4% 증가한 537.61억 엔, 조정 영업이익은 137.0% 증가한 84.27억 엔을 기록했다. 연결 경상이익은 전기 대비 3.0배인 81.7억 엔으로 13기 연속 증수, 4기 연속 증익이다. 다음 실적 발표는 2026년 10월 9일 예정이며, 27년 5월기는 AI 기능 확충을 통한 증수와 이익률 개선을 함께 노린다. 시가총액은 약 2,860억 엔이다.`),
  src:[[`みんかぶ`,`https://minkabu.jp/stock/4443`],[`Yahoo!ファイナンス`,`https://finance.yahoo.co.jp/quote/4443.T`]]},
-{id:`s13`,country:`JP`,tick:`3923.T`,name:T(`ラクス`,`Rakus`,`라쿠스`),date:`10/06`,px:`¥1,047`,chg1d:2.75,chg1m:-15.0,chg1y:20.0,mcap:2.45,
+{id:`s13`,country:`JP`,tick:`3923.T`,name:T(`ラクス`,`Rakus`,`라쿠스`),date:`10/09`,px:`¥1,134`,chg1d:4.66,chg1m:-15.0,chg1y:20.0,mcap:2.45,
  h:T(`IT人材事業の連結除外で減速も特別利益で最終増益`,`Deconsolidation slows revenue, but a one-off gain lifts net profit`,`IT 인재 사업 연결 제외로 둔화, 특별이익으로 최종 증익`),
  s:T(`8月末に急落した後、月次開示と目標株価引き上げで反発局面。`,`Fell sharply in late August, then rebounded on monthly disclosures and a raised price target.`,`8월 말 급락 후 월간 공시와 목표주가 상향으로 반등 국면.`),
  d:T(`2027年3月期第1四半期はIT人材事業の連結除外により売上高が前年同期比0.9%増の142億円と横ばいだったが、コスト効率化で営業利益は30.1%増の48億円、子会社株式譲渡による特別利益167億円を計上し最終利益は313.6%増の146億円。株価は9/11に年初来安値圏の1,021.5円まで下げた後、9/14の月次売上高開示で反発し1日で+7.39%。同日、米系大手証券は目標株価を1,200円に引き上げた。9/18終値は1,082円、時価総額は約3,834億円。`,
@@ -501,28 +553,28 @@ semi:[
      `On 9/17 the Philadelphia Semiconductor Index (SOX) jumped more than 3%, lifting TSMC, Broadcom, Micron and Applied Materials among others. The rally is attributed to renewed optimism over continued AI infrastructure spending, and TSMC's ADR rose sharply as well.`,
      `9/17 필라델피아 반도체지수(SOX)가 3% 넘게 급등하며 TSMC, Broadcom, Micron, Applied Materials 등 주요 종목이 일제히 올랐다. AI 인프라 투자 지속에 대한 낙관이 배경으로 보이며 TSMC ADR도 큰 폭으로 상승했다.`),
  src:[[`Investing.com`,`https://www.investing.com/news/stock-market-news`]]},
-{id:`s6`,country:`JP`,tick:`6920.T`,name:T(`レーザーテック`,`Lasertec`,`레이저텍`),date:`10/06`,px:`¥46,320`,chg1d:0.28,chg1m:15.0,chg1y:20.0,mcap:25.4,
+{id:`s6`,country:`JP`,tick:`6920.T`,name:T(`レーザーテック`,`Lasertec`,`레이저텍`),date:`10/09`,px:`¥48,560`,chg1d:4.18,chg1m:15.0,chg1y:20.0,mcap:25.4,
  h:T(`半導体製造装置株が東京市場でも堅調`,`Chip-equipment names firm in Tokyo trade too`,`반도체 장비주, 도쿄 증시에서도 견조`),
  s:T(`日経平均の上昇局面で半導体関連が指数をけん引。`,`Semiconductor-related names led the index during the Nikkei's advance.`,`닛케이 상승 국면에서 반도체 관련주가 지수를 견인.`),
  d:T(`9/18の日経平均は65,019円(+1.38%)で終え、半導体製造装置株が上昇をけん引したと報じられている。EUV検査装置で存在感のあるレーザーテックなど関連銘柄への資金流入が観測された。`,
      `The Nikkei 225 closed 9/18 at 65,019 (+1.38%), with reports crediting chip-equipment names for leading the advance. Inflows were observed into related names such as Lasertec, a key player in EUV inspection tools.`,
      `9/18 닛케이 평균은 65,019엔(+1.38%)으로 마감했고, 반도체 장비주가 상승을 견인했다고 보도되었다. EUV 검사 장비 강자인 레이저텍 등 관련 종목으로 자금 유입이 관측되었다.`),
  src:[[`NewsOnJapan`,`https://newsonjapan.com/`]]},
-{id:`s7`,important:true,country:`JP`,tick:`9984.T`,name:T(`ソフトバンクグループ`,`SoftBank Group`,`소프트뱅크그룹`),date:`10/06`,px:`¥6,295`,chg1d:-3.11,chg1m:20.0,chg1y:40.0,mcap:238,
+{id:`s7`,important:true,country:`JP`,tick:`9984.T`,name:T(`ソフトバンクグループ`,`SoftBank Group`,`소프트뱅크그룹`),date:`10/09`,px:`¥5,803`,chg1d:-3.92,chg1m:20.0,chg1y:40.0,mcap:238,
  h:T(`OpenAI向け追加出資の原資として約110億ドルの社債を計画`,`Plans roughly $11B in bonds to fund more OpenAI investment`,`OpenAI 추가 투자 재원으로 약 110억 달러 채권 계획`),
  s:T(`条件決定は9/24前後、決済は9/29前後の見込みと報道。`,`Pricing expected around 9/24, settlement around 9/29, per reports.`,`조건 확정은 9/24 전후, 결제는 9/29 전후로 보도.`),
  d:T(`ロイターなどによると、ソフトバンクグループはOpenAIへの追加出資の原資として、円建て・ドル建てを組み合わせ約110億ドル相当の社債発行を計画している。条件決定は9/24前後、受け渡しは9/29前後と見込まれる。同社はOpenAIへの累計コミットメントが大きく、AI関連の資金調達動向が株価材料として注目され続けている。`,
      `Per Reuters and other outlets, SoftBank Group is planning roughly $11 billion in combined yen- and dollar-denominated bonds to help fund further investment in OpenAI, with pricing expected around 9/24 and settlement around 9/29. The company's large cumulative OpenAI commitment keeps AI-related financing activity a key share-price driver.`,
      `로이터 등에 따르면 소프트뱅크그룹은 OpenAI 추가 투자 재원으로 엔화·달러 표시를 조합한 약 110억 달러 규모의 채권 발행을 계획하고 있으며, 조건 확정은 9/24 전후, 결제는 9/29 전후로 예상된다. 회사의 누적 OpenAI 투자 규모가 크기 때문에 AI 관련 자금 조달 동향이 주가 재료로 계속 주목받고 있다.`),
  src:[[`Reuters`,`https://www.reuters.com/technology/`]]},
-{id:`s8`,country:`US`,tick:`NVDA`,name:T(`エヌビディア`,`NVIDIA`,`엔비디아`),date:`10/05`,px:`$238.90`,chg1d:2.12,chg1m:6.0,chg1y:92.0,mcap:5450,
+{id:`s8`,country:`US`,tick:`NVDA`,name:T(`エヌビディア`,`NVIDIA`,`엔비디아`),date:`10/09`,px:`$229.28`,chg1d:-0.52,chg1m:6.0,chg1y:92.0,mcap:5450,
  h:T(`追加150億ドルの自社株買いを承認、総額2,350億ドルに`,`Authorizes an extra $15B buyback, lifting the total to $235B`,`추가 150억 달러 자사주 매입 승인, 총액 2,350억 달러로`),
  s:T(`9/30終値は前日比+0.51%の228.38ドル。買い戻し総額は米国上場企業60社超の時価総額を上回る規模。`,`Closed 9/30 up 0.51% at $228.38. The buyback total now exceeds the market caps of more than 60 US-listed companies.`,`9/30 종가는 전일 대비 +0.51%인 228.38달러. 매입 총액은 미국 상장사 60여 곳의 시가총액을 넘는 규모.`),
  d:T(`NVIDIAは9/30、追加で150億ドルの自社株買いを承認し、買い戻し総額を2028年までに2,350億ドルへ拡大すると発表した。この金額は現在の米国上場企業60社超の時価総額を上回る規模とされる。同日の株価は前日比+0.51%の228.38ドルで終え、出来高は直近3カ月平均をやや下回った。AMDは+0.69%、Broadcomは-1.10%と半導体株は銘柄ごとにまちまちの動き。ハイパースケーラーのAI投資継続への期待に加え、FT報道のオフバランスAI債務問題など資金調達面の話題も引き続き市場の関心を集めている。`,
      `On 9/30 NVIDIA authorized an additional $15 billion in buybacks, expanding its total repurchase authorization to $235 billion through 2028 — an amount that now exceeds the market caps of more than 60 US-listed companies. Shares closed that day up 0.51% at $228.38 on volume slightly below the three-month average. Peers were mixed: AMD rose 0.69% while Broadcom fell 1.10%. Alongside continued expectations for hyperscaler AI capex, financing-side topics such as the FT's reporting on off-balance-sheet AI debt continue to draw market attention.`,
      `NVIDIA는 9/30 추가로 150억 달러 규모의 자사주 매입을 승인하며 2028년까지의 매입 총액을 2,350억 달러로 확대한다고 발표했다. 이 금액은 현재 미국 상장사 60여 곳의 시가총액을 넘는 규모로 평가된다. 같은 날 주가는 전일 대비 +0.51%인 228.38달러로 마감했으며 거래량은 최근 3개월 평균을 약간 밑돌았다. 동종 반도체주는 종목별로 엇갈려 AMD는 +0.69%, Broadcom은 -1.10%였다. 하이퍼스케일러의 AI 투자 지속 기대와 더불어 FT가 보도한 장부 외 AI 부채 문제 등 자금 조달 관련 화제도 계속 시장의 관심을 끌고 있다.`),
  src:[[`Yahoo Finance`,`https://finance.yahoo.com/markets/stocks/articles/stock-market-today-sept-30-214001304.html`]]},
-{id:`s15`,important:true,country:`JP`,tick:`285A.T`,name:T(`キオクシアホールディングス`,`Kioxia Holdings`,`키오크시아 홀딩스`),date:`10/06`,px:`¥18,735(分割後)`,chg1d:-2.01,chg1m:15.0,chg1y:120.0,mcap:81,
+{id:`s15`,important:true,country:`JP`,tick:`285A.T`,name:T(`キオクシアホールディングス`,`Kioxia Holdings`,`키오크시아 홀딩스`),date:`10/09`,px:`¥17,505`,chg1d:-2.21,chg1m:15.0,chg1y:120.0,mcap:81,
  h:T(`1対3株式分割が本日効力発生、分割後ベースで取引開始`,`1-for-3 stock split takes effect today; trading starts on a post-split basis`,`1대 3 액면분할이 오늘 효력 발생, 분할 후 기준으로 거래 시작`),
  s:T(`分割前終値5万4,570円の3分の1相当の1万7,880円で取引開始。分割自体は価値を変えないが、初日は売りも出て軟調。`,`Opened at ¥17,880, about one-third of the pre-split close of ¥54,570. The split itself doesn't change value, but shares traded soft on day one amid some selling.`,`분할 전 종가 5만4,570엔의 약 3분의 1인 1만7,880엔으로 거래 시작. 분할 자체는 가치를 바꾸지 않지만 첫날은 매도도 나와 약세.`),
  d:T(`キオクシアは7/31発表の1対3株式分割(基準日9/30、効力発生日10/1)が本日より適用され、分割後ベースの1万7,880円(分割前終値5万4,570円の約1/3)で取引を開始した。これにより単元株(100株)の最低投資額は約178万円に下がり個人投資家の買いやすさが増す一方、分割自体は企業価値を変えないため、同時に進めている上限8,000億円・3,000万株の自社株買い(8/3〜10/30)の進捗や、2027年3月期第1四半期の大幅増収増益(売上収益+415.5%、営業利益1兆2,700億円)を支えるAI向けNAND需要の持続性が今後の株価材料となる。株式分割の発表直後から一部で「分割で必ず上がる」との楽観も見られたが、初日は売りが出て軟調な場面も報じられている。`,
@@ -539,21 +591,21 @@ semi:[
  src:[[`글로벌이코노믹`,`https://www.g-enews.com/article/Global-Biz/2026/09/202609210656395048fbbec65dfb_1`],[`서울신문`,`https://www.seoul.co.kr/news/economy/2026/05/29/20260529500167`]]}
 ],
 robo:[
-{id:`s9`,country:`JP`,tick:`6954.T`,name:T(`ファナック`,`Fanuc`,`화낙`),date:`10/06`,px:`¥6,220`,chg1d:0.55,chg1m:10.0,chg1y:25.0,mcap:38,
+{id:`s9`,country:`JP`,tick:`6954.T`,name:T(`ファナック`,`Fanuc`,`화낙`),date:`10/09`,px:`¥6,103`,chg1d:1.40,chg1m:10.0,chg1y:25.0,mcap:38,
  h:T(`NVIDIAとの「フィジカルAI」協業で株価が上昇基調`,`Shares trend higher on a "physical AI" tie-up with NVIDIA`,`NVIDIA와 '피지컬 AI' 협업으로 주가 상승 기조`),
  s:T(`産業用ロボットにNVIDIAのAI基盤を組み込む取り組みが好感され、株価は年初来で上昇。9/29が期末配当の権利落ち日。`,`Plans to embed NVIDIA's AI platform into its industrial robots have been well received, with shares up year-to-date; 9/29 is the ex-dividend date.`,`산업용 로봇에 NVIDIA의 AI 플랫폼을 접목하는 계획이 호평받아 주가는 연초 대비 상승. 9/29는 기말 배당 권리락일.`),
  d:T(`ファナックはNVIDIAとの協業でAI基盤を活用した「フィジカルAI」ロボットの開発を進めており、この取り組みが好感され株価は堅調に推移している。産業用ロボットとCNC装置の世界大手として、フィジカルAI・ヒューマノイド関連の投資テーマの中で引き続き物色されやすい銘柄。9/29は期末配当の権利落ち日にあたる。`,
      `Fanuc has been developing "physical AI" robots that embed NVIDIA's AI platform, and the collaboration has been well received, keeping shares on a firm trend. As a leading global maker of industrial robots and CNC equipment, it remains a name investors favor within the physical-AI and humanoid investment theme. September 29 is the ex-dividend date for the fiscal-year-end dividend.`,
      `화낙은 NVIDIA와의 협업으로 AI 플랫폼을 활용한 '피지컬 AI' 로봇 개발을 진행 중이며, 이 행보가 호평받아 주가는 견조한 흐름을 보이고 있다. 산업용 로봇과 CNC 장비의 세계적 대표주로서 피지컬 AI·휴머노이드 투자 테마 속에서 계속 주목받기 쉬운 종목이다. 9/29는 기말 배당 권리락일에 해당한다.`),
  src:[[`Fanuc IR`,`https://www.fanuc.co.jp/en/ir/`],[`kabutan`,`https://kabutan.jp/stock/?code=6954`]]},
-{id:`s10`,country:`JP`,tick:`6506.T`,name:T(`安川電機`,`Yaskawa Electric`,`야스카와전기`),date:`10/06`,px:`¥4,925`,chg1d:-0.12,chg1m:-8.0,chg1y:10.0,mcap:8.0,
+{id:`s10`,country:`JP`,tick:`6506.T`,name:T(`安川電機`,`Yaskawa Electric`,`야스카와전기`),date:`10/09`,px:`¥4,783`,chg1d:-0.12,chg1m:-8.0,chg1y:10.0,mcap:8.0,
  h:T(`次回決算発表は10/9の見込み`,`Next earnings expected 10/9`,`다음 실적 발표는 10/9 예정`),
  s:T(`協働ロボットとモーションコントロールの受注動向が焦点。年初来高値7,915円からは大きく調整。`,`Order trends in collaborative robots and motion control are the focus; shares have corrected well off their 52-week high of ¥7,915.`,`협동로봇과 모션 컨트롤 수주 동향이 초점. 연중 고점 7,915엔에서 크게 조정.`),
  d:T(`安川電機の次回決算発表は10/9頃の見込み。株価は6/22の年初来高値7,915円から調整が続き、9/28時点で4,486円と高値から4割超低い水準。ロボット・フィジカルAI関連の設備投資動向を占う材料として、協働ロボットやサーボモーター事業の受注状況が引き続き注目される。`,
      `Yaskawa's next earnings report is expected around 10/9. Shares have corrected sharply from their 52-week high of ¥7,915 on 6/22, trading around ¥4,486 on 9/28, more than 40% below that peak. Order trends in its collaborative-robot and servo-motor businesses remain the key gauge of capex activity in the robotics and physical-AI space.`,
      `야스카와전기의 다음 실적 발표는 10/9 무렵으로 예상된다. 주가는 6/22 연중 고점 7,915엔에서 조정이 이어져 9/28 기준 4,486엔으로 고점 대비 40% 넘게 낮은 수준이다. 로봇·피지컬 AI 관련 설비투자 동향을 가늠하는 재료로 협동로봇과 서보모터 사업의 수주 상황이 계속 주목받는다.`),
  src:[[`Yaskawa IR`,`https://www.yaskawa.co.jp/en/ir`],[`日本経済新聞`,`https://www.nikkei.com/nkd/company/?scode=6506`]]},
-{id:`s11`,country:`US`,tick:`TSLA`,name:T(`テスラ`,`Tesla`,`테슬라`),date:`10/05`,px:`$378.73`,chg1d:2.20,chg1m:-2.0,chg1y:15.0,mcap:1412,
+{id:`s11`,country:`US`,tick:`TSLA`,name:T(`テスラ`,`Tesla`,`테슬라`),date:`10/09`,px:`$382.70`,chg1d:2.05,chg1m:-2.0,chg1y:15.0,mcap:1412,
  h:T(`JPMorganが目標株価を445→415ドルに引き下げ`,`JPMorgan cuts its price target to $415 from $445`,`JPMorgan, 목표주가 445→415달러로 하향`),
  s:T(`レーティングは「中立」を維持。ロードスター発表と第3四半期納車データを控え株価は軟調。`,`Rating stays Neutral; shares are soft ahead of the Roadster reveal and Q3 delivery data.`,`등급은 '중립' 유지. 로드스터 발표와 3분기 인도량 데이터를 앞두고 주가는 약세.`),
  d:T(`テスラ株は9/28、前日比3.94%安の357.45ドルで取引を終えた。JPMorganは同日、目標株価を445ドルから415ドルへ引き下げた一方、レーティングは「中立」を維持した。ロードスターの発表イベントと第3四半期の納車台数データを控え、市場の関心が高まっている。ヒューマノイドロボットOptimusの量産スケジュールも引き続き中長期の材料とされる。`,
@@ -564,27 +616,27 @@ robo:[
 movers:[
 {id:`m6`,important:true,country:`JP`,tick:`9246.T`,sector:`hr`,name:T(`プロジェクトホールディングス`,`Project Holdings`,`프로젝트 홀딩스`),date:`10/02`,px:`¥2,194`,chg:-0.05,
  why:T(`テクノプロ・HD傘下による1株2,200円(前日終値比+92.6%)のTOBを受け一時ストップ高`,`Hit its daily limit-up after TechnoPro Holdings' unit offered a ¥2,200/share tender (a 92.6% premium to the prior close)`,`테크노프로HD 계열사가 주당 2,200엔(전일 종가比 +92.6%)에 TOB를 제시해 한때 상한가`)},
-{id:`m4`,country:`JP`,tick:`285A.T`,sector:`semi`,name:T(`キオクシアホールディングス`,`Kioxia Holdings`,`키오크시아 홀딩스`),date:`10/06`,px:`¥18,735(分割後)`,chg:-2.01,
+{id:`m4`,country:`JP`,tick:`285A.T`,sector:`semi`,name:T(`キオクシアホールディングス`,`Kioxia Holdings`,`키오크시아 홀딩스`),date:`10/09`,px:`¥17,505`,chg:-2.21,
  why:T(`マイクロンの好決算(AI向けメモリ需要は2028年まで逼迫との見通し)を受けて続伸`,`Extended gains after Micron's strong earnings signaled AI memory demand staying tight through 2028`,`마이크론의 호실적(AI向け 메모리 수요가 2028년까지 타이트하다는 전망)에 힘입어 계속 상승`)},
 {id:`m7`,country:`KR`,tick:`000660.KS`,sector:`semi`,name:T(`SKハイニックス`,`SK hynix`,`SK하이닉스`),date:`10/06`,px:`₩1,816,000`,chg:-1.36,
  why:T(`マイクロンの受注バックログ拡大(220億→320億ドル)を好感しAI記憶メモリ需要への楽観が強まる`,`Investors welcomed Micron's expanded order backlog ($22B→$32B), lifting optimism on AI memory demand`,`마이크론의 수주 잔고 확대($220억→$320억)를 호재로 AI 메모리 수요 낙관이 강화`)},
-{id:`m9`,important:true,country:`JP`,tick:`6857.T`,sector:`semi`,name:T(`アドバンテスト`,`Advantest`,`어드반테스트`),date:`10/06`,px:`¥41,760`,chg:3.62,
+{id:`m9`,important:true,country:`JP`,tick:`6857.T`,sector:`semi`,name:T(`アドバンテスト`,`Advantest`,`어드반테스트`),date:`10/09`,px:`¥41,610`,chg:1.66,
  why:T(`半導体検査装置の需要拡大期待で2日連続の高値、日経平均の7万円突破をけん引(指数を約334円押し上げ)`,`Hit a fresh high for a second straight day on strong chip-tester demand hopes, lifting the Nikkei above 70,000 by contributing about 334 points`,`반도체 검사장비 수요 확대 기대로 2일 연속 신고가, 닛케이평균의 7만 엔 돌파를 견인(지수를 약 334엔 끌어올림)`)}
 ],
 down:[
-{id:`d4`,important:true,country:`JP`,tick:`6594.T`,sector:`motor`,name:T(`ニデック`,`Nidec`,`니덱`),date:`10/06`,px:`¥2,165`,chg:-0.69,
+{id:`d4`,important:true,country:`JP`,tick:`6594.T`,sector:`motor`,name:T(`ニデック`,`Nidec`,`니덱`),date:`10/09`,px:`¥2,010`,chg:-6.07,
  why:T(`2026年3月期有報でPwCジャパンが3度目の「意見不表明」。上場廃止リスク懸念で年初来安値`,`PwC Japan declined to give an opinion on its FY2026/3 filing for the third time; delisting-risk fears sent shares to a 52-week low`,`2026년 3월기 유보에서 PwC재팬이 세 번째 '의견 불표명'. 상장폐지 우려로 연중 최저치`),
  d:T(`ニデックは9/30の取引終了後、2026年3月期の有価証券報告書を提出したが、監査法人PwCジャパンは3度目となる「意見不表明」の判定を下した。不適切な会計処理を受けた人事的な是正措置が一部完了しておらず、不正に関与した役職員の一部が依然財務報告プロセスで責任ある立場にあることなどから、「意見表明の基礎となる十分かつ適切な監査証拠を入手できなかった」という。これを受け10/1の株価は急落し年初来安値を更新、上場廃止リスクを警戒した処分売りが広がった。`,
      `After Tokyo trading closed on 9/30, Nidec filed its FY2026/3 annual securities report, but auditor PwC Japan declined to give an opinion for the third time, saying it could not obtain sufficient appropriate audit evidence — citing incomplete personnel remediation over earlier improper accounting and the fact that some staff involved in the misconduct still hold responsible roles in financial reporting. Shares plunged to a 52-week low on 10/1 as investors sold on fears of a possible delisting.`,
      `니덱은 9/30 거래 종료 후 2026년 3월기 유가증권보고서를 제출했지만, 감사법인 PwC재팬은 세 번째로 '의견 불표명' 판정을 내렸다. 부적절한 회계처리에 대한 인사 시정조치가 일부 완료되지 않았고, 부정에 관여한 일부 임직원이 여전히 재무보고 과정에서 책임 있는 위치에 있어 '의견 표명의 근거가 되는 충분하고 적절한 감사 증거를 입수할 수 없었다'고 한다. 이를 받아 10/1 주가는 급락해 연중 최저치를 경신했고, 상장폐지 우려에 따른 처분 매물이 확산됐다.`),
  src:[[`Bloomberg`,`https://www.bloomberg.com/jp/news/articles/2026-10-01/TM7D1LKJH6V400`],[`株探`,`https://s.kabutan.jp/news/n202610010350/`]]},
-{id:`d1`,important:true,country:`JP`,tick:`4755.T`,sector:`telecom`,name:T(`楽天グループ`,`Rakuten Group`,`라쿠텐 그룹`),date:`10/06`,px:`¥667.3`,chg:1.26,
+{id:`d1`,important:true,country:`JP`,tick:`4755.T`,sector:`telecom`,name:T(`楽天グループ`,`Rakuten Group`,`라쿠텐 그룹`),date:`10/09`,px:`¥659.6`,chg:1.44,
  why:T(`フィンテック事業再編に伴う法人所得税費用の計上を発表し軟調。年初来安値圏が続く`,`Weak after disclosing a corporate income-tax charge tied to its fintech business reorganization; shares remain near 52-week lows`,`핀테크 사업 재편에 따른 법인소득세 비용 계상을 발표해 약세. 연중 최저치권이 이어짐`),
  d:T(`楽天グループ株は9/28に一時677.3円まで下げ年初来安値を更新し、同日終値は687.8円(前日比+1.12%)。8/10発表の2026年1〜6月期決算はIFRS営業損益が504億円の黒字に転換したもののQUICKコンセンサス(708億円)に届かず10%超安。その後も戻りは鈍く、9/10〜11には米系大手証券2社が目標株価をそれぞれ800円、850円へ引き下げた。9/28時点の株価687.8円は、年初来高値(1/13、1,026円)から約33%低い水準。楽天モバイルの2026年通期設備投資は約2,000億円規模の計画で黒字化には時間がかかる見通しに加え、2025年12月期は無配、配当再開時期も「未定」としており、株主還元への不透明感が株価の重荷になっているとされる。`,
      `Rakuten Group shares hit a new 52-week low of ¥677.3 on 9/28 before closing at ¥687.8 that day (+1.12%). Results reported 8/10 for January-June 2026 showed IFRS operating profit swing to a gain of ¥50.4B, but that missed the QUICK consensus of ¥70.8B and shares fell over 10% that day. The stock has struggled to recover since, and on 9/10-11 two major US brokerages cut their targets to ¥800 and ¥850. The 9/28 price of ¥687.8 sits roughly 33% below the 52-week high of ¥1,026 (1/13). Rakuten Mobile's FY2026 capex plan of roughly ¥200B means profitability is still some way off, and with no dividend paid for FY2025 and no timeline set to resume one, shareholder-return uncertainty is seen weighing on the stock.`,
      `라쿠텐 그룹 주가는 9/28 한때 677.3엔까지 내려 연중 최저치를 경신했고, 같은 날 종가는 687.8엔(전일 대비 +1.12%)이었다. 8/10 발표된 2026년 1~6월기 실적은 IFRS 영업손익이 504억 엔 흑자로 전환했지만 QUICK 컨센서스(708억 엔)에 못 미쳐 당일 10% 넘게 급락했다. 이후에도 반등은 더뎠고, 9/10~11에는 미국계 대형 증권사 2곳이 목표주가를 각각 800엔, 850엔으로 하향했다. 9/28 기준 주가 687.8엔은 연중 고점(1/13, 1,026엔) 대비 약 33% 낮은 수준이다. 라쿠텐 모바일의 2026 회계연도 설비투자 계획은 약 2,000억 엔 규모로 흑자 전환까지는 시간이 걸릴 전망이며, 2025년 12월기 무배당에 배당 재개 시기도 '미정'이라 주주환원 불확실성이 주가에 부담이 되고 있다.`),
  src:[[`Yahoo!ファイナンス`,`https://finance.yahoo.co.jp/quote/4755.T/history`],[`松井証券`,`https://finance.matsui.co.jp/stock/4755/index`]]},
-{id:`d5`,important:true,country:`JP`,tick:`9984.T`,sector:`invest`,name:T(`ソフトバンクグループ`,`SoftBank Group`,`소프트뱅크그룹`),date:`10/06`,px:`¥6,295`,chg:-3.11,
+{id:`d5`,important:true,country:`JP`,tick:`9984.T`,sector:`invest`,name:T(`ソフトバンクグループ`,`SoftBank Group`,`소프트뱅크그룹`),date:`10/09`,px:`¥5,803`,chg:-3.92,
  why:T(`OpenAIへの300億ドル投資完了で再評価、CDS上昇やEMネットジャパン元CFO逮捕も重し`,`Reassessed after completing its $30B OpenAI investment program; rising CDS spreads and a former subsidiary CFO's arrest also weighed`,`OpenAI向け 300억 달러 투자 완료로 재평가, CDS 상승과 EM네트재팬 전 CFO 체포도 부담`),
  d:T(`ソフトバンクグループ株は10/2に6.0%安の6,296円で取引を終えた。総額300億ドルに上るOpenAIへの投資プログラムが完了したことを受け市場が株価を再評価したことに加え、同社のクレジット・デフォルト・スワップ(CDS)が2023年以来の高水準に急上昇しAI投資を賄う積極的なレバレッジ戦略への不安が広がった。さらに子会社EMネットジャパンの元CFOが10/1に逮捕され約1億7,000万円の横領事件が発覚したこともガバナンス面の懸念材料となった。前日に大幅高となった日経225全体の利益確定売りの流れも重なった。`,
      `SoftBank Group shares fell 6.0% to ¥6,296 on 10/2. The stock was reassessed after the company completed its $30 billion OpenAI investment program, while credit default swaps on the company spiked to their highest level since 2023, stoking concern over the aggressive leverage used to fund its AI bets. A separate governance concern emerged after the former CFO of subsidiary EM Net Japan was arrested on 10/1 over an embezzlement case involving roughly ¥170 million. The decline also coincided with broader profit-taking after the Nikkei 225's sharp rise the prior day.`,
@@ -598,12 +650,33 @@ down:[
  src:[[`Robinhood`,`https://robinhood.com/us/en/stocks/SOUN/`],[`CNN`,`https://www.cnn.com/markets/stocks/SOUN`]]}
 ]};
 const MACRO=[
-{id:`x1`,important:true,date:`09/18`,imp:3,
+{id:`x12`,important:true,date:`10/08`,imp:3,
+ h:T(`WTI原油が+3.6%の91.49ドル、トランプ氏は中間選挙前のイラン攻撃を否定`,`WTI jumps 3.6% to $91.49; Trump says no Iran attack before midterms`,`WTI +3.6% 91.49달러, 트럼프 중간선거 전 이란 공격 부인`),
+ s:T(`ホルムズ海峡でのタンカー攻撃増加と戦闘再開観測で上昇後、発言で上げ幅を縮小。`,`Rose on more tanker attacks near Hormuz and talk of renewed fighting, then pared gains after the remarks.`,`호르무즈 해협 유조선 공격 증가와 전투 재개 우려로 올랐다가 발언 후 상승폭 축소.`),
+ d:T(`共同通信によると、10/8のNY原油先物(WTI11月渡し)は前日比3.21ドル高の91.49ドルで引けた。ホルムズ海峡でのタンカー攻撃の増加や、米国によるイランへの大規模な戦闘作戦再開の可能性が伝わり買いが膨らんだが、トランプ大統領がイランと建設的な協議が行われていると述べ、11月の中間選挙より前に攻撃しないとSNSで明らかにすると上げ幅が縮んだ。同日のNY為替ではドル円が158.37円まで上昇後に157.52円へ反落した。`,
+     `Kyodo reported that WTI November futures closed on 10/8 up $3.21 at $91.49. Buying swelled on more tanker attacks near the Strait of Hormuz and the possibility of the US resuming large-scale operations against Iran, but gains narrowed after President Trump said on social media that talks with Iran were constructive and that he would not attack before the November midterms. In New York currency trading the same day, USD/JPY rose to 158.37 and then fell back to 157.52.`,
+     `교도통신에 따르면 10/8 뉴욕 원유 선물(WTI 11월물)은 전일 대비 3.21달러 오른 91.49달러로 마감했다. 호르무즈 해협에서 유조선 공격이 늘고 미국이 이란에 대한 대규모 전투 작전을 재개할 가능성이 전해지며 매수가 늘었으나, 트럼프 대통령이 이란과 건설적 협의가 진행 중이며 11월 중간선거 전에는 공격하지 않겠다고 SNS에 밝히자 상승폭이 줄었다. 같은 날 뉴욕 외환시장에서 달러/엔은 158.37엔까지 올랐다가 157.52엔으로 되밀렸다.`),
+ src:[[`共同通信(Yahoo!ニュース)`,`https://news.yahoo.co.jp/articles/83afc92a411b1de11003d89b42793727c0fcbc06`],[`日本経済新聞`,`https://www.nikkei.com/markets/commodities/`],[`財経新聞`,`https://www.zaikei.co.jp/article/20261009/872891.html`]]},
+{id:`x13`,important:true,date:`10/07`,imp:3,
+ h:T(`FOMC議事要旨、年末までの追加利上げを適切とする内容と報道 米10年債は5.2〜5.3%台`,`FOMC minutes reportedly back another hike by year-end; US 10Y at 5.2-5.3%`,`FOMC 의사요지, 연내 추가 인상 적절하다는 내용으로 보도, 미 10년물 5.2~5.3%대`),
+ s:T(`10年債入札は最高落札利回り5.300%、応札倍率2.77倍。10/9朝の利回りは5.231%。`,`The 10-year auction cleared at 5.300% with a 2.77x bid-to-cover; the yield was 5.231% on the morning of 10/9.`,`10년물 입찰은 최고 낙찰 금리 5.300%, 응찰 배율 2.77배. 10/9 아침 금리는 5.231%.`),
+ d:T(`時事通信は10/8朝の配信で、米FOMC議事要旨が年末までの追加利上げを適切とし、インフレの上振れを警戒していると伝えた。10/7の米10年債入札は最高落札利回りが5.300%(発行前利回り5.317%)、応札倍率は2.77倍と堅調で、2-10年債の利回り差は+51bpに拡大した。10/9朝の10年債利回りは5.231%(前日比-0.055%)。次回のFOMCは10/27〜28で、結果は日本時間10/29未明に公表され、ドットチャートは示されない。FRBは9月に政策金利を3.75〜4.00%へ引き上げている。`,
+     `Jiji reported on the morning of 10/8 that the FOMC minutes judged another rate hike by year-end appropriate while warning about upside inflation risks. The 10/7 10-year Treasury auction cleared at a high yield of 5.300% (when-issued 5.317%) with a solid 2.77x bid-to-cover, and the 2s10s spread steepened to +51bp. The 10-year yield was 5.231% on the morning of 10/9 (-0.055 points). The next FOMC meets 10/27-28 with the decision due early 10/29 Tokyo time, and no dot plot. The Fed raised its target range to 3.75-4.00% in September.`,
+     `시사통신은 10/8 아침 배신 기사에서 미 FOMC 의사요지가 연내 추가 금리 인상이 적절하다고 보며 인플레이션 상방 위험을 경계한다고 전했다. 10/7 미 10년물 입찰은 최고 낙찰 금리 5.300%(발행 전 금리 5.317%), 응찰 배율 2.77배로 견조했고 2-10년물 금리차는 +51bp로 확대됐다. 10/9 아침 10년물 금리는 5.231%(전일 대비 -0.055%포인트). 다음 FOMC는 10/27~28이며 결과는 일본 시간 10/29 새벽에 나오고 점도표는 공개되지 않는다. 연준은 9월 정책금리를 3.75~4.00%로 인상했다.`),
+ src:[[`時事通信`,`https://equity.jiji.com/monetary_policy_schedules`],[`みんかぶ(NY債券)`,`https://fx.minkabu.jp/news/381050`],[`MacroWombat`,`https://macrowombat.com/calendar/fomc/2026-10`]]},
+{id:`x14`,date:`10/06`,imp:2,
+ h:T(`日銀、基調物価の2%到達を判断する可能性 10/29〜30の会合が焦点`,`BOJ may judge underlying inflation has reached 2%; the 10/29-30 meeting is the focus`,`일본은행, 기조 물가 2% 도달 판단 가능성, 10/29~30 회의가 초점`),
+ s:T(`時事の見出しベース。植田総裁は10/6に基調物価が目標近辺で安定することが重要と発言。`,`Based on Jiji headlines; Governor Ueda said on 10/6 that stable underlying inflation near target matters more.`,`시사통신 헤드라인 기준. 우에다 총재는 10/6 기조 물가가 목표 부근에서 안정되는 것이 중요하다고 발언.`),
+ d:T(`時事通信の見出しによると、日銀は基調物価の2%到達を今月の会合にも判断する方向で検討している(10/5)。植田総裁は10/6に、基調物価が目標の2%近辺にあり、安定がより重要だと述べた。9月会合では政策金利を1.25%に引き上げたと報じられている。次回会合は10/29〜30で、10/30に展望レポートが公表される予定。本文の詳細は未確認のため、見出しレベルの情報である。`,
+     `According to Jiji headlines, the BOJ is considering judging as early as this month's meeting that underlying inflation has reached 2% (10/5). Governor Ueda said on 10/6 that underlying inflation is near the 2% target and that stability is now more important. The BOJ is reported to have raised its policy rate to 1.25% in September. The next meeting is 10/29-30, with the Outlook Report due 10/30. Only headlines were checked, not the full text.`,
+     `시사통신 헤드라인에 따르면 일본은행은 기조 물가의 2% 도달을 이달 회의에서도 판단하는 방향으로 검토 중이다(10/5). 우에다 총재는 10/6 기조 물가가 목표 2% 부근이며 안정이 더 중요하다고 말했다. 9월 회의에서 정책금리를 1.25%로 인상했다고 보도됐다. 다음 회의는 10/29~30이며 10/30 경제·물가 전망 보고서가 공개될 예정이다. 본문은 확인하지 못했고 헤드라인 수준의 정보다.`),
+ src:[[`時事通信`,`https://equity.jiji.com/monetary_policy_schedules`]]},
+{id:`x1`,important:true,date:`09/16`,imp:3,
  h:T(`FRBが政策金利を3.75〜4.00%に引き上げ、2023年以来の利上げ`,`The Fed raises rates to 3.75-4.00%, its first hike since 2023`,`연준, 정책금리 3.75~4.00%로 인상, 2023년 이후 첫 인상`),
  s:T(`インフレ再加速への対応。市場は追加利上げの有無を注視。`,`A response to reaccelerating inflation; markets watch for further hikes.`,`인플레이션 재가속 대응. 시장은 추가 인상 여부를 주시.`),
- d:T(`FRBは9/18のFOMCで政策金利を3.75〜4.00%のレンジへ引き上げた。利下げ局面からの転換とされ、2023年以来の利上げとして報じられている。背景にはインフレ圧力の再燃があるとみられ、市場では今後の追加利上げの有無とペースに関心が集まっている。`,
-     `At its 9/18 meeting the Fed raised its target range to 3.75-4.00%, marking its first hike since 2023 and a reversal from the prior easing stance. The move is attributed to renewed inflation pressure, with markets now focused on whether and how fast further hikes might follow.`,
-     `연준은 9/18 FOMC에서 정책금리를 3.75~4.00% 범위로 인상했다. 완화 국면에서의 전환으로, 2023년 이후 첫 인상으로 보도된다. 배경에는 인플레이션 압력 재燃이 있는 것으로 보이며, 시장은 향후 추가 인상 여부와 속도에 관심을 두고 있다.`),
+ d:T(`FRBは9/16のFOMCで政策金利を3.75〜4.00%のレンジへ引き上げた。利下げ局面からの転換とされ、2023年以来の利上げとして報じられている。背景にはインフレ圧力の再燃があるとみられ、市場では今後の追加利上げの有無とペースに関心が集まっている。`,
+     `At its 9/16 meeting the Fed raised its target range to 3.75-4.00%, marking its first hike since 2023 and a reversal from the prior easing stance. The move is attributed to renewed inflation pressure, with markets now focused on whether and how fast further hikes might follow.`,
+     `연준은 9/16 FOMC에서 정책금리를 3.75~4.00% 범위로 인상했다. 완화 국면에서의 전환으로, 2023년 이후 첫 인상으로 보도된다. 배경에는 인플레이션 압력 재燃이 있는 것으로 보이며, 시장은 향후 추가 인상 여부와 속도에 관심을 두고 있다.`),
  src:[[`Federal Reserve`,`https://www.federalreserve.gov/monetarypolicy.htm`]]},
 {id:`x2`,important:true,date:`09/18`,imp:3,
  h:T(`日銀が政策金利を1.25%に、31年ぶりの水準`,`BOJ lifts its policy rate to 1.25%, a 31-year high`,`일본은행, 정책금리 1.25%로, 31년 만의 수준`),
@@ -679,6 +752,196 @@ const MACRO=[
 let LANG='ja';
 const $=(s,r=document)=>r.querySelector(s);
 const $$=(s,r=document)=>[...r.querySelectorAll(s)];
+Object.assign(UI,{
+ navBreach:T(`情報漏洩`,`Data breaches`,`정보 유출`),
+ breachNote:T(`2026年10月までに公表・報道された国内外の主な事案です。件数には「漏えいのおそれ」「対象になり得る件数」が含まれ、人数や確定した流出数とは限りません。日付は公表日で、発生・発覚日は本文に記載しています。`,`Main incidents disclosed or reported through October 2026. Counts include possible exposure and potentially affected records, and are not always people or confirmed leaks. Dates are disclosure dates; occurrence and discovery dates are in each entry.`,`2026년 10월까지 공표·보도된 국내외 주요 사건입니다. 건수에는 '유출 우려'와 '대상이 될 수 있는 건수'가 포함되며 인원이나 확정된 유출 수와 같지 않을 수 있습니다. 날짜는 공표일이고 발생·발각일은 본문에 적었습니다.`)
+});
+Object.assign(UI.tags,{
+ advisory:T(`注意喚起`,`Advisory`,`주의보`), leak:T(`個人情報`,`Personal data`,`개인정보`), supply:T(`委託先・SaaS`,`Vendors & SaaS`,`위탁처·SaaS`),
+ outage:T(`業務停止`,`Outages`,`업무 중단`), overseas:T(`海外`,`Overseas`,`해외`)
+});
+const BREACH=[
+{id:`b1`,type:`breach`,tag:`advisory`,important:true,date:`10/09`,
+ h:T(`JPCERT/CC、相次ぐ国内の不正アクセスで注意喚起(10/9更新)`,`JPCERT/CC warns of the wave of intrusions at Japanese organizations (updated 10/9)`,`JPCERT/CC, 일본 내 잇따른 부정 접속에 주의보(10/9 갱신)`),
+ s:T(`既知脆弱性の探索、APIへの不正リクエスト、Metabase脆弱性(CVE-2026-72898)の悪用などを確認。BIや管理画面も標的。`,`Reports scanning for known flaws, API abuse and exploitation of a Metabase flaw (CVE-2026-72898); BI tools and admin systems are targets too.`,`알려진 취약점 탐색, API 부정 요청, Metabase 취약점(CVE-2026-72898) 악용 등 확인. BI·관리 시스템도 표적.`),
+ d:T(`【概要】JPCERT/CCが10/8に注意喚起(JPCERT-AT-2026-0030)を公表し、10/9に更新。9月前後に国内組織で個人情報の漏えいが相次いでいるとして、特に増えている恐れのある攻撃類型を整理した。全事案が同じ手口・攻撃者によるとは断定していない。
+【確認されている手口】標的ごとに既知の脆弱性や設定不備を探索/アプリの管理用APIへの不正リクエスト(公開アプリを解析してAPIキーを特定、権限変更、不正アカウント作成など)/MetabaseのSQLインジェクション脆弱性の悪用/公開サーバーから到達できるアプリサーバーへのWebシェル設置(10/9追加)。
+【推奨される対策】APIのレート制限とアクセス制御、トークンの最小権限と有効期限、脆弱性の修正適用、BIや管理機能など外部公開を前提としない環境の点検、不要データの削除。`,
+     `[Overview] JPCERT/CC issued advisory JPCERT-AT-2026-0030 on 10/8 and updated it on 10/9, saying personal-data leaks at Japanese organizations have been piling up since around September, and laying out the attack types that may be increasing. It does not say every case used the same method or attacker.
+[Methods seen] Scanning each target for known flaws and misconfigurations; malicious requests to app admin APIs (finding API keys by analyzing public apps, changing privileges, creating rogue accounts); exploitation of the Metabase SQL injection flaw; web shells on application servers reachable from public web servers (added 10/9).
+[Recommended steps] Rate limits and access control on APIs, least-privilege and expiring tokens, applying patches, reviewing BI and admin systems not meant for public access, and deleting unneeded data.`,
+     `[개요] JPCERT/CC는 10/8 주의보(JPCERT-AT-2026-0030)를 공표하고 10/9 갱신했다. 9월 전후로 국내 조직에서 개인정보 유출이 잇따르고 있다며 특히 늘어날 우려가 있는 공격 유형을 정리했다. 모든 사건이 같은 수법·공격자라고 단정하지는 않았다.
+[확인된 수법] 표적별로 알려진 취약점·설정 불비 탐색/앱 관리용 API에 대한 부정 요청(공개 앱을 분석해 API 키 특정, 권한 변경, 부정 계정 생성 등)/Metabase SQL 인젝션 취약점 악용/공개 서버에서 접근 가능한 애플리케이션 서버에 웹셸 설치(10/9 추가).
+[권장 대책] API 요청 제한과 접근 제어, 토큰 최소 권한·유효기간, 취약점 패치, BI·관리 기능 등 비공개 전제 환경 점검, 불필요한 데이터 삭제.`),
+ src:[[`JPCERT/CC 注意喚起`,`https://www.jpcert.or.jp/at/2026/at260030.html`],[`セキュリティ対策Lab(IPAの要請)`,`https://rocket-boys.co.jp/security-measures-lab/ipa_urgent_security_checklist_multigov_guidance_20261009/`]]},
+{id:`b2`,type:`breach`,tag:`leak`,important:true,date:`10/09`,
+ h:T(`ブックオフG:会員情報が外部取得、最大約643万件の会員番号が対象`,`Bookoff Group: member data taken, up to about 6.43M member numbers affected`,`북오프 그룹: 회원 정보 외부 취득, 최대 약 643만 건의 회원번호 대상`),
+ s:T(`子会社の会員管理システムに不正アクセス。10/6に把握。パスワードはハッシュ値。決済情報は保有なし。`,`Subsidiary's member system breached; found 10/6. Passwords are hashed; no payment data held there.`,`자회사 회원 관리 시스템에 부정 접속. 10/6 인지. 비밀번호는 해시값, 결제 정보는 미보유.`),
+ d:T(`【発覚・公表】10/6に子会社の会員管理システムへの不正アクセスを把握し、10/9に公表。攻撃元の通信を遮断し、脆弱性を是正した。
+【被害】最大約643万件の会員番号に関する情報。氏名、生年月日、性別、メールアドレス、電話番号、住所、パスワードのハッシュ値、ポイントカード番号などが対象になり得る。約643万件は件数で、643万人の流出が確定したわけではない。クレジットカード等の決済情報は当該システムで保有していない。`,
+     `[Discovery and disclosure] Found on 10/6 and announced on 10/9. The attacker's traffic was blocked and the flaw fixed.
+[Damage] Information tied to up to about 6.43 million member numbers, possibly including name, birth date, gender, email, phone, address, password hashes and point-card numbers. The figure is a record count, not a confirmed 6.43 million people. No credit-card or other payment data was held in that system.`,
+     `[발각·공표] 10/6 자회사 회원 관리 시스템에 대한 부정 접속을 파악해 10/9 공표. 공격 측 통신을 차단하고 취약점을 시정했다.
+[피해] 최대 약 643만 건의 회원번호 관련 정보. 이름, 생년월일, 성별, 이메일, 전화번호, 주소, 비밀번호 해시값, 포인트카드 번호 등이 대상일 수 있다. 약 643만은 건수이며 643만 명의 유출이 확정된 것은 아니다. 신용카드 등 결제 정보는 해당 시스템에 없다.`),
+ src:[[`ブックオフ公式発表(PDF)`,`https://ssl4.eir-parts.net/doc/9278/tdnet/2893077/00.pdf`],[`セキュリティ対策Lab`,`https://rocket-boys.co.jp/security-measures-lab/bookoff_customer_data_breach_20261009/`]]},
+{id:`b3`,type:`breach`,tag:`leak`,important:true,date:`10/08`,
+ h:T(`skyticket:氏名・住所・ハッシュ化パスワード・銀行口座情報などが流出`,`skyticket: names, addresses, hashed passwords and bank account details leaked`,`skyticket: 이름·주소·해시 비밀번호·은행 계좌 정보 등 유출`),
+ s:T(`クレジットカード情報は流出していないと説明。人数は公式表記の確認が必要。`,`The company says no credit-card data leaked. Check the official figure for the number affected.`,`신용카드 정보는 유출되지 않았다고 설명. 대상 인원은 공식 표기 확인 필요.`),
+ d:T(`【公表】旅行予約サービス「skyticket」を運営するアドベンチャーが10/8に不正アクセスによる会員情報の流出を公表。10/9には、流出に関する通知メールが正規のものだと案内した。
+【被害】氏名、住所、電話番号、ハッシュ化されたログインパスワード、銀行口座情報などが影響項目。クレジットカード情報は流出していないとしている。
+【件数】一部のまとめ記事は約1,464万件(うち約413万件はハッシュ化パスワードも対象)と記載しているが、公式での人数の明示は確認できていない。他サービスと同じパスワードを使っている場合は変更が望ましい。`,
+     `[Disclosure] Adventure, which runs the travel booking service skyticket, announced on 10/8 that member data leaked after unauthorized access, and on 10/9 confirmed that its notification emails are genuine.
+[Damage] Names, addresses, phone numbers, hashed login passwords and bank account details are listed. The company says credit-card data did not leak.
+[Count] Some roundups cite about 14.64 million records (about 4.13 million with hashed passwords), but we could not confirm an official figure for people affected. Change any password reused on other services.`,
+     `[공표] 여행 예약 서비스 skyticket 운영사 어드벤처가 10/8 부정 접속에 따른 회원 정보 유출을 공표했고 10/9에는 유출 관련 안내 메일이 정식 메일임을 재차 알렸다.
+[피해] 이름, 주소, 전화번호, 해시된 로그인 비밀번호, 은행 계좌 정보 등이 영향 항목. 신용카드 정보는 유출되지 않았다고 한다.
+[건수] 일부 정리 기사는 약 1,464만 건(그중 약 413만 건은 해시 비밀번호 포함)이라고 쓰지만 공식 인원 표기는 확인하지 못했다. 다른 서비스와 같은 비밀번호를 쓴다면 변경이 바람직하다.`),
+ src:[[`skyticket公式`,`https://skyticket.jp/news/maintenance/67592`],[`まとめ記事(件数の出典)`,`https://www.horimemo.online/news-sns/data-leak-september-2026/`]]},
+{id:`b4`,type:`breach`,tag:`leak`,important:true,date:`10/08`,
+ h:T(`ローソンID:215万5,345件の個人情報が漏えい`,`Lawson ID: 2,155,345 personal records leaked`,`로손 ID: 개인정보 215만 5,345건 유출`),
+ s:T(`ID情報を表示する仕組みが不正に利用された。アプリ予約26件ではカード番号の一部も対象。`,`A mechanism that displays ID data was abused; 26 app reservations also exposed part of a card number.`,`ID 정보를 표시하는 구조가 악용됨. 앱 예약 26건은 카드번호 일부도 대상.`),
+ d:T(`【公表】ローソンは10/8、ローソンIDの個人情報2,155,345件と、ローソンアプリ予約の26件の漏えいを公表した。
+【被害】対象項目は登録状況により異なり、アプリ予約分にはカード番号の一部が含まれる。カード番号の全体が流出したとは公表されていない。利用者への情報表示に関係する仕組みが不正に利用されたと説明している。不審なメールやSMSには注意が必要。`,
+     `[Disclosure] On 10/8 Lawson announced the leak of 2,155,345 personal records tied to Lawson ID and 26 Lawson app reservations.
+[Damage] Items vary by registration status, and the app reservation records include part of a card number. A full card number leak has not been announced. Lawson says a mechanism for displaying information to users was abused. Beware of suspicious emails and SMS.`,
+     `[공표] 로손은 10/8 로손 ID 개인정보 2,155,345건과 로손 앱 예약 26건의 유출을 공표했다.
+[피해] 대상 항목은 등록 상황에 따라 다르며 앱 예약분에는 카드번호 일부가 포함된다. 카드번호 전체가 유출됐다는 발표는 없다. 이용자에게 정보를 표시하는 구조가 부정 이용됐다고 설명했다. 수상한 메일·SMS에 주의해야 한다.`),
+ src:[[`ローソン公式`,`https://www.lawson.co.jp/contents/cont07/1533174_3310.html`]]},
+{id:`b5`,type:`breach`,tag:`supply`,important:true,date:`10/08`,
+ h:T(`第一興商:委託先PC1台の感染で約872万4,000件に漏えいのおそれ`,`Daiichikosho: one vendor PC infected, up to about 8.72M records at risk`,`다이이치코쇼: 위탁처 PC 1대 감염, 약 872만 4,000건 유출 우려`),
+ s:T(`外部への流出は10/8時点で未確認。ビッグエコー等の会員登録・予約時の情報が対象。`,`No external leak confirmed as of 10/8. Covers data from Big Echo membership and reservations.`,`10/8 시점 외부 유출 미확인. 빅에코 등 회원 등록·예약 시 정보가 대상.`),
+ d:T(`【概要】個人情報の取扱いを委託している日本コロムビアグループの従業員PC1台でマルウェア感染が判明し、10/8に公表した。
+【対象】顧客約863万1,000件と従業員約9万3,000件の計約872万4,000件。店舗での会員登録・予約時の氏名、性別、生年月日、メールアドレス、電話番号。
+【状況】外部への情報流出は10/8時点で確認されていない。委託業務のため端末に一時保存したデータが影響を広げた事案。`,
+     `[Overview] Malware was found on one employee PC at Nippon Columbia Group, which handles personal data under contract, and Daiichikosho announced it on 10/8.
+[Scope] About 8.631 million customer records and 93,000 employee records, about 8.724 million in total: names, gender, birth dates, emails and phone numbers from in-store membership and reservations.
+[Status] No external leak was confirmed as of 10/8. Data temporarily stored on the device for contract work widened the exposure.`,
+     `[개요] 개인정보 취급을 위탁한 일본 콜롬비아 그룹 직원 PC 1대에서 악성코드 감염이 확인되어 10/8 공표했다.
+[대상] 고객 약 863만 1,000건과 직원 약 9만 3,000건, 합계 약 872만 4,000건. 매장 회원 등록·예약 시의 이름, 성별, 생년월일, 이메일, 전화번호.
+[상황] 외부 유출은 10/8 시점 확인되지 않았다. 위탁 업무를 위해 단말에 임시 저장한 데이터가 영향을 넓힌 사건.`),
+ src:[[`第一興商公式`,`https://www.dkkaraoke.co.jp/news/newsletter/261008_2.html`]]},
+{id:`b6`,type:`breach`,tag:`leak`,date:`10/08`,
+ h:T(`NewsPicks(ユーザベース):業務用管理ツールに不正アクセス`,`NewsPicks (Uzabase): admin tool breached`,`NewsPicks(유저베이스): 업무용 관리 도구에 부정 접속`),
+ s:T(`氏名・勤務先・連絡先・カード番号の下3〜4桁などが漏えいのおそれ。人数は調査中。`,`Names, employers, contacts and the last 3-4 card digits may have leaked; the number affected is under review.`,`이름·근무처·연락처·카드번호 끝 3~4자리 등 유출 우려. 인원은 조사 중.`),
+ d:T(`【経緯】10/8 12:48に検知し、14:01に対象サーバーを遮断した。
+【対象】氏名、勤務先、メールアドレス、住所、電話番号、カード名義、カード番号の下3桁または下4桁など。完全なカード番号や暗号化パスワードの漏えいは確認されていない。対象人数は調査中。`,
+     `[Timeline] Detected at 12:48 on 10/8; the affected server was cut off at 14:01.
+[Scope] Names, employers, emails, addresses, phone numbers, cardholder names and the last 3 or 4 card digits. Full card numbers and encrypted passwords were not confirmed leaked. The number affected is under review.`,
+     `[경과] 10/8 12:48 탐지, 14:01 해당 서버 차단.
+[대상] 이름, 근무처, 이메일, 주소, 전화번호, 카드 명의, 카드번호 끝 3자리 또는 4자리 등. 전체 카드번호와 암호화된 비밀번호 유출은 확인되지 않았다. 대상 인원은 조사 중.`),
+ src:[[`NewsPicks公式`,`https://corp.newspicks.com/info/20261008`]]},
+{id:`b7`,type:`breach`,tag:`supply`,date:`10/08`,
+ h:T(`Commune:管理者なりすましが利用企業に波及、サービス停止も`,`Commune: admin impersonation spreads to client companies, services paused`,`Commune: 관리자 사칭이 이용 기업으로 파급, 서비스 중단도`),
+ s:T(`VALXは2,950名、nest Portalは約1,200名に漏えいの可能性。`,`Possible leaks: 2,950 people at VALX and about 1,200 at nest Portal.`,`VALX 2,950명, nest Portal 약 1,200명에 유출 가능성.`),
+ d:T(`【発生】10/6に第三者の不正アクセスが発生。システム上の複数の不備を悪用して管理者になりすましたとVALXが公表した。
+【被害】VALX“FUN”コミュニティの会員3,813名のうち2,950名分の一覧情報が閲覧・取得された可能性。ウイングアーク1stのnest Portalでも、企業名・役職・氏名・メールアドレスなど約1,200名分に漏えいの可能性。
+【影響】10/6 21時からコミュニティサイトとアプリを臨時停止し、準備の整ったコミュニティから順次再開。停止対象と漏えい可能性が確認された組織は一致しない。`,
+     `[Occurrence] Unauthorized access began on 10/6; VALX says attackers exploited several system flaws to impersonate an administrator.
+[Damage] Member list data for 2,950 of 3,813 members of the VALX "FUN" community may have been viewed or taken. Wingarc1st's nest Portal also reported possible leaks for about 1,200 people (company, title, name, email).
+[Impact] Community sites and apps were paused from 21:00 on 10/6 and are being restored community by community. Paused communities and those with confirmed possible leaks do not fully overlap.`,
+     `[발생] 10/6 제3자의 부정 접속이 발생. 시스템상 여러 결함을 악용해 관리자로 사칭했다고 VALX가 공표했다.
+[피해] VALX 'FUN' 커뮤니티 회원 3,813명 중 2,950명분 목록 정보가 열람·취득됐을 가능성. 윙아크1st의 nest Portal에서도 회사명·직책·이름·이메일 등 약 1,200명분에 유출 가능성.
+[영향] 10/6 21시부터 커뮤니티 사이트와 앱을 임시 중단하고 준비된 커뮤니티부터 순차 재개. 중단 대상과 유출 가능성이 확인된 조직은 일치하지 않는다.`),
+ src:[[`VALX公式`,`https://corp.valx.jp/news/451vhhqdf29c/`],[`ウイングアーク1st公式`,`https://corp.wingarc.com/public/202610/news3042.html`]]},
+{id:`b8`,type:`breach`,tag:`outage`,important:true,date:`10/07`,
+ h:T(`IDCFクラウド(IDCフロンティア):ランサムウェアで東日本リージョン1が停止、495の企業・自治体に影響`,`IDCF Cloud (IDC Frontier): ransomware halts East Japan Region 1, affecting 495 companies and municipalities`,`IDCF 클라우드(IDC 프런티어): 랜섬웨어로 동일본 리전1 중단, 495개 기업·지자체 영향`),
+ s:T(`495は契約先の数で、漏えい件数ではない。外部流出は未確定。`,`495 is the number of customers, not leaked records. External leakage is unconfirmed.`,`495는 계약처 수이며 유출 건수가 아니다. 외부 유출은 미확정.`),
+ d:T(`【発生】10/7 3:40ごろから障害が発生し、第三者によるランサムウェア攻撃が原因だとIDCフロンティアが公表した。
+【影響】クラウド側の隔離・停止により、契約先のWebサイト、業務システム、認証、電話関連サービスなどに波及。契約先は495の企業・自治体。バックアップから別のクラウドへ再構築する事業者もある。報道ではデータの復元が困難とされ、外部流出は未確定。495は情報流出が確定した数ではない。`,
+     `[Occurrence] A failure began around 3:40 on 10/7, and IDC Frontier said a third-party ransomware attack was the cause.
+[Impact] Isolating and halting the cloud disrupted customers' websites, business systems, authentication and phone services. 495 companies and municipalities are customers. Some are rebuilding on other clouds from backups. Reports say data recovery is difficult, and external leakage is unconfirmed. 495 is not a count of confirmed leaks.`,
+     `[발생] 10/7 3시 40분경부터 장애가 발생했고 제3자의 랜섬웨어 공격이 원인이라고 IDC 프런티어가 공표했다.
+[영향] 클라우드 측 격리·중단으로 계약처의 웹사이트, 업무 시스템, 인증, 전화 관련 서비스 등에 파급. 계약처는 495개 기업·지자체. 백업으로 다른 클라우드에 재구축하는 사업자도 있다. 보도에서는 데이터 복구가 어렵다고 하며 외부 유출은 미확정. 495는 정보 유출이 확정된 수가 아니다.`),
+ src:[[`IDCフロンティア公式`,`https://www.idcf.jp/news/topics/20261007002`]]},
+{id:`b9`,type:`breach`,tag:`supply`,date:`10/06`,
+ h:T(`スカラ「i-ask」:FAQシステムに不正ログイン、最大5社・延べ71万3,126件`,`Scala "i-ask": FAQ system breached, up to 5 companies and 713,126 records`,`스칼라 'i-ask': FAQ 시스템 부정 로그인, 최대 5개사·연 71만 3,126건`),
+ s:T(`大和証券は約11万人・約22万件の顧客情報漏えいの可能性を公表(10/5)。`,`Daiwa Securities disclosed possible leaks of about 110,000 customers and 220,000 records (10/5).`,`다이와증권은 약 11만 명·약 22만 건의 고객 정보 유출 가능성을 공표(10/5).`),
+ d:T(`【概要】スカラコミュニケーションズは10/6、FAQシステム「i-ask」の管理サイトに不正ログインされ、不正プログラムが設置されたと発表した。
+【被害】最大5社・延べ713,126件の問い合わせ情報に漏えいの可能性。大和証券、シチズン時計、損保ジャパンなど利用企業も影響を公表している。氏名や問い合わせ本文のほか、委託元によっては口座番号なども対象。延べ件数は人数ではない。`,
+     `[Overview] On 10/6 Scala Communications said the admin site of its FAQ system "i-ask" was accessed with stolen credentials and a malicious program was planted.
+[Damage] Inquiry data of up to 5 companies, 713,126 records in total, may have leaked. Client companies including Daiwa Securities, Citizen Watch and Sompo Japan have disclosed impact. Names and inquiry text, and for some clients account numbers, are included. The total is a record count, not people.`,
+     `[개요] 스칼라 커뮤니케이션즈는 10/6 FAQ 시스템 'i-ask' 관리 사이트에 부정 로그인이 있었고 악성 프로그램이 설치됐다고 발표했다.
+[피해] 최대 5개사·연 713,126건의 문의 정보에 유출 가능성. 다이와증권, 시티즌 시계, 손보재팬 등 이용 기업도 영향을 공표했다. 이름과 문의 본문 외에 위탁 측에 따라 계좌번호 등도 대상. 연 건수는 인원이 아니다.`),
+ src:[[`スカラコミュニケーションズ公式`,`https://scala-com.jp/news/2026/10-1/`]]},
+{id:`b10`,type:`breach`,tag:`leak`,important:true,date:`10/05`,
+ h:T(`焼肉きんぐ公式アプリ:会員情報1,078万8,963件が漏えい`,`Yakiniku King app: 10,788,963 member records leaked`,`야키니쿠 킹 공식 앱: 회원 정보 1,078만 8,963건 유출`),
+ s:T(`会員番号・登録名・メール・電話番号。パスワード、利用履歴、カード情報は対象外。`,`Member number, name, email and phone. Passwords, usage history and card data are not affected.`,`회원번호·등록명·이메일·전화번호. 비밀번호·이용 내역·카드 정보는 대상 외.`),
+ d:T(`【経緯】物語コーポレーションは10/5、公式アプリの会員管理システムから登録情報1,078万8,963件が漏えいしたと発表。10/2に不正アクセスを確認し、10/3に漏えいを確認した。
+【対象】会員番号、登録名、メールアドレス、電話番号。パスワード、店舗利用履歴、クレジットカード情報は対象外としている。連絡先が大量に取得されたため、フィッシングへの警戒が必要。`,
+     `[Timeline] Monogatari Corporation announced on 10/5 that 10,788,963 registration records leaked from the app's member management system. It confirmed unauthorized access on 10/2 and the leak on 10/3.
+[Scope] Member number, registered name, email and phone number. Passwords, store usage history and credit-card data are said to be unaffected. Because contact details were taken in bulk, watch for phishing.`,
+     `[경과] 모노가타리 코퍼레이션은 10/5 공식 앱 회원 관리 시스템에서 등록 정보 1,078만 8,963건이 유출됐다고 발표. 10/2 부정 접속을, 10/3 유출을 확인했다.
+[대상] 회원번호, 등록명, 이메일, 전화번호. 비밀번호, 매장 이용 내역, 신용카드 정보는 대상 외라고 한다. 연락처가 대량 취득돼 피싱에 주의해야 한다.`),
+ src:[[`物語コーポレーション公式`,`https://www.monogatari.co.jp/news/261005_news/`]]},
+{id:`b11`,type:`breach`,tag:`leak`,date:`10/05`,
+ h:T(`infoQ(GMOリサーチ&AI):最大94万8,498件、ポイント約287万円分が不正交換`,`infoQ (GMO Research & AI): up to 948,498 records, about 2.87M yen of points fraudulently redeemed`,`infoQ(GMO리서치&AI): 최대 94만 8,498건, 약 287만 엔 상당 포인트 부정 교환`),
+ s:T(`611件がAmazonギフトコードに交換された。会社は全額補填するとしている。`,`611 accounts had points swapped for Amazon gift codes; the company says it will cover the full amount.`,`611건이 아마존 기프트 코드로 교환됨. 회사는 전액 보전한다고 밝힘.`),
+ d:T(`【概要】GMOリサーチ&AIは10/5、アンケートサイト「infoQ」のデータが外部へ持ち出されたと公表。使用ソフトウェアの脆弱性が悪用された。
+【被害】最大94万8,498件は対象情報の上限。氏名、住所、メールアドレス、暗号化されたパスワード、ポイント情報などが含まれる。611件・286万9,500円分のポイントが、利用者の意思に反してAmazonギフトコードへ交換された。`,
+     `[Overview] GMO Research & AI announced on 10/5 that data from its survey site infoQ was taken; a flaw in software it used was exploited.
+[Damage] Up to 948,498 records is the upper limit of affected data, including names, addresses, emails, encrypted passwords and point balances. Points worth 2,869,500 yen across 611 cases were swapped for Amazon gift codes against users' wishes.`,
+     `[개요] GMO리서치&AI는 10/5 설문 사이트 infoQ의 데이터가 외부로 반출됐다고 공표. 사용 소프트웨어의 취약점이 악용됐다.
+[피해] 최대 94만 8,498건은 대상 정보의 상한. 이름, 주소, 이메일, 암호화된 비밀번호, 포인트 정보 등이 포함된다. 611건·286만 9,500엔 상당의 포인트가 이용자 의사에 반해 아마존 기프트 코드로 교환됐다.`),
+ src:[[`GMOリサーチ&AI公式`,`https://gmo-research.ai/pressroom/notice/notice-20261005`]]},
+{id:`b12`,type:`breach`,tag:`leak`,important:true,date:`09/29`,
+ h:T(`タイムズカー:約660万アカウントを取得、約160万で本人確認書類の画像`,`Times Car: about 6.6M accounts taken, ID document images for about 1.6M`,`타임스카: 약 660만 계정 취득, 약 160만 계정에서 본인 확인 서류 이미지`),
+ s:T(`運転免許証などの画像が流出。退会済み会員や入会手続き未完了者も含まれる。`,`Driver's license images and similar leaked; former members and incomplete sign-ups are included.`,`운전면허증 등 이미지 유출. 탈퇴 회원과 가입 미완료자도 포함.`),
+ d:T(`【経緯】9/25にWebシステムへの不正アクセスを検知し、約660万アカウント分の情報が第三者に取得された。9/29の第3報で、約160万アカウントで運転免許証など本人確認書類の画像の漏えいを確認したと公表した。
+【影響】退会済みの会員や入会手続き未完了の人も含まれる。報道では、免許証の特例再交付が少なくとも14県で行われたとされる。`,
+     `[Timeline] Unauthorized access to the web system was detected on 9/25, and data for about 6.6 million accounts was taken by a third party. The third report on 9/29 confirmed leaks of ID document images such as driver's licenses for about 1.6 million accounts.
+[Impact] Former members and people who did not finish signing up are included. Reports say special reissuance of driver's licenses took place in at least 14 prefectures.`,
+     `[경과] 9/25 웹 시스템에 대한 부정 접속을 탐지했고 약 660만 계정분 정보가 제3자에게 취득됐다. 9/29 제3보에서 약 160만 계정에서 운전면허증 등 본인 확인 서류 이미지 유출을 확인했다고 공표.
+[영향] 탈퇴 회원과 가입 절차 미완료자도 포함된다. 보도에 따르면 면허증 특례 재발급이 적어도 14개 현에서 이뤄졌다.`),
+ src:[[`パーク24公式`,`https://www.park24.co.jp/news/2026/09/20260929-1.html`]]},
+{id:`b13`,type:`breach`,tag:`leak`,date:`10/08`,
+ h:T(`アドバンテスト(米国法人):2月のランサムウェア攻撃で個人情報が持ち出されたと通知`,`Advantest (US unit): notice says personal data was taken in the February ransomware attack`,`어드반테스트(미국 법인): 2월 랜섬웨어 공격에서 개인정보 반출 통지`),
+ s:T(`米当局への届出で、サーバーから一部データが抽出され個人識別情報が含まれると確認。`,`A US filing confirms some data was extracted from servers and includes personally identifiable information.`,`미국 당국 신고에서 서버에서 일부 데이터가 추출됐고 개인 식별 정보가 포함됐음을 확인.`),
+ d:T(`【経緯】2/15にIT環境の異常を検知し、2/19に不正アクセスとランサムウェア展開の可能性を公表。3/4の続報時点ではデータの流出範囲を調査中だった。10月の対象者向け通知で、第三者がサーバーから一部データを持ち出したことが明らかになった。
+【対象情報】通知には、連絡先、生年月日、米国の社会保障番号、国民ID、運転免許証、パスポート番号、医療情報、金融情報などが挙げられている。全員が全項目に該当するとは限らない。`,
+     `[Timeline] Abnormal activity in the IT environment was detected on 2/15, and on 2/19 the company disclosed possible unauthorized access and ransomware deployment. As of the 3/4 update the scope of data exfiltration was under investigation. Notices to affected people in October revealed that a third party took some data from servers.
+[Information listed] Contact details, birth date, US Social Security number, national ID, driver's license, passport number, medical and financial information. Not every person is necessarily affected in every category.`,
+     `[경과] 2/15 IT 환경 이상을 탐지하고 2/19 부정 접속과 랜섬웨어 전개 가능성을 공표. 3/4 속보 시점에는 데이터 유출 범위를 조사 중이었다. 10월 대상자 통지에서 제3자가 서버에서 일부 데이터를 반출했음이 드러났다.
+[기재된 정보] 연락처, 생년월일, 미국 사회보장번호, 국민 ID, 운전면허증, 여권번호, 의료 정보, 금융 정보 등. 모든 대상자가 모든 항목에 해당하는 것은 아니다.`),
+ country:`US`,
+ src:[[`セキュリティ対策Lab`,`https://rocket-boys.co.jp/security-measures-lab/advantest-ransomware-data-breach-2026/`]]},
+{id:`b14`,type:`breach`,tag:`overseas`,date:`10/05`,
+ h:T(`デンマーク:正規の照会権限を悪用され、約880万人の住民登録情報に不正アクセス`,`Denmark: legitimate lookup access abused, about 8.8M people's registry data accessed`,`덴마크: 정규 조회 권한 악용, 약 880만 명의 주민등록 정보에 부정 접근`),
+ s:T(`中央個人登録(CPR)。氏名・住所・CPR番号など。データベースへの直接侵入ではない。`,`Central Person Register (CPR): names, addresses and CPR numbers. Not a direct break-in to the database.`,`중앙개인등록(CPR): 이름·주소·CPR 번호 등. 데이터베이스 직접 침입은 아님.`),
+ d:T(`【経緯】CPR管理当局が10/5に公表。10/2夜に9月中の不規則なアクセスを把握し、民間企業に認めていた正規の照会権限が第三者に悪用されたとして、その企業のアクセスを停止した。警察が捜査している。
+【被害】約880万人の氏名、住所、CPR番号など(国外転出者や死亡者を含む登録者数)。氏名・住所の非公開保護を設定した人の氏名・住所は対象外と説明。データ保護庁は、有効なCPR番号を特定するための極めて大量の自動照会が報告されたと公表した。`,
+     `[Timeline] The CPR authority announced it on 10/5. It learned on the night of 10/2 of irregular access during September, said a private company's legitimate lookup access had been abused by a third party, and suspended that company's access. Police are investigating.
+[Damage] Names, addresses and CPR numbers of about 8.8 million people (a registrant count that includes people who moved abroad or died). People with name and address protection are said to be excluded. The Danish data protection agency said it received reports of extremely large automated lookups to identify valid CPR numbers.`,
+     `[경과] CPR 관리 당국이 10/5 공표. 10/2 밤 9월 중 불규칙한 접근을 파악하고, 민간 기업에 허용한 정규 조회 권한이 제3자에게 악용됐다며 해당 기업의 접근을 정지했다. 경찰이 수사 중이다.
+[피해] 약 880만 명의 이름, 주소, CPR 번호 등(해외 이주자·사망자를 포함한 등록자 수). 이름·주소 비공개 보호를 설정한 사람의 이름·주소는 대상 외라고 설명. 데이터보호청은 유효한 CPR 번호를 특정하기 위한 극히 대량의 자동 조회가 보고됐다고 공표했다.`),
+ src:[[`デンマークCPR管理当局`,`https://www.cpr.dk/cpr-nyt/nyhedsarkiv/2026/okt/omfattende-uautoriseret-adgang-til-borgeres-cpr-oplysninger`],[`デンマークデータ保護庁`,`https://www.datatilsynet.dk/presse-og-nyheder/nyhedsarkiv/2026/okt/datatilsynet-er-opmaerksom-paa-sag-om-opslag-i-cpr`]]},
+{id:`b15`,type:`breach`,tag:`leak`,date:`10/04`,
+ h:T(`その他の主な公表(10/4〜10/9)と件数の目安`,`Other notable disclosures (10/4-10/9) and overall counts`,`그 밖의 주요 공표(10/4~10/9)와 건수 기준`),
+ s:T(`ミスターマックス、セイコーマート、日本経済新聞、日水物流、ヤマト運輸、楽天(販売主張)、Oracle Healthなど。`,`Includes Mr Max, Seicomart, Nikkei, Nissui Logistics, Yamato, a claimed Rakuten data sale and Oracle Health.`,`미스터맥스, 세이코마트, 닛케이, 닛스이 물류, 야마토 운수, 라쿠텐(판매 주장), Oracle Health 등.`),
+ d:T(`【会員・顧客情報】ミスターマックス(10/6):最大173万5,154人、会員ID・氏名・メール・電話など。セイコーマート(10/5第4報):アプリ会員57万4,647人分が不正閲覧された。
+【アカウント侵害・業務停止】日本経済新聞社(10/4):Microsoft 365アカウントから約9,000件の不審メール。日水物流(10/7):委託先データセンターへの不正アクセスとみられ、商品の入出荷が停止。ヤマト運輸:「クロネコ代金後払い」を10/9 13時に再開し、支払期限を17日延長。情報漏えいの調査は継続(見出し情報のみ確認)。
+【未確認・過去分】楽天会員1億100万件の販売を主張するハッカーの投稿(10/4報道、漏洩元と真正性は未確認)。Oracle Health(旧Cerner)は2025年の侵害で、10/2付の州当局への届出から約1,993万人規模と判明(新規攻撃ではない)。
+【件数の目安】集計サイトによると、2026年9/1〜10/8の国内の公表(続報含む)は140件で、うち25件は10万件以上(SmartScope)。1月〜10/9の公表は138件との集計もある(土門大貴氏のnote)。集計方法が異なるため単純比較はできない。`,
+     `[Customer data] Mr Max (10/6): up to 1,735,154 people; member ID, name, email, phone. Seicomart (4th report 10/5): 574,647 app members' data was viewed without authorization.
+[Account compromise and outages] Nikkei (10/4): about 9,000 suspicious emails sent from Microsoft 365 accounts. Nissui Logistics (10/7): apparently unauthorized access to a contracted data center halted product shipping and receiving. Yamato Transport resumed its "Kuroneko deferred payment" service at 13:00 on 10/9 and extended payment deadlines by 17 days; the leak investigation continues (headline-level information only).
+[Unverified and older] A hacker claims to be selling 101 million Rakuten member records (reported 10/4; source and authenticity unverified). Oracle Health (formerly Cerner) is a 2025 breach whose scale of about 19.93 million people emerged from an October 2 state filing; it is not a new attack.
+[Counts] One tracker lists 140 domestic disclosures (including follow-ups) from 9/1 to 10/8, 25 of them with 100,000+ records (SmartScope); another counts 138 from January to 10/9 (note by Daiki Domon). Methods differ, so do not compare directly.`,
+     `[고객 정보] 미스터맥스(10/6): 최대 173만 5,154명, 회원 ID·이름·이메일·전화번호 등. 세이코마트(10/5 제4보): 앱 회원 57만 4,647명분이 부정 열람됐다.
+[계정 침해·업무 중단] 닛케이(10/4): Microsoft 365 계정에서 약 9,000건의 수상한 메일. 닛스이 물류(10/7): 위탁처 데이터센터에 대한 부정 접속으로 보이며 상품 입출하가 중단됐다. 야마토 운수: '쿠로네코 대금 후불' 서비스를 10/9 13시 재개하고 지불 기한을 17일 연장. 정보 유출 조사는 계속(헤드라인 수준만 확인).
+[미확인·과거분] 라쿠텐 회원 1억 100만 건 판매를 주장하는 해커의 게시(10/4 보도, 유출원·진위 미확인). Oracle Health(구 Cerner)는 2025년 침해이며 10/2자 주 당국 신고로 약 1,993만 명 규모가 드러났다(신규 공격 아님).
+[건수 기준] 한 집계 사이트에 따르면 9/1~10/8 국내 공표(속보 포함)는 140건이며 그중 25건이 10만 건 이상(SmartScope). 1월~10/9 공표가 138건이라는 집계도 있다(도몬 다이키 note). 집계 방식이 달라 단순 비교는 불가.`),
+ src:[[`セキュリティ対策Lab(事例まとめ)`,`https://rocket-boys.co.jp/security-measures-lab/cyberattacks-data-breaches-latest-cases-2026/`],[`SmartScope(件数別一覧)`,`https://smartscope.blog/blog/japan-data-breach-list-tier-2026-09-10/`],[`土門大貴(note)`,`https://note.com/daikidomon/n/n238268ba8967`]]}
+];
+let bcFilter='all';
+function renderBreach(){
+  const cats=['all',...new Set(BREACH.map(b=>b.tag))];
+  $('#bc-chips').innerHTML=cats.map(c=>`<button type="button" class="chip" data-cat="${c}" aria-pressed="${c===bcFilter}">${c==='all'?esc(UI.all[LANG]):esc(UI.tags[c][LANG])}</button>`).join('');
+  const q=currentQuery();
+  let list=BREACH.filter(b=>bcFilter==='all'||b.tag===bcFilter);
+  if(q) list=list.filter(b=>matches(b,q));
+  list=list.slice().sort((a,b)=>b.date.localeCompare(a.date));
+  $('#bc-count').textContent=list.length;
+  $('#bc-list').innerHTML=list.length?list.map(it=>newsItemHTML(it,null)).join(''):`<p class="empty">${esc(UI.noResults[LANG])}</p>`;
+}
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const nl2p=s=>String(s).split(/\n+/).map(p=>`<p>${esc(p)}</p>`).join('');
 const fmtChg=(v,digits=2)=>v==null?'—':(v>0?'+':'')+v.toFixed(digits)+'%';
@@ -838,7 +1101,7 @@ function matches(it,q){
   return hay.includes(q);
 }
 
-function renderAll(){renderTape();renderBrief();renderAI();renderStocks();renderMacro();applyStatic();}
+function renderAll(){renderTape();renderBrief();renderAI();renderStocks();renderMacro();renderBreach();applyStatic();}
 
 document.addEventListener('click',e=>{
   const openBtn=e.target.closest('[data-open-btn]');
@@ -849,6 +1112,8 @@ document.addEventListener('click',e=>{
   }
   const chip=e.target.closest('#ai-chips .chip');
   if(chip){aiFilter=chip.dataset.cat;renderAI();return;}
+  const bchip=e.target.closest('#bc-chips .chip');
+  if(bchip){bcFilter=bchip.dataset.cat;renderBreach();return;}
   const tab=e.target.closest('#st-tabs .tab');
   if(tab){stTab=tab.dataset.tab;renderStocks();return;}
   const langBtn=e.target.closest('[data-lang]');
@@ -861,10 +1126,12 @@ document.addEventListener('click',e=>{
     return;
   }
 });
-$('#q').addEventListener('input',()=>{renderAI();renderStocks();renderMacro();});
+$('#q').addEventListener('input',()=>{renderAI();renderStocks();renderMacro();renderBreach();});
 $('#st-sort').addEventListener('change',e=>{stSort=e.target.value;renderStocks();});
 
 renderAll();
 </script>
 </body>
 </html>
+
+</body></html>
