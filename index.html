@@ -258,7 +258,7 @@ const UI={
  cal:T(`今後の予定`,`Coming up`,`앞으로의 일정`),
  search:T(`キーワードで絞り込み(例:NVDA、円、Claude)`,`Filter by keyword (e.g. NVDA, yen, Claude)`,`키워드로 필터 (예: NVDA, 엔, Claude)`),
  colorHint:T(`色の規則:日本語・韓国語は上昇=赤/下落=青、英語は上昇=緑/下落=赤`,`Colors: Japanese and Korean use red = up, blue = down; English uses green = up, red = down`,`색상 규칙: 일본어·한국어는 상승=빨강/하락=파랑, 영어는 상승=초록/하락=빨강`),
-  asof:T(`データ取得:2026年10月14日(水)12時台(東京時間)。日本株は10月13日の終値(10月14日は前引けのみ確認、日経平均68,193.13円)、米国株・原油・金・ドル円・米10年債は10月13日(米国時間)の終値です。シノプシス、TSMC、サウンドハウンドAI、プロジェクトHDは最新値を確認できず、カードの日付表示の時点のままです。ナスダック総合と一部個別株の騰落率は出典の速報値です。`,`Data retrieved around 12:00 Tokyo time on Wednesday, Oct 14, 2026. Japanese stocks are Oct 13 closes (only the Oct 14 morning-session close, Nikkei 68,193.13, was available); US stocks, crude, gold, USD/JPY and the US 10Y yield are Oct 13 US-session closes. Synopsys, TSMC, SoundHound AI and Project Holdings could not be updated and still show the earlier date on their cards. The Nasdaq and some individual percentage moves come from preliminary source figures.`,`데이터 조회: 2026년 10월 14일(수) 도쿄 시간 12시경. 일본 주식은 10월 13일 종가(10월 14일은 오전장 종가만 확인, 닛케이 68,193.13엔), 미국 주식·원유·금·달러/엔·미 10년물 금리는 10월 13일(미국 시간) 종가입니다. 시놉시스, TSMC, 사운드하운드 AI, 프로젝트 홀딩스는 최신 값을 확인하지 못해 카드에 표시된 이전 날짜 기준 그대로입니다. 나스닥 종합과 일부 개별 종목 등락률은 출처의 속보 수치입니다.`),
+  asof:T(`データ取得:2026年10月16日(金)12時台(東京時間)。日本株・韓国株は10月15日の終値(10月16日の日経平均は前引けのみ確認、65,550.68円)、米国株・原油・金・ドル円・米10年債は10月15日(米国時間)の終値です。次の銘柄は最新値を確認できず、カードの日付表示の時点のままです:シノプシス(10/14終値)、Snowflake(10/13)、サウンドハウンドAI(10/6)、プロジェクトHD(10/2)。`,`Data retrieved around noon Tokyo time on Friday, Oct 16, 2026. Japanese and Korean stocks are Oct 15 closes (only the Oct 16 morning-session close of the Nikkei, 65,550.68, was available); US stocks, crude, gold, USD/JPY and the US 10Y yield are Oct 15 US-session closes. These stocks could not be updated and still show the earlier date on their cards: Synopsys (10/14 close), Snowflake (10/13), SoundHound AI (10/6) and Project Holdings (10/2).`,`데이터 조회: 2026년 10월 16일(금) 도쿄 시간 12시경. 일본·한국 주식은 10월 15일 종가(10월 16일 닛케이평균은 오전장 종가 65,550.68엔만 확인), 미국 주식·원유·금·달러/엔·미 10년물 금리는 10월 15일(미국 시간) 종가입니다. 다음 종목은 최신 값을 확인하지 못해 카드에 표시된 이전 날짜 기준 그대로입니다: 시놉시스(10/14 종가), Snowflake(10/13), 사운드하운드 AI(10/6), 프로젝트 홀딩스(10/2).`),
  expandAll:T(`すべて開く`,`Expand all`,`모두 펼치기`),
  collapseAll:T(`すべて閉じる`,`Collapse all`,`모두 접기`),
  sources:T(`出典`,`Sources`,`출처`),
@@ -283,38 +283,36 @@ const UI={
 };
 
 const TAPE=[
- {l:T(`日経平均`,`Nikkei 225`,`닛케이 225`),v:`67,777.52`,c:-1.82,d:`10/13`},
- {l:T(`ドル円`,`USD/JPY`,`달러/엔`),v:`158.33`,c:null,d:`10/13`},
- {l:T(`S&P 500`,`S&P 500`,`S&P 500`),v:`7,805.45`,c:-0.02,d:`10/13`},
- {l:T(`ナスダック総合`,`Nasdaq Comp.`,`나스닥 종합`),v:`27,204.38`,c:-0.15,d:`10/13`},
- {l:T(`エヌビディア`,`NVIDIA`,`엔비디아`),v:`$228.52`,c:0.97,d:`10/13`},
- {l:T(`WTI原油`,`WTI crude`,`WTI 원유`),v:`$94.14`,c:0.43,d:`10/13`},
- {l:T(`金(先物)`,`Gold (fut.)`,`금(선물)`),v:`$4,177.30`,c:-0.32,d:`10/13`},
- {l:T(`米10年債利回り`,`US 10Y yield`,`미 10년물 금리`),v:`5.21%`,c:null,d:`10/13`}
+ {l:T(`日経平均`,`Nikkei 225`,`닛케이 225`),v:`64,425.95`,c:-4.90,d:`10/15`},
+ {l:T(`ドル円`,`USD/JPY`,`달러/엔`),v:`158.00`,c:null,d:`10/15`},
+ {l:T(`S&P 500`,`S&P 500`,`S&P 500`),v:`7,744.06`,c:0.33,d:`10/15`},
+ {l:T(`ナスダック総合`,`Nasdaq Comp.`,`나스닥 종합`),v:`26,713.03`,c:0.08,d:`10/15`},
+ {l:T(`エヌビディア`,`NVIDIA`,`엔비디아`),v:`$217.23`,c:-1.84,d:`10/15`},
+ {l:T(`WTI原油`,`WTI crude`,`WTI 원유`),v:`$97.97`,c:3.03,d:`10/15`},
+ {l:T(`金(先物)`,`Gold (fut.)`,`금(선물)`),v:`$4,170.10`,c:1.51,d:`10/15`},
+ {l:T(`米10年債利回り`,`US 10Y yield`,`미 10년물 금리`),v:`5.06%`,c:null,d:`10/15`}
 ];
 
 const BRIEF=[
- {h:T(`中国CXMTの新型DRAM発表でメモリー株が急落、日経平均は4日続落の67,777円`,`Memory stocks plunge on China's CXMT DRAM news; Nikkei falls a fourth day to 67,777`,`중국 CXMT 신형 D램 발표에 메모리주 급락, 닛케이평균 4일 연속 하락한 67,777엔`),
-  t:T(`10/13の日経平均は-1,253.40円(-1.82%)の67,777.52円で、安値は67,058.56円。TOPIXは+5.86の4,110.67と小幅高だった。10/12にCXMTが発表した新型DRAM構造への警戒で、キオクシアが-13.28%の15,180円、ソフトバンクグループが-8.50%の5,310円、東京エレクトロンが-7.15%の11,555円、ニデックが-6.62%の1,877円、レーザーテックが-5.09%の46,090円と下げた。10/14午前の前引けは+415.61円(+0.61%)の68,193.13円で5日ぶりに反発した。`,
-      `On 10/13 the Nikkei fell 1,253.40 points (-1.82%) to 67,777.52, with a low of 67,058.56, while TOPIX rose 5.86 to 4,110.67. On worries about the new DRAM structure CXMT announced on 10/12, Kioxia fell 13.28% to 15,180 yen, SoftBank Group 8.50% to 5,310, Tokyo Electron 7.15% to 11,555, Nidec 6.62% to 1,877 and Lasertec 5.09% to 46,090. The morning-session close on 10/14 was 68,193.13 (+415.61, +0.61%), the first rise in five sessions.`,
-      `10/13 닛케이평균은 -1,253.40엔(-1.82%)인 67,777.52엔, 저가는 67,058.56엔이었고 TOPIX는 +5.86인 4,110.67로 소폭 올랐다. 10/12 CXMT가 발표한 신형 D램 구조에 대한 경계감에 키옥시아가 -13.28%인 15,180엔, 소프트뱅크그룹이 -8.50%인 5,310엔, 도쿄일렉트론이 -7.15%인 11,555엔, 니덱이 -6.62%인 1,877엔, 레이저텍이 -5.09%인 46,090엔으로 내렸다. 10/14 오전장 종가는 +415.61엔(+0.61%)인 68,193.13엔으로 5거래일 만에 반등했다.`)},
- {h:T(`韓国KOSPIは-5.46%、SKハイニックス-10%、サムスン電子-7% 米株は小幅安`,`KOSPI falls 5.46%, SK hynix down 10%, Samsung 7%; US stocks edge lower`,`코스피 -5.46%, SK하이닉스 -10%, 삼성전자 -7%, 미국 증시는 소폭 하락`),
-  t:T(`10/13の韓国市場でKOSPIは-5.46%の6,035.35で引け、売りのサイドカー(売り側)が発動した。SKハイニックスは-10.09%の144万3,000ウォン、サムスン電子は-7.39%の23万2,000ウォンで、外国人は約4.5兆ウォンを売り越した。米国の10/13終値はダウが-180.45ドルの51,670.10ドル、S&P500が-0.02%の7,805.45、ナスダック総合が-0.15%の27,204.38。NVIDIAは+0.97%の228.52ドル、セールスフォースはBofAの格上げで+1.75%の238.01ドルだった。`,
-      `On 10/13 the KOSPI closed down 5.46% at 6,035.35 after a sell-side sidecar was triggered. SK hynix fell 10.09% to 1,443,000 won and Samsung Electronics 7.39% to 232,000 won, and foreign investors net sold about 4.5 trillion won. US closes on 10/13: the Dow fell 180.45 to 51,670.10, the S&P 500 slipped 0.02% to 7,805.45 and the Nasdaq Composite 0.15% to 27,204.38. NVIDIA rose 0.97% to $228.52 and Salesforce gained 1.75% to $238.01 after a BofA upgrade.`,
-      `10/13 한국 증시에서 코스피는 -5.46%인 6,035.35로 마감했고 매도 사이드카가 발동됐다. SK하이닉스는 -10.09%인 144만 3,000원, 삼성전자는 -7.39%인 23만 2,000원이었고 외국인은 약 4조 5천억 원을 순매도했다. 10/13 미국 종가는 다우가 -180.45달러인 51,670.10달러, S&P500이 -0.02%인 7,805.45, 나스닥 종합이 -0.15%인 27,204.38. NVIDIA는 +0.97%인 228.52달러, 세일즈포스는 BofA 상향으로 +1.75%인 238.01달러였다.`)},
- {h:T(`米9月CPIは日本時間10/14夜に発表、10月利上げ確率は約2割へ低下`,`US September CPI due tonight Tokyo time; October hike odds fall to about 20%`,`미 9월 CPI는 일본 시간 10/14 밤 발표, 10월 인상 확률 약 20%로 하락`),
-  t:T(`米9月CPIは10/14に発表され、予想は総合が前年比3.6〜3.7%(8月は3.4%)、コアが前月比0.2%。ウィリアムズNY連銀総裁は10/13に年内あと1回の利上げが適切としつつ2027年は不要と述べ、先物での10月利上げ確率は一時7割から2割程度に下がった。10/13終値は米10年債利回り5.21%、ドル円158.33円、WTI 94.14ドル(+0.43%)、金先物4,177.30ドル(-0.32%)。次回FOMCは10/27〜28。`,
-      `US September CPI is released on 10/14, with forecasts of 3.6-3.7% year on year for the headline (3.4% in August) and 0.2% month on month for core. NY Fed President Williams said on 10/13 that one more hike this year is appropriate but none is needed in 2027, and futures odds of an October hike have fallen from as high as 70% to around 20%. 10/13 closes: US 10-year yield 5.21%, USD/JPY 158.33, WTI $94.14 (+0.43%), gold futures $4,177.30 (-0.32%). The next FOMC meets 10/27-28.`,
-      `미 9월 CPI는 10/14 발표되며 예상은 총합이 전년 대비 3.6~3.7%(8월 3.4%), 근원이 전월 대비 0.2%다. 윌리엄스 뉴욕 연은 총재는 10/13 연내 한 번 더 인상이 적절하지만 2027년은 필요 없다고 말했고, 선물 시장의 10월 인상 확률은 한때 70%에서 20% 안팎으로 내려갔다. 10/13 종가는 미 10년물 금리 5.21%, 달러/엔 158.33엔, WTI 94.14달러(+0.43%), 금 선물 4,177.30달러(-0.32%). 다음 FOMC는 10/27~28.`)},
- {h:T(`Gemini 4 Argonが10/13に公開、Metaも新モデル「Muse Wonder」を発表`,`Gemini 4 Argon goes live on 10/13; Meta unveils its new Muse Wonder models`,`Gemini 4 Argon 10/13 공개, Meta도 신형 'Muse Wonder' 발표`),
-  t:T(`Googleは10/13にGemini 4 ArgonをGeminiアプリ、API、Antigravityなどで提供開始した(アプリはAI ProまたはUltra契約が必要。開発者向けの発売記念価格は入力100万トークン$2・出力$10)。Metaは同日にMuse WonderとMuse Wonder Fullを公開し、Artificial Analysisの指数でFull版はClaude Opus 5.5に次ぐ2位と伝えられた。OpenAIとAnthropicの代表は10/13の英議会公聴会で、法的拘束力のある規制の導入を支持すると述べた。`,
-      `Google began offering Gemini 4 Argon on 10/13 in the Gemini app, API and Antigravity (the app needs an AI Pro or Ultra plan; the developer launch price is $2 per million input tokens and $10 output). Meta released Muse Wonder and Muse Wonder Full the same day, and the Full version was reported to rank second behind Claude Opus 5.5 on the Artificial Analysis index. At a UK parliamentary hearing on 10/13, representatives of OpenAI and Anthropic said they support legally binding regulation.`,
-      `Google은 10/13 Gemini 4 Argon을 Gemini 앱, API, Antigravity 등에서 제공하기 시작했다(앱은 AI Pro 또는 Ultra 구독 필요, 개발자용 출시 기념 가격은 입력 100만 토큰당 $2, 출력 $10). Meta는 같은 날 Muse Wonder와 Muse Wonder Full을 공개했고 Full 버전은 Artificial Analysis 지수에서 Claude Opus 5.5에 이어 2위라고 전해졌다. OpenAI와 Anthropic 대표는 10/13 영국 의회 청문회에서 법적 구속력이 있는 규제 도입을 지지한다고 밝혔다.`)}
+ {h:T(`日経平均は-3,318円の64,425円で6日続落、下げ幅は過去3番目 10/16午前は7日ぶり反発`,`Nikkei plunges 3,318 points to 64,425 for a sixth straight loss, the third-largest drop ever; rebounds on 10/16 morning`,`닛케이평균 -3,318엔 하락한 64,425엔으로 6일 연속 하락, 낙폭 역대 3위, 10/16 오전 7거래일 만에 반등`),
+  t:T(`10/15の日経平均は-3,318.34円(-4.90%)の64,425.95円、TOPIXは-97.44の3,999.34(-2.38%)で、下げ幅は2024年8月5日、1987年10月20日に次ぐ過去3番目だった。アドバンテストは-14.96%の34,340円、キオクシアは-12.32%の12,880円、ソフトバンクグループは-9.33%の4,852円、安川電機は-9.30%の4,274円、レーザーテックは-13.56%の39,220円と、AI・半導体関連が大きく下げた。10/16午前の前引けは+1,124.73円(+1.75%)の65,550.68円で7日ぶりに反発し、好決算のベイカレントとSHIFTがストップ高になった。`,
+      `On 10/15 the Nikkei fell 3,318.34 points (-4.90%) to 64,425.95 and TOPIX fell 97.44 to 3,999.34 (-2.38%), the third-largest drop on record after 8/5/2024 and 10/20/1987. AI and chip names fell hard: Advantest -14.96% to 34,340 yen, Kioxia -12.32% to 12,880, SoftBank Group -9.33% to 4,852, Yaskawa -9.30% to 4,274 and Lasertec -13.56% to 39,220. The 10/16 morning-session close was 65,550.68 (+1,124.73, +1.75%), the first rise in seven sessions, with Baycurrent and SHIFT hitting limit-up on strong results.`,
+      `10/15 닛케이평균은 -3,318.34엔(-4.90%)인 64,425.95엔, TOPIX는 -97.44인 3,999.34(-2.38%)로, 낙폭은 2024년 8월 5일, 1987년 10월 20일에 이은 역대 3위였다. 어드반테스트 -14.96% 34,340엔, 키옥시아 -12.32% 12,880엔, 소프트뱅크그룹 -9.33% 4,852엔, 야스카와전기 -9.30% 4,274엔, 레이저텍 -13.56% 39,220엔 등 AI·반도체 관련주가 크게 내렸다. 10/16 오전장 종가는 +1,124.73엔(+1.75%)인 65,550.68엔으로 7거래일 만에 반등했고 호실적 베이커런트와 SHIFT가 상한가를 기록했다.`)},
+ {h:T(`米9月CPIが予想超え、AI関連が急落 ナスダックは10/14に-1.88% 10/15は小反発`,`Hot September CPI hammers AI stocks: Nasdaq -1.88% on 10/14, small rebound on 10/15`,`미 9월 CPI 예상 상회로 AI주 급락, 나스닥 10/14 -1.88%, 10/15 소폭 반등`),
+  t:T(`9月CPIは前月比+0.6%、前年比+3.7%(予想3.6%)、コアは前月比+0.3%、前年比+2.6%(予想2.5%)で、10月の利上げ確率はCPI前の22.1%から一時5割超へ上昇した。10/14は、ナスダックが-1.88%の26,692.87、S&P500が-1.11%の7,718.94、フィラデルフィア半導体指数が-4.3%で、CoreWeaveは-15.46%だった。10/15はダウが+556.21ドルの52,177.69ドル(+1.08%)、S&P500が+0.33%の7,744.06、ナスダックが+0.08%の26,713.03。生産者物価指数(PPI)は4年ぶり高水準で、NVIDIAは-1.84%の217.23ドルだった。`,
+      `September CPI rose 0.6% m/m and 3.7% y/y (forecast 3.6%), with core up 0.3% m/m and 2.6% y/y (forecast 2.5%); the odds of an October hike jumped from 22.1% before the release to above 50% at one point. On 10/14 the Nasdaq fell 1.88% to 26,692.87, the S&P 500 fell 1.11% to 7,718.94, the Philadelphia semiconductor index fell 4.3% and CoreWeave dropped 15.46%. On 10/15 the Dow rose 556.21 to 52,177.69 (+1.08%), the S&P 500 gained 0.33% to 7,744.06 and the Nasdaq 0.08% to 26,713.03. Producer prices hit a four-year high, and NVIDIA fell 1.84% to $217.23.`,
+      `9월 CPI는 전월 대비 +0.6%, 전년 대비 +3.7%(예상 3.6%), 근원은 전월 대비 +0.3%, 전년 대비 +2.6%(예상 2.5%)로, 10월 인상 확률은 CPI 전 22.1%에서 한때 50% 넘게 뛰었다. 10/14 나스닥은 -1.88%인 26,692.87, S&P500은 -1.11%인 7,718.94, 필라델피아 반도체지수는 -4.3%였고 코어위브는 -15.46%였다. 10/15 다우는 +556.21달러인 52,177.69달러(+1.08%), S&P500은 +0.33%인 7,744.06, 나스닥은 +0.08%인 26,713.03. 생산자물가는 4년 만의 최고 수준이었고 NVIDIA는 -1.84%인 217.23달러였다.`)},
+ {h:T(`韓国KOSPIは-7.57%でサーキットブレーカー発動 TSMCは過去最高益・見通しも予想上回る`,`KOSPI plunges 7.57% with circuit breakers; TSMC posts record profit and a stronger outlook`,`코스피 -7.57%로 서킷브레이커 발동, TSMC는 사상 최대 이익에 전망도 예상 상회`),
+  t:T(`10/15の韓国市場でKOSPIは-7.57%の5,554.22で引け、サーキットブレーカーが発動した。サムスン電子は-9.48%の21万ウォン、SKハイニックスは-11.06%の126万2,000ウォンで、外国人は約3兆6,000億ウォンを売り越した。一方、10/15に決算を発表したTSMCの7〜9月期は、売上高が前年同期比+50.9%の1兆4,942億台湾ドル、純利益が+68.7%の7,630億台湾ドルと過去最高で、10〜12月の売上高見通し(523億〜543億ドル)も市場予想を上回った。`,
+      `On 10/15 the KOSPI closed down 7.57% at 5,554.22 after circuit breakers were triggered. Samsung Electronics fell 9.48% to 210,000 won and SK hynix 11.06% to 1,262,000 won, and foreign investors net sold about 3.6 trillion won. Meanwhile TSMC, which reported on 10/15, posted July-September revenue of NT$1,494.2 billion (+50.9% y/y) and net profit of NT$763.1 billion (+68.7%), both records, and its October-December revenue outlook ($52.3-54.3 billion) beat market expectations.`,
+      `10/15 한국 증시에서 코스피는 -7.57%인 5,554.22로 마감했고 서킷브레이커가 발동됐다. 삼성전자는 -9.48%인 21만 원, SK하이닉스는 -11.06%인 126만 2,000원이었고 외국인은 약 3조 6,000억 원을 순매도했다. 한편 10/15 실적을 발표한 TSMC의 7~9월 매출은 전년 동기 대비 +50.9%인 1조 4,942억 대만달러, 순이익은 +68.7%인 7,630억 대만달러로 모두 사상 최고였고 10~12월 매출 전망(523억~543억 달러)도 시장 예상을 웃돌았다.`)},
+ {h:T(`WTIは97.97ドル(+3.03%)、金は4,170ドル(+1.51%) 米10年債は5.06%へ低下`,`WTI at $97.97 (+3.03%), gold at $4,170 (+1.51%); US 10-year yield falls to 5.06%`,`WTI 97.97달러(+3.03%), 금 4,170달러(+1.51%), 미 10년물 금리 5.06%로 하락`),
+  t:T(`10/15のWTI11月物は+2.88ドルの97.97ドルで5営業日続伸し、イランによるホルムズ海峡での船舶攻撃の激化や、ウクライナ大統領がロシアの石油施設への攻撃再開を指示したとの報道で一時98.32ドルまで上げた。金先物12月限は+62.2ドルの4,170.1ドルで4日ぶりに反発した。米10年債利回りはAI投資への信用不安から安全資産として債券が買われ、-0.13ポイントの5.06%へ低下し、ドル円は158.00円で引けた。次回FOMCは10/27〜28。`,
+      `WTI November futures rose $2.88 to $97.97 on 10/15, a fifth straight gain, touching $98.32 on Iran's intensified attacks on ships in the Strait of Hormuz and reports that Ukraine's president ordered a resumption of strikes on Russian oil facilities. COMEX December gold rose $62.2 to $4,170.1, its first gain in four days. The US 10-year yield fell 0.13 points to 5.06% as bonds were bought as a safe haven amid credit worries over AI investment, and USD/JPY closed at 158.00. The next FOMC meets 10/27-28.`,
+      `10/15 WTI 11월물은 +2.88달러인 97.97달러로 5거래일 연속 올랐고, 이란의 호르무즈 해협 선박 공격 격화와 우크라이나 대통령이 러시아 석유 시설 공격 재개를 지시했다는 보도로 한때 98.32달러까지 올랐다. COMEX 금 12월물은 +62.2달러인 4,170.1달러로 4거래일 만에 반등했다. 미 10년물 금리는 AI 투자 신용 불안에 안전자산으로 채권이 매수되며 -0.13%포인트인 5.06%로 내렸고 달러/엔은 158.00엔에 마감했다. 다음 FOMC는 10/27~28.`)}
 ];
 
 const CAL=[
- {d:`10/14`,t:T(`米9月CPI発表(日本時間夜)`,`US September CPI (Tokyo evening)`,`미 9월 CPI 발표(일본 시간 저녁)`)},
- {d:`10/15`,t:T(`StepFun Step 5のオープンウェイト公開予定`,`StepFun Step 5 open weights due`,`StepFun Step 5 오픈 웨이트 공개 예정`)},
  {d:`10/23`,t:T(`ファナックの決算発表予定`,`Fanuc earnings scheduled`,`파낙 실적 발표 예정`)},
  {d:`10/27-28`,t:T(`FOMC(結果は日本時間10/29未明、ドットチャートなし)`,`FOMC (decision early 10/29 Tokyo time; no dot plot)`,`FOMC(결과는 한국·일본 시간 10/29 새벽, 점도표 없음)`)},
  {d:`10/28`,t:T(`アドバンテストの決算発表予定`,`Advantest earnings scheduled`,`어드반테스트 실적 발표 예정`)},
@@ -326,6 +324,59 @@ const CAL=[
 ];
 
 const AI=[
+{id:`a26`,type:`ai`,tag:`invest`,important:true,date:`10/14`,
+ h:T(`米CPI上振れでAI関連が急落 CoreWeave -15%、SOX -4.3%、日経平均は10/15に-3,318円`,`Hot CPI hits AI stocks: CoreWeave -15%, SOX -4.3%, and the Nikkei falls 3,318 points on 10/15`,`미 CPI 상회에 AI주 급락, 코어위브 -15%, SOX -4.3%, 닛케이평균 10/15 -3,318엔`),
+ s:T(`借入コスト上昇に弱いAIインフラ株が売られ、信用不安が波及。10/15の米国は小反発。`,`AI infrastructure names sensitive to borrowing costs were sold and credit worries spread; US stocks rebounded slightly on 10/15.`,`차입 비용 상승에 취약한 AI 인프라주가 팔리며 신용 불안이 확산. 10/15 미국 증시는 소폭 반등.`),
+ d:T(`【10/14の米国】9月CPIが前年比3.7%と予想(3.6%)を上回り、10月の追加利上げ観測が再燃した。借り入れコスト上昇の影響を受けやすいオラクル、コアウィーブ、ネビウスなどが売られ、コアウィーブは-15.46%。フィラデルフィア半導体指数は-4.3%、ナスダック総合は-1.88%だった。10年債利回りは5.29%付近まで上昇した。
+【10/15の東京・ソウル】東京では日経平均が-3,318円(-4.90%)、アドバンテストが-14.96%、キオクシアが-12.32%。ソウルではKOSPIが-7.57%、SKハイニックスが-11.06%、サムスン電子が-9.48%だった。日経は「巨額のAI投資と資金調達への懸念」や中国CXMTの技術進展を要因に挙げている。
+【10/15の米国】PPIが4年ぶり高水準となったがダウは+1.08%で、ヘルスケアや消費関連へ物色が移った。NVIDIAは-1.84%、デルは-6.9%、HPEは-7.1%。10/16午前の日経平均は反発した。`,
+     `[US on 10/14] September CPI rose 3.7% y/y, above the 3.6% forecast, reviving bets on another hike in October. Names sensitive to higher borrowing costs, such as Oracle, CoreWeave and Nebius, were sold; CoreWeave fell 15.46%, the Philadelphia semiconductor index 4.3% and the Nasdaq 1.88%. The 10-year yield rose to around 5.29%.
+[Tokyo and Seoul on 10/15] The Nikkei fell 3,318 points (-4.90%), Advantest 14.96% and Kioxia 12.32%. In Seoul the KOSPI fell 7.57%, SK hynix 11.06% and Samsung Electronics 9.48%. The Nikkei cited worries over huge AI investment and financing, plus China's CXMT progress.
+[US on 10/15] Producer prices hit a four-year high, yet the Dow rose 1.08% as money rotated into healthcare and consumer shares. NVIDIA fell 1.84%, Dell 6.9% and HPE 7.1%. The Nikkei rebounded on the morning of 10/16.`,
+     `[10/14 미국] 9월 CPI가 전년 대비 3.7%로 예상(3.6%)을 웃돌아 10월 추가 인상 관측이 되살아났다. 차입 비용 상승에 취약한 오라클, 코어위브, 네비우스 등이 팔렸고 코어위브는 -15.46%, 필라델피아 반도체지수는 -4.3%, 나스닥 종합은 -1.88%였다. 10년물 금리는 5.29% 부근까지 올랐다.
+[10/15 도쿄·서울] 도쿄에서는 닛케이평균 -3,318엔(-4.90%), 어드반테스트 -14.96%, 키옥시아 -12.32%. 서울에서는 코스피 -7.57%, SK하이닉스 -11.06%, 삼성전자 -9.48%였다. 닛케이는 'AI 거액 투자와 자금 조달 우려'와 중국 CXMT의 기술 진전을 요인으로 꼽았다.
+[10/15 미국] 생산자물가가 4년 만의 최고 수준이었지만 다우는 +1.08%로 헬스케어·소비 관련주로 매수가 이동했다. NVIDIA -1.84%, 델 -6.9%, HPE -7.1%. 10/16 오전 닛케이평균은 반등했다.`),
+ src:[[`ブルームバーグ配信記事(Bloomingbit)`,`https://jp.bloomingbit.io/feed/news/122239`],[`財経新聞(14日の米国株)`,`https://www.zaikei.co.jp/article/20261015/873518.html`],[`財経新聞(15日の米国株)`,`https://www.zaikei.co.jp/article/20261016/873704.html`],[`ウエルスアドバイザー(Yahoo!ファイナンス)`,`https://finance.yahoo.co.jp/news/detail/108ed98eb532b36154391880c569e428dc49e7a3`],[`ソウル新聞`,`https://www.seoul.co.kr/news/economy/securities/2026/10/13/20261013800007`]]},
+{id:`a27`,type:`ai`,tag:`invest`,important:true,date:`10/15`,
+ h:T(`TSMC、7〜9月期は過去最高益(純利益+68.7%) 10〜12月見通しも予想上回る`,`TSMC posts record July-September profit (+68.7%) and an outlook above expectations`,`TSMC, 7~9월 사상 최대 이익(순이익 +68.7%), 10~12월 전망도 예상 상회`),
+ s:T(`粗利益率は66.4%で会社予想の範囲内。2027年の設備投資を巡る見方が焦点。`,`Gross margin was 66.4%, within guidance; attention is on 2027 capex expectations.`,`매출총이익률 66.4%로 회사 예상 범위 내. 2027년 설비투자 전망이 초점.`),
+ d:T(`TSMCは10/15、2026年7〜9月期決算を発表した。売上高は1兆4,942億台湾ドル(前年同期比+50.9%、米ドルで467.2億ドル)、純利益は7,630億台湾ドル(+68.7%)で、いずれも四半期の過去最高。粗利益率は66.4%、営業利益率は58.7%で、2nmがウエハー売上高の8%に上昇した。
+10〜12月の売上高見通しは523億〜543億ドルで、市場予想を上回った。2026年の設備投資予算は600億〜640億ドル。ブルームバーグは、好決算でもAI投資への懸念は拭えなかったと伝えている。同日、東京とソウルではAI・半導体株が大きく下げており、TSMC決算の発表時間は日本時間の午後だった。ADR(TSM)の10/15終値は本カードでは確認していない。`,
+     `On 10/15 TSMC reported July-September 2026 results. Revenue was NT$1,494.2 billion (+50.9% y/y; $46.72 billion) and net profit NT$763.1 billion (+68.7%), both quarterly records. Gross margin was 66.4% and operating margin 58.7%, and 2nm rose to 8% of wafer revenue.
+The October-December revenue outlook is $52.3-54.3 billion, above market expectations. The 2026 capex budget is $60-64 billion. Bloomberg said the strong results did not dispel worries about AI investment. On the same day AI and chip stocks fell sharply in Tokyo and Seoul. The 10/15 close of the TSM ADR was not checked for this card.`,
+     `TSMC는 10/15 2026년 7~9월 실적을 발표했다. 매출은 1조 4,942억 대만달러(전년 동기 대비 +50.9%, 미 달러로 467.2억 달러), 순이익은 7,630억 대만달러(+68.7%)로 모두 분기 사상 최고. 매출총이익률은 66.4%, 영업이익률은 58.7%였고 2nm가 웨이퍼 매출의 8%로 올랐다.
+10~12월 매출 전망은 523억~543억 달러로 시장 예상을 웃돌았다. 2026년 설비투자 예산은 600억~640억 달러. 블룸버그는 호실적에도 AI 투자 우려는 가시지 않았다고 전했다. 같은 날 도쿄와 서울에서는 AI·반도체주가 크게 내렸다. ADR(TSM)의 10/15 종가는 이 카드에서 확인하지 못했다.`),
+ src:[[`日本経済新聞`,`https://www.nikkei.com/article/DGXZQOGM151UW0V11C26A0000000/`],[`ブルームバーグ`,`https://www.bloomberg.com/jp/news/articles/2026-10-15/TMXOX4T9NJLS00`],[`ビジネス+IT(Yahoo!ニュース)`,`https://news.yahoo.co.jp/articles/f7f0c69860b1deb50b5cadc5a4a9d66bd0e62fc8`],[`Xenospectrum`,`https://xenospectrum.com/tsmc-q3-2026-gross-margin-capex/`]]},
+{id:`a28`,type:`ai`,tag:`reg`,date:`10/16`,
+ h:T(`米8州がOpenAIを提訴、EUのAI事務局はOpenAIとAnthropicに初の情報要求`,`Eight US states sue OpenAI; EU AI Office sends OpenAI and Anthropic its first formal information requests`,`미 8개 주가 OpenAI 제소, EU AI 사무국은 OpenAI·Anthropic에 첫 정보 요구`),
+ s:T(`提訴は子どもの安全を巡るもの。EUは安全、外部評価、利用監視について要求。いずれも報道ベース。`,`The lawsuit concerns child safety; the EU request covers security, external evaluation and usage monitoring. Both are report-based.`,`제소는 아동 안전 문제. EU는 보안·외부 평가·이용 감시에 대해 요구. 모두 보도 기준.`),
+ d:T(`【米8州の提訴】AIニュースの要約記事によると、アイオワ、ネブラスカ、カンザス、ウェストバージニア、アーカンソー、アリゾナ、アイダホ、モンタナの8州が10/14〜15ごろ、ChatGPTが子どもに危険な助言をした疑いがあるとして、安全性を欺いたと主張してOpenAIを提訴した。
+【EUの情報要求】AI日報(Qiita)によると、EUのVirkkunen執行副委員長は、AI事務局がAI法に基づき、セキュリティ、外部評価、モデル利用の監視を巡る正式な情報要求をOpenAIとAnthropicに初めて送ったと明らかにした。
+【文脈】10/13には両社の代表が英議会の公聴会で、法的拘束力のある規制を支持すると述べた。いずれも要約記事ベースで、訴状や要求書の原文は確認していない。`,
+     `[Eight-state lawsuit] According to a news roundup, eight states (Iowa, Nebraska, Kansas, West Virginia, Arkansas, Arizona, Idaho and Montana) sued OpenAI around 10/14-15, alleging ChatGPT gave children dangerous advice and that the company misled the public about safety.
+[EU information requests] According to an AI daily digest on Qiita, EU Executive Vice-President Virkkunen said the AI Office has for the first time sent OpenAI and Anthropic formal information requests under the AI Act about security, external evaluation and monitoring of model use.
+[Context] On 10/13 representatives of both companies told a UK parliamentary hearing they support legally binding regulation. All of this comes from roundup articles; the complaint and request letters were not checked.`,
+     `[8개 주 제소] AI 뉴스 요약 기사에 따르면 아이오와, 네브래스카, 캔자스, 웨스트버지니아, 아칸소, 애리조나, 아이다호, 몬태나 8개 주가 10/14~15경 ChatGPT가 아이들에게 위험한 조언을 했다는 의혹과 안전성을 속였다는 주장으로 OpenAI를 제소했다.
+[EU 정보 요구] Qiita의 AI 일보에 따르면 EU의 비르쿠넨 수석 부집행위원장은 AI 사무국이 AI법에 따라 보안, 외부 평가, 모델 이용 감시에 관한 공식 정보 요구를 OpenAI와 Anthropic에 처음 보냈다고 밝혔다.
+[맥락] 10/13 양사 대표는 영국 의회 청문회에서 법적 구속력이 있는 규제를 지지한다고 말했다. 모두 요약 기사 기준이며 소장과 요구서 원문은 확인하지 못했다.`),
+ src:[[`クリスタルメソッド(AIニュース)`,`https://crystal-method.com/blog/ai-news-daily-2026-10-15/`],[`AI日報(Qiita)`,`https://qiita.com/lhjjjk4/items/e771f2d1c6c187674816`]]},
+{id:`a29`,type:`ai`,tag:`product`,date:`10/15`,
+ h:T(`Anthropic、Claude CodeのCode ReviewをTeam・Enterprise向けに一般提供 Opus 5.5の高速モードも標準化`,`Anthropic makes Claude Code's Code Review generally available for Team and Enterprise; Opus 5.5 fast mode goes standard`,`Anthropic, Claude Code Code Review를 Team·Enterprise에 정식 제공, Opus 5.5 고속 모드도 표준화`),
+ s:T(`Opus 5.5の高速モードは個別申請とベータヘッダーが不要に。独立評価者へのアクセス拡充も説明。`,`Opus 5.5 fast mode no longer needs an application or beta header; Anthropic also described wider access for independent evaluators.`,`Opus 5.5 고속 모드는 개별 신청과 베타 헤더가 불필요. 독립 평가자 접근 확대도 설명.`),
+ d:T(`複数の要約記事によると、AnthropicはClaude CodeのCode Review機能がリサーチプレビューを終了し、TeamとEnterpriseプラン向けに一般提供を始めたと発表した。Claude Opus 5.5の高速モードも研究プレビューを終え、個別の利用申請とベータヘッダーが不要となり、全利用階層に標準のレート上限が設定された。Microsoft Foundryでの提供と、Compliance APIでの保存済み指示の取得にも対応したとされる。
+別の要約では、AnthropicはMETRの評価者6人に従業員に近い機材・執務環境・情報へのアクセスを認める取り組みを説明している。細部は要約記事ベースで、公式ページ本文は確認していない。`,
+     `According to several roundups, Anthropic announced that Claude Code's Code Review has ended its research preview and is generally available for Team and Enterprise plans. Claude Opus 5.5's fast mode also ended its research preview: individual applications and the beta header are no longer needed, and standard rate limits apply to all tiers. It is also said to be offered on Microsoft Foundry, with the Compliance API now able to retrieve users' saved instructions.
+Another summary says Anthropic described giving six METR evaluators access to equipment, work environments and information close to that of employees. Details come from roundups; the official pages were not checked.`,
+     `여러 요약 기사에 따르면 Anthropic은 Claude Code의 Code Review 기능이 리서치 프리뷰를 끝내고 Team·Enterprise 플랜에 정식 제공을 시작했다고 발표했다. Claude Opus 5.5 고속 모드도 리서치 프리뷰를 마쳐 개별 이용 신청과 베타 헤더가 불필요해졌고 전 이용 등급에 표준 요청 한도가 설정됐다. Microsoft Foundry 제공과 Compliance API의 저장된 지침 조회도 지원한다고 한다.
+다른 요약에서는 Anthropic이 METR 평가자 6명에게 직원에 가까운 장비·업무 환경·정보 접근을 허용하는 방안을 설명했다. 세부 내용은 요약 기사 기준이며 공식 페이지 본문은 확인하지 못했다.`),
+ src:[[`プログラミング雑記(Qiita)`,`https://qiita.com/ishisaka/items/1022c2c5cc83caa37206`],[`生成AIニュース(legalagent)`,`https://legalagent.co.jp/legal-lab/ai-news/`]]},
+{id:`a30`,type:`ai`,tag:`product`,date:`10/15`,
+ h:T(`Microsoft、自社AIチップ「Maia 300」を発表 2027年から展開`,`Microsoft unveils its in-house AI chip Maia 300, rolling out from 2027`,`Microsoft, 자체 AI 칩 'Maia 300' 공개, 2027년부터 도입`),
+ s:T(`Azure Maiaを主力の推論基盤にする方針。Ledge.aiの見出し情報のみ確認。`,`Azure Maia is to become the main inference platform; only the Ledge.ai headline was checked.`,`Azure Maia를 주력 추론 기반으로 삼는 방침. Ledge.ai 헤드라인만 확인.`),
+ d:T(`Ledge.aiの見出しによると、Microsoftは10/15に自社製AIチップ「Maia 300」を発表し、2027年から展開して、Azure Maiaを主力の推論基盤にするとされる。AI・半導体株が大きく下げた同日の発表で、NVIDIAなど既存の半導体供給元との関係は今後の注目点だが、性能や調達規模などの詳細は本カードでは確認していない。`,
+     `According to a Ledge.ai headline, Microsoft announced its in-house AI chip Maia 300 on 10/15, to roll out from 2027 and make Azure Maia its main inference platform. It came on a day AI and chip stocks fell sharply; the impact on existing suppliers such as NVIDIA is a point to watch, but details such as performance and procurement scale were not checked for this card.`,
+     `Ledge.ai 헤드라인에 따르면 Microsoft는 10/15 자체 AI 칩 'Maia 300'을 공개했으며 2027년부터 도입해 Azure Maia를 주력 추론 기반으로 삼는다고 한다. AI·반도체주가 크게 내린 날의 발표로, NVIDIA 등 기존 공급사와의 관계가 앞으로의 관전 포인트지만 성능과 조달 규모 등 세부 내용은 이 카드에서 확인하지 못했다.`),
+ src:[[`Ledge.ai`,`https://ledge.ai/`]]},
 {id:`a20`,type:`ai`,tag:`invest`,important:true,date:`10/13`,
  h:T(`CXMTの新型DRAM発表でメモリー株が世界的に急落(KOSPI -5.46%、キオクシア -13%)`,`CXMT's new DRAM design triggers a global memory selloff (KOSPI -5.46%, Kioxia -13%)`,`CXMT 신형 D램 발표에 메모리주 글로벌 급락(코스피 -5.46%, 키옥시아 -13%)`),
  s:T(`中国の長鑫存儲(CXMT)が新構造DRAMと年内の量産計画を発表。マイクロン、SKハイニックス、サムスンなどが下落。`,`China's CXMT announced a new DRAM structure and a year-end server memory plan; Micron, SK hynix and Samsung fell.`,`중국 CXMT가 신구조 D램과 연내 양산 계획을 발표. 마이크론·SK하이닉스·삼성전자 등이 하락.`),
@@ -547,7 +598,7 @@ UI.sector={
 };
 const STOCKS={
 saas:[
-{id:`s1`,country:`US`,tick:`CRM`,name:T(`セールスフォース`,`Salesforce`,`세일즈포스`),date:`10/13`,px:`$238.01`,chg1d:1.75,chg1m:2.0,chg1y:-12.0,mcap:249,
+{id:`s1`,country:`US`,tick:`CRM`,name:T(`セールスフォース`,`Salesforce`,`세일즈포스`),date:`10/15`,px:`$246.74`,chg1d:4.57,chg1m:2.0,chg1y:-12.0,mcap:249,
  h:T(`Dreamforce直後に下落、アナリストは目標株価を引き上げ`,`Shares slip right after Dreamforce even as analysts raise targets`,`Dreamforce 직후 주가 하락, 애널리스트는 목표주가 상향`),
  s:T(`Agentforce 360の刷新を発表も株価は年初来安値圏。BofAやEvercoreは強気を維持。`,`Unveiled a revamped Agentforce 360, yet shares sit near 52-week lows even as BofA and Evercore stay bullish.`,`Agentforce 360 개편을 발표했지만 주가는 52주 저점권. BofA·Evercore는 강세 유지.`),
  d:T(`Dreamforce 2026(9/16-18)でAgentforce 360を発表し、Slackを「協調エンジン」、Data Cloudを「コンテキスト基盤」と位置づけたが、株価は年初来安値圏の$249付近に沈んだまま。BofAは目標株価を$375→$380に、Evercore ISIは$275→$290に引き上げ、いずれも買い推奨を維持。市場の懸念はAIエージェント化に伴う既存ライセンス収益への影響とみられる。`,
@@ -561,28 +612,28 @@ saas:[
      `Snowflake's most recent quarter highlighted expanding adoption of its AI-related products, and several sell-side desks cite the combination of data-cloud and agent demand as a bullish driver. Next earnings are expected in late November.`,
      `Snowflake는 최근 실적에서 AI 관련 제품 채택 확대를 강조했으며, 여러 매도측 데스크는 데이터 클라우드와 에이전트 수요의 결합을 강세 요인으로 지목한다. 다음 실적 발표는 11월 말로 예상된다.`),
  src:[[`StockTwits`,`https://stocktwits.com/symbol/SNOW`]]},
-{id:`s3`,country:`US`,tick:`NOW`,name:T(`サービスナウ`,`ServiceNow`,`서비스나우`),date:`10/13`,px:`$138.61`,chg1d:-1.22,chg1m:-5.0,chg1y:null,mcap:147,
+{id:`s3`,country:`US`,tick:`NOW`,name:T(`サービスナウ`,`ServiceNow`,`서비스나우`),date:`10/15`,px:`$148.57`,chg1d:6.14,chg1m:-5.0,chg1y:null,mcap:147,
  h:T(`5対1の株式分割後、年初来では軟調`,`Underwater year-to-date since its 5-for-1 stock split`,`5대 1 액면분할 이후 연초 대비 부진`),
  s:T(`2025年12月18日付で5対1の株式分割を実施。分割後ベースで年初来では軟調な値動きが続く。`,`Completed a 5-for-1 stock split effective Dec 18, 2025; on a split-adjusted basis shares remain weak year-to-date.`,`2025년 12월 18일자로 5대 1 액면분할 실시. 분할 조정 기준으로 연초 대비 부진한 흐름이 이어짐.`),
  d:T(`ServiceNowは2025年12月18日付で普通株式を5対1で分割しており、株価は分割後ベースで比較する必要がある。分割調整後で見ると、同社は今年のエンタープライズソフトウェア株の中でも年初来パフォーマンスが目立って弱いとされ、AIによる混乱への懸念からソフトウェア株が売られた局面で他のクラウド銘柄と共に一時的に反発する場面もあった。次回決算発表と新製品の発表スケジュールが注目材料。`,
      `ServiceNow completed a 5-for-1 stock split effective December 18, 2025, so prices must be compared on a split-adjusted basis. On that basis the stock has been cited as one of the weakest year-to-date performers among enterprise software names, though it has bounced along with peers during rebounds from AI-disruption selloffs. The next earnings date and any new product announcements are the items to watch.`,
      `ServiceNow는 2025년 12월 18일자로 보통주를 5대 1로 분할했으며, 주가는 분할 조정 기준으로 비교해야 한다. 분할 조정 기준으로 보면 올해 엔터프라이즈 소프트웨어 종목 중에서도 연초 대비 성과가 두드러지게 부진한 편으로 꼽히며, AI발 혼란 우려로 소프트웨어주가 매도된 국면에서 다른 클라우드 종목과 함께 일시적으로 반등하기도 했다. 다음 실적 발표일과 신제품 발표 일정이 주목 포인트다.`),
  src:[[`ServiceNow`,`https://www.businesswire.com/news/home/20251205952446/en/ServiceNow-Shareholders-Approve-5-for-1-Stock-Split`],[`Yahoo Finance`,`https://finance.yahoo.com/quote/NOW/`]]},
-{id:`s4`,country:`US`,tick:`SNPS`,name:T(`シノプシス`,`Synopsys`,`시놉시스`),date:`10/05`,px:`$488.47`,chg1d:-0.29,chg1m:-15.0,chg1y:-30.0,mcap:76,
+{id:`s4`,country:`US`,tick:`SNPS`,name:T(`シノプシス`,`Synopsys`,`시놉시스`),date:`10/14`,px:`$479.93`,chg1d:-2.95,chg1m:-15.0,chg1y:-30.0,mcap:76,
  h:T(`Elliott出資と大型増資で株価は年初来安値圏`,`Shares near 52-week lows after an Elliott stake and a large share placement`,`Elliott 지분 참여와 대규모 증자 이후 주가는 연중 저점권`),
  s:T(`数十億ドル規模の普通株私募増資でElliott Investmentが出資、希薄化懸念が重荷。`,`A multi-billion-dollar private placement of common shares brought in Elliott Investment, and dilution concerns weigh.`,`수십억 달러 규모 보통주 사모증자에 Elliott Investment가 참여, 희석 우려가 부담.`),
  d:T(`Synopsysは2025年後半にArmとの提携拡大(AGI向けCPU協業)などAI関連の取り組みを進める一方、数十億ドル規模の普通株私募増資を実施し、Elliott Investment Managementが主要株主として参加したと報じられた。増資による希薄化懸念や高いバリュエーションへの警戒感から株価は年初(4月時点で$470台)から大きく下落し、52週高値$651.73に対し直近は$397台と年初来安値圏で推移。アナリストの投資判断は「やや買い」が中心だが、バリュエーション論争が続いている。`,
      `Through late 2025 Synopsys pushed ahead on AI initiatives such as an expanded Arm partnership on AGI-oriented CPU collaboration, but it also carried out a multi-billion-dollar private placement of common shares that reportedly brought in Elliott Investment Management as a major holder. Dilution concerns and valuation worries have driven the stock sharply lower from around $470 in April to near $397 recently, well off its 52-week high of $651.73. Analyst sentiment leans mildly positive, but the valuation debate continues.`,
      `Synopsys는 2025년 후반 Arm과의 제휴 확대(AGI向け CPU 협업) 등 AI 관련 행보를 이어가는 한편, 수십억 달러 규모의 보통주 사모증자를 실시해 Elliott Investment Management가 주요 주주로 참여했다고 보도되었다. 증자에 따른 희석 우려와 높은 밸류에이션 경계감으로 주가는 4월 $470대에서 최근 $397대까지 크게 하락해 52주 고점 $651.73에서 크게 멀어진 연중 저점권에 머물러 있다. 애널리스트 의견은 다소 긍정적이지만 밸류에이션 논쟁은 계속되고 있다.`),
  src:[[`Robinhood`,`https://robinhood.com/stocks/SNPS`],[`Benzinga`,`https://kr.benzinga.com/quote/snps`]]},
-{id:`s12`,country:`JP`,tick:`4443.T`,name:T(`Sansan`,`Sansan`,`산산`),date:`10/13`,px:`¥2,025`,chg1d:-8.74,chg1m:-2.0,chg1y:20.0,mcap:1.75,
+{id:`s12`,country:`JP`,tick:`4443.T`,name:T(`Sansan`,`Sansan`,`산산`),date:`10/15`,px:`¥1,903`,chg1d:-1.09,chg1m:-2.0,chg1y:20.0,mcap:1.75,
  h:T(`決算好調で急伸、次回決算は10/9`,`Jumps on strong results; next earnings 10/9`,`실적 호조로 급등, 다음 실적 발표는 10/9`),
  s:T(`主力のSansan・Bill Oneが牽引し増収増益。13期連続増収、4期連続増益。`,`Core Sansan and Bill One products drove higher sales and profit; a 13th straight year of revenue growth and 4th of profit growth.`,`주력 Sansan·Bill One이 견인해 증수증익. 13기 연속 증수, 4기 연속 증익.`),
  d:T(`7/13発表の2026年5月期はSansan・Bill Oneの成長により売上高が前年同期比24.4%増の537.61億円、調整後営業利益が137.0%増の84.27億円。連結経常利益は前期比3.0倍の81.7億円で、13期連続増収・4期連続増益。次回決算発表は2026年10月9日の予定で、27年5月期はAI機能拡充による増収と利益率改善の両立を目指すとしている。時価総額は約2,860億円。`,
      `Results reported 7/13 for the year ended May 2026 showed sales up 24.4% year on year to ¥53.761B and adjusted operating profit up 137.0% to ¥8.427B, driven by the core Sansan and Bill One products. Consolidated ordinary profit tripled to ¥8.17B, marking a 13th straight year of revenue growth and 4th of profit growth. Next earnings are due October 9, 2026; guidance for FY2027/5 targets both growth and margin improvement through expanded AI features. Market cap is roughly ¥286 billion.`,
      `7/13 발표된 2026년 5월기 실적은 Sansan·Bill One의 성장으로 매출이 전년 동기 대비 24.4% 증가한 537.61억 엔, 조정 영업이익은 137.0% 증가한 84.27억 엔을 기록했다. 연결 경상이익은 전기 대비 3.0배인 81.7억 엔으로 13기 연속 증수, 4기 연속 증익이다. 다음 실적 발표는 2026년 10월 9일 예정이며, 27년 5월기는 AI 기능 확충을 통한 증수와 이익률 개선을 함께 노린다. 시가총액은 약 2,860억 엔이다.`),
  src:[[`みんかぶ`,`https://minkabu.jp/stock/4443`],[`Yahoo!ファイナンス`,`https://finance.yahoo.co.jp/quote/4443.T`]]},
-{id:`s13`,country:`JP`,tick:`3923.T`,name:T(`ラクス`,`Rakus`,`라쿠스`),date:`10/13`,px:`¥1,133.5`,chg1d:-0.04,chg1m:-15.0,chg1y:20.0,mcap:2.45,
+{id:`s13`,country:`JP`,tick:`3923.T`,name:T(`ラクス`,`Rakus`,`라쿠스`),date:`10/15`,px:`¥1,140.5`,chg1d:0.84,chg1m:-15.0,chg1y:20.0,mcap:2.45,
  h:T(`IT人材事業の連結除外で減速も特別利益で最終増益`,`Deconsolidation slows revenue, but a one-off gain lifts net profit`,`IT 인재 사업 연결 제외로 둔화, 특별이익으로 최종 증익`),
  s:T(`8月末に急落した後、月次開示と目標株価引き上げで反発局面。`,`Fell sharply in late August, then rebounded on monthly disclosures and a raised price target.`,`8월 말 급락 후 월간 공시와 목표주가 상향으로 반등 국면.`),
  d:T(`2027年3月期第1四半期はIT人材事業の連結除外により売上高が前年同期比0.9%増の142億円と横ばいだったが、コスト効率化で営業利益は30.1%増の48億円、子会社株式譲渡による特別利益167億円を計上し最終利益は313.6%増の146億円。株価は9/11に年初来安値圏の1,021.5円まで下げた後、9/14の月次売上高開示で反発し1日で+7.39%。同日、米系大手証券は目標株価を1,200円に引き上げた。9/18終値は1,082円、時価総額は約3,834億円。`,
@@ -598,35 +649,35 @@ saas:[
  src:[[`PR TIMES`,`https://prtimes.jp/main/html/rd/p/000000599.000036528.html`],[`LayerX`,`https://layerx.co.jp/`]]}
 ],
 semi:[
-{id:`s5`,country:`TW`,tick:`TSM`,name:T(`TSMC`,`TSMC`,`TSMC`),date:`10/05`,px:`$485.80`,chg1d:2.75,chg1m:8.0,chg1y:75.0,mcap:2337,
+{id:`s5`,country:`TW`,tick:`TSM`,name:T(`TSMC`,`TSMC`,`TSMC`),date:`10/15`,px:`$421.88`,chg1d:-0.09,chg1m:8.0,chg1y:75.0,mcap:2337,
  h:T(`SOX指数が3%超上昇、AI半導体需要への楽観再燃`,`Philadelphia Semiconductor Index jumps over 3% on renewed AI chip optimism`,`필라델피아 반도체지수 3%대 급등, AI 반도체 수요 낙관 재점화`),
  s:T(`TSMC、Broadcom、Micronなど主要銘柄がそろって上昇。`,`TSMC, Broadcom, Micron and other bellwethers rose together.`,`TSMC, Broadcom, Micron 등 주요 종목이 동반 상승.`),
  d:T(`9/17、フィラデルフィア半導体指数(SOX)が3%超上昇し、TSMC、Broadcom、Micron、Applied Materialsなど主要銘柄が軒並み高となった。AIインフラ投資の継続を背景にした楽観論が背景とみられ、TSMCのADRも大きく上昇した。`,
      `On 9/17 the Philadelphia Semiconductor Index (SOX) jumped more than 3%, lifting TSMC, Broadcom, Micron and Applied Materials among others. The rally is attributed to renewed optimism over continued AI infrastructure spending, and TSMC's ADR rose sharply as well.`,
      `9/17 필라델피아 반도체지수(SOX)가 3% 넘게 급등하며 TSMC, Broadcom, Micron, Applied Materials 등 주요 종목이 일제히 올랐다. AI 인프라 투자 지속에 대한 낙관이 배경으로 보이며 TSMC ADR도 큰 폭으로 상승했다.`),
  src:[[`Investing.com`,`https://www.investing.com/news/stock-market-news`]]},
-{id:`s6`,country:`JP`,tick:`6920.T`,name:T(`レーザーテック`,`Lasertec`,`레이저텍`),date:`10/13`,px:`¥46,090`,chg1d:-5.09,chg1m:15.0,chg1y:20.0,mcap:25.4,
+{id:`s6`,country:`JP`,tick:`6920.T`,name:T(`レーザーテック`,`Lasertec`,`레이저텍`),date:`10/15`,px:`¥39,220`,chg1d:-13.56,chg1m:15.0,chg1y:20.0,mcap:25.4,
  h:T(`半導体製造装置株が東京市場でも堅調`,`Chip-equipment names firm in Tokyo trade too`,`반도체 장비주, 도쿄 증시에서도 견조`),
  s:T(`日経平均の上昇局面で半導体関連が指数をけん引。`,`Semiconductor-related names led the index during the Nikkei's advance.`,`닛케이 상승 국면에서 반도체 관련주가 지수를 견인.`),
  d:T(`9/18の日経平均は65,019円(+1.38%)で終え、半導体製造装置株が上昇をけん引したと報じられている。EUV検査装置で存在感のあるレーザーテックなど関連銘柄への資金流入が観測された。`,
      `The Nikkei 225 closed 9/18 at 65,019 (+1.38%), with reports crediting chip-equipment names for leading the advance. Inflows were observed into related names such as Lasertec, a key player in EUV inspection tools.`,
      `9/18 닛케이 평균은 65,019엔(+1.38%)으로 마감했고, 반도체 장비주가 상승을 견인했다고 보도되었다. EUV 검사 장비 강자인 레이저텍 등 관련 종목으로 자금 유입이 관측되었다.`),
  src:[[`NewsOnJapan`,`https://newsonjapan.com/`]]},
-{id:`s7`,important:true,country:`JP`,tick:`9984.T`,name:T(`ソフトバンクグループ`,`SoftBank Group`,`소프트뱅크그룹`),date:`10/13`,px:`¥5,310`,chg1d:-8.50,chg1m:20.0,chg1y:40.0,mcap:238,
+{id:`s7`,important:true,country:`JP`,tick:`9984.T`,name:T(`ソフトバンクグループ`,`SoftBank Group`,`소프트뱅크그룹`),date:`10/15`,px:`¥4,852`,chg1d:-9.33,chg1m:20.0,chg1y:40.0,mcap:238,
  h:T(`OpenAI向け追加出資の原資として約110億ドルの社債を計画`,`Plans roughly $11B in bonds to fund more OpenAI investment`,`OpenAI 추가 투자 재원으로 약 110억 달러 채권 계획`),
  s:T(`条件決定は9/24前後、決済は9/29前後の見込みと報道。`,`Pricing expected around 9/24, settlement around 9/29, per reports.`,`조건 확정은 9/24 전후, 결제는 9/29 전후로 보도.`),
  d:T(`ロイターなどによると、ソフトバンクグループはOpenAIへの追加出資の原資として、円建て・ドル建てを組み合わせ約110億ドル相当の社債発行を計画している。条件決定は9/24前後、受け渡しは9/29前後と見込まれる。同社はOpenAIへの累計コミットメントが大きく、AI関連の資金調達動向が株価材料として注目され続けている。`,
      `Per Reuters and other outlets, SoftBank Group is planning roughly $11 billion in combined yen- and dollar-denominated bonds to help fund further investment in OpenAI, with pricing expected around 9/24 and settlement around 9/29. The company's large cumulative OpenAI commitment keeps AI-related financing activity a key share-price driver.`,
      `로이터 등에 따르면 소프트뱅크그룹은 OpenAI 추가 투자 재원으로 엔화·달러 표시를 조합한 약 110억 달러 규모의 채권 발행을 계획하고 있으며, 조건 확정은 9/24 전후, 결제는 9/29 전후로 예상된다. 회사의 누적 OpenAI 투자 규모가 크기 때문에 AI 관련 자금 조달 동향이 주가 재료로 계속 주목받고 있다.`),
  src:[[`Reuters`,`https://www.reuters.com/technology/`]]},
-{id:`s8`,country:`US`,tick:`NVDA`,name:T(`エヌビディア`,`NVIDIA`,`엔비디아`),date:`10/13`,px:`$228.52`,chg1d:0.97,chg1m:6.0,chg1y:92.0,mcap:5450,
+{id:`s8`,country:`US`,tick:`NVDA`,name:T(`エヌビディア`,`NVIDIA`,`엔비디아`),date:`10/15`,px:`$217.23`,chg1d:-1.84,chg1m:6.0,chg1y:92.0,mcap:5450,
  h:T(`追加150億ドルの自社株買いを承認、総額2,350億ドルに`,`Authorizes an extra $15B buyback, lifting the total to $235B`,`추가 150억 달러 자사주 매입 승인, 총액 2,350억 달러로`),
  s:T(`9/30終値は前日比+0.51%の228.38ドル。買い戻し総額は米国上場企業60社超の時価総額を上回る規模。`,`Closed 9/30 up 0.51% at $228.38. The buyback total now exceeds the market caps of more than 60 US-listed companies.`,`9/30 종가는 전일 대비 +0.51%인 228.38달러. 매입 총액은 미국 상장사 60여 곳의 시가총액을 넘는 규모.`),
  d:T(`NVIDIAは9/30、追加で150億ドルの自社株買いを承認し、買い戻し総額を2028年までに2,350億ドルへ拡大すると発表した。この金額は現在の米国上場企業60社超の時価総額を上回る規模とされる。同日の株価は前日比+0.51%の228.38ドルで終え、出来高は直近3カ月平均をやや下回った。AMDは+0.69%、Broadcomは-1.10%と半導体株は銘柄ごとにまちまちの動き。ハイパースケーラーのAI投資継続への期待に加え、FT報道のオフバランスAI債務問題など資金調達面の話題も引き続き市場の関心を集めている。`,
      `On 9/30 NVIDIA authorized an additional $15 billion in buybacks, expanding its total repurchase authorization to $235 billion through 2028 — an amount that now exceeds the market caps of more than 60 US-listed companies. Shares closed that day up 0.51% at $228.38 on volume slightly below the three-month average. Peers were mixed: AMD rose 0.69% while Broadcom fell 1.10%. Alongside continued expectations for hyperscaler AI capex, financing-side topics such as the FT's reporting on off-balance-sheet AI debt continue to draw market attention.`,
      `NVIDIA는 9/30 추가로 150억 달러 규모의 자사주 매입을 승인하며 2028년까지의 매입 총액을 2,350억 달러로 확대한다고 발표했다. 이 금액은 현재 미국 상장사 60여 곳의 시가총액을 넘는 규모로 평가된다. 같은 날 주가는 전일 대비 +0.51%인 228.38달러로 마감했으며 거래량은 최근 3개월 평균을 약간 밑돌았다. 동종 반도체주는 종목별로 엇갈려 AMD는 +0.69%, Broadcom은 -1.10%였다. 하이퍼스케일러의 AI 투자 지속 기대와 더불어 FT가 보도한 장부 외 AI 부채 문제 등 자금 조달 관련 화제도 계속 시장의 관심을 끌고 있다.`),
  src:[[`Yahoo Finance`,`https://finance.yahoo.com/markets/stocks/articles/stock-market-today-sept-30-214001304.html`]]},
-{id:`s15`,important:true,country:`JP`,tick:`285A.T`,name:T(`キオクシアホールディングス`,`Kioxia Holdings`,`키오크시아 홀딩스`),date:`10/13`,px:`¥15,180`,chg1d:-13.28,chg1m:15.0,chg1y:120.0,mcap:81,
+{id:`s15`,important:true,country:`JP`,tick:`285A.T`,name:T(`キオクシアホールディングス`,`Kioxia Holdings`,`키오크시아 홀딩스`),date:`10/15`,px:`¥12,880`,chg1d:-12.32,chg1m:15.0,chg1y:120.0,mcap:81,
  h:T(`1対3株式分割が本日効力発生、分割後ベースで取引開始`,`1-for-3 stock split takes effect today; trading starts on a post-split basis`,`1대 3 액면분할이 오늘 효력 발생, 분할 후 기준으로 거래 시작`),
  s:T(`分割前終値5万4,570円の3分の1相当の1万7,880円で取引開始。分割自体は価値を変えないが、初日は売りも出て軟調。`,`Opened at ¥17,880, about one-third of the pre-split close of ¥54,570. The split itself doesn't change value, but shares traded soft on day one amid some selling.`,`분할 전 종가 5만4,570엔의 약 3분의 1인 1만7,880엔으로 거래 시작. 분할 자체는 가치를 바꾸지 않지만 첫날은 매도도 나와 약세.`),
  d:T(`キオクシアは7/31発表の1対3株式分割(基準日9/30、効力発生日10/1)が本日より適用され、分割後ベースの1万7,880円(分割前終値5万4,570円の約1/3)で取引を開始した。これにより単元株(100株)の最低投資額は約178万円に下がり個人投資家の買いやすさが増す一方、分割自体は企業価値を変えないため、同時に進めている上限8,000億円・3,000万株の自社株買い(8/3〜10/30)の進捗や、2027年3月期第1四半期の大幅増収増益(売上収益+415.5%、営業利益1兆2,700億円)を支えるAI向けNAND需要の持続性が今後の株価材料となる。株式分割の発表直後から一部で「分割で必ず上がる」との楽観も見られたが、初日は売りが出て軟調な場面も報じられている。`,
@@ -634,7 +685,7 @@ semi:[
      `키오크시아의 1대 3 액면분할(7/31 발표, 기준일 9/30, 효력 발생일 10/1)이 오늘부터 적용되어 분할 후 기준 1만7,880엔(분할 전 종가 5만4,570엔의 약 1/3)으로 거래를 시작했다. 이에 따라 단원주(100주) 최소 투자금이 약 178만 엔으로 낮아져 개인투자자의 매수 접근성이 높아지는 한편, 분할 자체는 기업가치를 바꾸지 않으므로 진행 중인 최대 8,000억 엔·3,000만 주 규모 자사주 매입(8/3~10/30)의 진척과 2027년 3월기 1분기의 큰 증수증익(매출 +415.5%, 영업이익 1조2,700억 엔)을 지지하는 AI向け NAND 수요의 지속성이 앞으로의 주가 재료가 된다. 분할 발표 직후 일부에서는 '분할하면 반드시 오른다'는 낙관도 있었지만, 첫 거래일에는 매물도 나와 약세를 보였다는 보도도 있다.`),
  src:[[`Yahoo!ファイナンス`,`https://finance.yahoo.co.jp/quote/285A.T`],[`LIMO`,`https://finance.limo.media/articles/893`]]}
 ,
-{id:`s16`,important:true,country:`KR`,tick:`005930.KS`,name:T(`サムスン電子`,`Samsung Electronics`,`삼성전자`),date:`10/13`,px:`₩232,000`,chg1d:-7.39,chg1m:5.0,chg1y:70.0,mcap:1283,
+{id:`s16`,important:true,country:`KR`,tick:`005930.KS`,name:T(`サムスン電子`,`Samsung Electronics`,`삼성전자`),date:`10/15`,px:`₩210,000`,chg1d:-9.48,chg1m:5.0,chg1y:70.0,mcap:1283,
  h:T(`次世代HBM4を発表、AIメモリ競争でリード狙う`,`Unveils next-gen HBM4, aiming to lead the AI-memory race`,`차세대 HBM4 공개, AI 메모리 경쟁 선점 노려`),
  s:T(`2Q営業利益89.4兆ウォンでエヌビディアを上回る規模。ゴールドマンは目標株価49万ウォンに。`,`Q2 operating profit of ₩89.4T topped Nvidia's; Goldman raised its target to ₩490,000.`,`2분기 영업이익 89.4조원으로 엔비디아를 상회. 골드만은 목표주가를 49만원으로 상향.`),
  d:T(`サムスン電子は9/21、次世代AI向け高帯域幅メモリ「HBM4」を発表し、SK hynix・キオクシアとのAIメモリ供給網競争でリードを狙う姿勢を示した。2026年第2四半期には連結営業利益89兆4,000億ウォンの過去最高益を記録したと報じられており、AI向けHBM・DRAMの品薄が背景。ゴールドマン・サックスはHBM・DRAMの供給不足を理由に普通株の目標株価を49万ウォン(従来比94.1%引き上げ)とした。株価は9/21時点で28万750ウォン付近(前日比+2.46%)。8月には優先株込みの時価総額が2,000兆ウォンを突破。第3四半期には約30兆ウォン規模の配当・自社株買いも予定されているとされ、メモリ市況の変動性が今後の焦点。`,
@@ -643,21 +694,21 @@ semi:[
  src:[[`글로벌이코노믹`,`https://www.g-enews.com/article/Global-Biz/2026/09/202609210656395048fbbec65dfb_1`],[`서울신문`,`https://www.seoul.co.kr/news/economy/2026/05/29/20260529500167`]]}
 ],
 robo:[
-{id:`s9`,country:`JP`,tick:`6954.T`,name:T(`ファナック`,`Fanuc`,`화낙`),date:`10/13`,px:`¥6,192`,chg1d:1.46,chg1m:10.0,chg1y:25.0,mcap:38,
+{id:`s9`,country:`JP`,tick:`6954.T`,name:T(`ファナック`,`Fanuc`,`화낙`),date:`10/15`,px:`¥5,907`,chg1d:-5.49,chg1m:10.0,chg1y:25.0,mcap:38,
  h:T(`NVIDIAとの「フィジカルAI」協業で株価が上昇基調`,`Shares trend higher on a "physical AI" tie-up with NVIDIA`,`NVIDIA와 '피지컬 AI' 협업으로 주가 상승 기조`),
  s:T(`産業用ロボットにNVIDIAのAI基盤を組み込む取り組みが好感され、株価は年初来で上昇。9/29が期末配当の権利落ち日。`,`Plans to embed NVIDIA's AI platform into its industrial robots have been well received, with shares up year-to-date; 9/29 is the ex-dividend date.`,`산업용 로봇에 NVIDIA의 AI 플랫폼을 접목하는 계획이 호평받아 주가는 연초 대비 상승. 9/29는 기말 배당 권리락일.`),
  d:T(`ファナックはNVIDIAとの協業でAI基盤を活用した「フィジカルAI」ロボットの開発を進めており、この取り組みが好感され株価は堅調に推移している。産業用ロボットとCNC装置の世界大手として、フィジカルAI・ヒューマノイド関連の投資テーマの中で引き続き物色されやすい銘柄。9/29は期末配当の権利落ち日にあたる。`,
      `Fanuc has been developing "physical AI" robots that embed NVIDIA's AI platform, and the collaboration has been well received, keeping shares on a firm trend. As a leading global maker of industrial robots and CNC equipment, it remains a name investors favor within the physical-AI and humanoid investment theme. September 29 is the ex-dividend date for the fiscal-year-end dividend.`,
      `화낙은 NVIDIA와의 협업으로 AI 플랫폼을 활용한 '피지컬 AI' 로봇 개발을 진행 중이며, 이 행보가 호평받아 주가는 견조한 흐름을 보이고 있다. 산업용 로봇과 CNC 장비의 세계적 대표주로서 피지컬 AI·휴머노이드 투자 테마 속에서 계속 주목받기 쉬운 종목이다. 9/29는 기말 배당 권리락일에 해당한다.`),
  src:[[`Fanuc IR`,`https://www.fanuc.co.jp/en/ir/`],[`kabutan`,`https://kabutan.jp/stock/?code=6954`]]},
-{id:`s10`,country:`JP`,tick:`6506.T`,name:T(`安川電機`,`Yaskawa Electric`,`야스카와전기`),date:`10/13`,px:`¥4,840`,chg1d:1.19,chg1m:-8.0,chg1y:10.0,mcap:8.0,
+{id:`s10`,country:`JP`,tick:`6506.T`,name:T(`安川電機`,`Yaskawa Electric`,`야스카와전기`),date:`10/15`,px:`¥4,274`,chg1d:-9.30,chg1m:-8.0,chg1y:10.0,mcap:8.0,
  h:T(`次回決算発表は10/9の見込み`,`Next earnings expected 10/9`,`다음 실적 발표는 10/9 예정`),
  s:T(`協働ロボットとモーションコントロールの受注動向が焦点。年初来高値7,915円からは大きく調整。`,`Order trends in collaborative robots and motion control are the focus; shares have corrected well off their 52-week high of ¥7,915.`,`협동로봇과 모션 컨트롤 수주 동향이 초점. 연중 고점 7,915엔에서 크게 조정.`),
  d:T(`安川電機の次回決算発表は10/9頃の見込み。株価は6/22の年初来高値7,915円から調整が続き、9/28時点で4,486円と高値から4割超低い水準。ロボット・フィジカルAI関連の設備投資動向を占う材料として、協働ロボットやサーボモーター事業の受注状況が引き続き注目される。`,
      `Yaskawa's next earnings report is expected around 10/9. Shares have corrected sharply from their 52-week high of ¥7,915 on 6/22, trading around ¥4,486 on 9/28, more than 40% below that peak. Order trends in its collaborative-robot and servo-motor businesses remain the key gauge of capex activity in the robotics and physical-AI space.`,
      `야스카와전기의 다음 실적 발표는 10/9 무렵으로 예상된다. 주가는 6/22 연중 고점 7,915엔에서 조정이 이어져 9/28 기준 4,486엔으로 고점 대비 40% 넘게 낮은 수준이다. 로봇·피지컬 AI 관련 설비투자 동향을 가늠하는 재료로 협동로봇과 서보모터 사업의 수주 상황이 계속 주목받는다.`),
  src:[[`Yaskawa IR`,`https://www.yaskawa.co.jp/en/ir`],[`日本経済新聞`,`https://www.nikkei.com/nkd/company/?scode=6506`]]},
-{id:`s11`,country:`US`,tick:`TSLA`,name:T(`テスラ`,`Tesla`,`테슬라`),date:`10/13`,px:`$375.23`,chg1d:-0.74,chg1m:-2.0,chg1y:15.0,mcap:1412,
+{id:`s11`,country:`US`,tick:`TSLA`,name:T(`テスラ`,`Tesla`,`테슬라`),date:`10/15`,px:`$362.44`,chg1d:-1.29,chg1m:-2.0,chg1y:15.0,mcap:1412,
  h:T(`JPMorganが目標株価を445→415ドルに引き下げ`,`JPMorgan cuts its price target to $415 from $445`,`JPMorgan, 목표주가 445→415달러로 하향`),
  s:T(`レーティングは「中立」を維持。ロードスター発表と第3四半期納車データを控え株価は軟調。`,`Rating stays Neutral; shares are soft ahead of the Roadster reveal and Q3 delivery data.`,`등급은 '중립' 유지. 로드스터 발표와 3분기 인도량 데이터를 앞두고 주가는 약세.`),
  d:T(`テスラ株は9/28、前日比3.94%安の357.45ドルで取引を終えた。JPMorganは同日、目標株価を445ドルから415ドルへ引き下げた一方、レーティングは「中立」を維持した。ロードスターの発表イベントと第3四半期の納車台数データを控え、市場の関心が高まっている。ヒューマノイドロボットOptimusの量産スケジュールも引き続き中長期の材料とされる。`,
@@ -668,27 +719,27 @@ robo:[
 movers:[
 {id:`m6`,important:true,country:`JP`,tick:`9246.T`,sector:`hr`,name:T(`プロジェクトホールディングス`,`Project Holdings`,`프로젝트 홀딩스`),date:`10/02`,px:`¥2,194`,chg:-0.05,
  why:T(`テクノプロ・HD傘下による1株2,200円(前日終値比+92.6%)のTOBを受け一時ストップ高`,`Hit its daily limit-up after TechnoPro Holdings' unit offered a ¥2,200/share tender (a 92.6% premium to the prior close)`,`테크노프로HD 계열사가 주당 2,200엔(전일 종가比 +92.6%)에 TOB를 제시해 한때 상한가`)},
-{id:`m4`,country:`JP`,tick:`285A.T`,sector:`semi`,name:T(`キオクシアホールディングス`,`Kioxia Holdings`,`키오크시아 홀딩스`),date:`10/13`,px:`¥15,180`,chg:-13.28,
+{id:`m4`,country:`JP`,tick:`285A.T`,sector:`semi`,name:T(`キオクシアホールディングス`,`Kioxia Holdings`,`키오크시아 홀딩스`),date:`10/15`,px:`¥12,880`,chg:-12.32,
  why:T(`マイクロンの好決算(AI向けメモリ需要は2028年まで逼迫との見通し)を受けて続伸`,`Extended gains after Micron's strong earnings signaled AI memory demand staying tight through 2028`,`마이크론의 호실적(AI向け 메모리 수요가 2028년까지 타이트하다는 전망)에 힘입어 계속 상승`)},
-{id:`m7`,country:`KR`,tick:`000660.KS`,sector:`semi`,name:T(`SKハイニックス`,`SK hynix`,`SK하이닉스`),date:`10/13`,px:`₩1,443,000`,chg:-10.09,
+{id:`m7`,country:`KR`,tick:`000660.KS`,sector:`semi`,name:T(`SKハイニックス`,`SK hynix`,`SK하이닉스`),date:`10/15`,px:`₩1,262,000`,chg:-11.06,
  why:T(`マイクロンの受注バックログ拡大(220億→320億ドル)を好感しAI記憶メモリ需要への楽観が強まる`,`Investors welcomed Micron's expanded order backlog ($22B→$32B), lifting optimism on AI memory demand`,`마이크론의 수주 잔고 확대($220억→$320억)를 호재로 AI 메모리 수요 낙관이 강화`)},
-{id:`m9`,important:true,country:`JP`,tick:`6857.T`,sector:`semi`,name:T(`アドバンテスト`,`Advantest`,`어드반테스트`),date:`10/13`,px:`¥40,400`,chg:-2.91,
+{id:`m9`,important:true,country:`JP`,tick:`6857.T`,sector:`semi`,name:T(`アドバンテスト`,`Advantest`,`어드반테스트`),date:`10/15`,px:`¥34,340`,chg:-14.96,
  why:T(`半導体検査装置の需要拡大期待で2日連続の高値、日経平均の7万円突破をけん引(指数を約334円押し上げ)`,`Hit a fresh high for a second straight day on strong chip-tester demand hopes, lifting the Nikkei above 70,000 by contributing about 334 points`,`반도체 검사장비 수요 확대 기대로 2일 연속 신고가, 닛케이평균의 7만 엔 돌파를 견인(지수를 약 334엔 끌어올림)`)}
 ],
 down:[
-{id:`d4`,important:true,country:`JP`,tick:`6594.T`,sector:`motor`,name:T(`ニデック`,`Nidec`,`니덱`),date:`10/13`,px:`¥1,877`,chg:-6.62,
+{id:`d4`,important:true,country:`JP`,tick:`6594.T`,sector:`motor`,name:T(`ニデック`,`Nidec`,`니덱`),date:`10/15`,px:`¥1,819`,chg:-6.24,
  why:T(`2026年3月期有報でPwCジャパンが3度目の「意見不表明」。上場廃止リスク懸念で年初来安値`,`PwC Japan declined to give an opinion on its FY2026/3 filing for the third time; delisting-risk fears sent shares to a 52-week low`,`2026년 3월기 유보에서 PwC재팬이 세 번째 '의견 불표명'. 상장폐지 우려로 연중 최저치`),
  d:T(`ニデックは9/30の取引終了後、2026年3月期の有価証券報告書を提出したが、監査法人PwCジャパンは3度目となる「意見不表明」の判定を下した。不適切な会計処理を受けた人事的な是正措置が一部完了しておらず、不正に関与した役職員の一部が依然財務報告プロセスで責任ある立場にあることなどから、「意見表明の基礎となる十分かつ適切な監査証拠を入手できなかった」という。これを受け10/1の株価は急落し年初来安値を更新、上場廃止リスクを警戒した処分売りが広がった。`,
      `After Tokyo trading closed on 9/30, Nidec filed its FY2026/3 annual securities report, but auditor PwC Japan declined to give an opinion for the third time, saying it could not obtain sufficient appropriate audit evidence — citing incomplete personnel remediation over earlier improper accounting and the fact that some staff involved in the misconduct still hold responsible roles in financial reporting. Shares plunged to a 52-week low on 10/1 as investors sold on fears of a possible delisting.`,
      `니덱은 9/30 거래 종료 후 2026년 3월기 유가증권보고서를 제출했지만, 감사법인 PwC재팬은 세 번째로 '의견 불표명' 판정을 내렸다. 부적절한 회계처리에 대한 인사 시정조치가 일부 완료되지 않았고, 부정에 관여한 일부 임직원이 여전히 재무보고 과정에서 책임 있는 위치에 있어 '의견 표명의 근거가 되는 충분하고 적절한 감사 증거를 입수할 수 없었다'고 한다. 이를 받아 10/1 주가는 급락해 연중 최저치를 경신했고, 상장폐지 우려에 따른 처분 매물이 확산됐다.`),
  src:[[`Bloomberg`,`https://www.bloomberg.com/jp/news/articles/2026-10-01/TM7D1LKJH6V400`],[`株探`,`https://s.kabutan.jp/news/n202610010350/`]]},
-{id:`d1`,important:true,country:`JP`,tick:`4755.T`,sector:`telecom`,name:T(`楽天グループ`,`Rakuten Group`,`라쿠텐 그룹`),date:`10/13`,px:`¥635.1`,chg:-3.71,
+{id:`d1`,important:true,country:`JP`,tick:`4755.T`,sector:`telecom`,name:T(`楽天グループ`,`Rakuten Group`,`라쿠텐 그룹`),date:`10/15`,px:`¥611.3`,chg:-2.74,
  why:T(`フィンテック事業再編に伴う法人所得税費用の計上を発表し軟調。年初来安値圏が続く`,`Weak after disclosing a corporate income-tax charge tied to its fintech business reorganization; shares remain near 52-week lows`,`핀테크 사업 재편에 따른 법인소득세 비용 계상을 발표해 약세. 연중 최저치권이 이어짐`),
  d:T(`楽天グループ株は9/28に一時677.3円まで下げ年初来安値を更新し、同日終値は687.8円(前日比+1.12%)。8/10発表の2026年1〜6月期決算はIFRS営業損益が504億円の黒字に転換したもののQUICKコンセンサス(708億円)に届かず10%超安。その後も戻りは鈍く、9/10〜11には米系大手証券2社が目標株価をそれぞれ800円、850円へ引き下げた。9/28時点の株価687.8円は、年初来高値(1/13、1,026円)から約33%低い水準。楽天モバイルの2026年通期設備投資は約2,000億円規模の計画で黒字化には時間がかかる見通しに加え、2025年12月期は無配、配当再開時期も「未定」としており、株主還元への不透明感が株価の重荷になっているとされる。`,
      `Rakuten Group shares hit a new 52-week low of ¥677.3 on 9/28 before closing at ¥687.8 that day (+1.12%). Results reported 8/10 for January-June 2026 showed IFRS operating profit swing to a gain of ¥50.4B, but that missed the QUICK consensus of ¥70.8B and shares fell over 10% that day. The stock has struggled to recover since, and on 9/10-11 two major US brokerages cut their targets to ¥800 and ¥850. The 9/28 price of ¥687.8 sits roughly 33% below the 52-week high of ¥1,026 (1/13). Rakuten Mobile's FY2026 capex plan of roughly ¥200B means profitability is still some way off, and with no dividend paid for FY2025 and no timeline set to resume one, shareholder-return uncertainty is seen weighing on the stock.`,
      `라쿠텐 그룹 주가는 9/28 한때 677.3엔까지 내려 연중 최저치를 경신했고, 같은 날 종가는 687.8엔(전일 대비 +1.12%)이었다. 8/10 발표된 2026년 1~6월기 실적은 IFRS 영업손익이 504억 엔 흑자로 전환했지만 QUICK 컨센서스(708억 엔)에 못 미쳐 당일 10% 넘게 급락했다. 이후에도 반등은 더뎠고, 9/10~11에는 미국계 대형 증권사 2곳이 목표주가를 각각 800엔, 850엔으로 하향했다. 9/28 기준 주가 687.8엔은 연중 고점(1/13, 1,026엔) 대비 약 33% 낮은 수준이다. 라쿠텐 모바일의 2026 회계연도 설비투자 계획은 약 2,000억 엔 규모로 흑자 전환까지는 시간이 걸릴 전망이며, 2025년 12월기 무배당에 배당 재개 시기도 '미정'이라 주주환원 불확실성이 주가에 부담이 되고 있다.`),
  src:[[`Yahoo!ファイナンス`,`https://finance.yahoo.co.jp/quote/4755.T/history`],[`松井証券`,`https://finance.matsui.co.jp/stock/4755/index`]]},
-{id:`d5`,important:true,country:`JP`,tick:`9984.T`,sector:`invest`,name:T(`ソフトバンクグループ`,`SoftBank Group`,`소프트뱅크그룹`),date:`10/13`,px:`¥5,310`,chg:-8.50,
+{id:`d5`,important:true,country:`JP`,tick:`9984.T`,sector:`invest`,name:T(`ソフトバンクグループ`,`SoftBank Group`,`소프트뱅크그룹`),date:`10/15`,px:`¥4,852`,chg:-9.33,
  why:T(`OpenAIへの300億ドル投資完了で再評価、CDS上昇やEMネットジャパン元CFO逮捕も重し`,`Reassessed after completing its $30B OpenAI investment program; rising CDS spreads and a former subsidiary CFO's arrest also weighed`,`OpenAI向け 300억 달러 투자 완료로 재평가, CDS 상승과 EM네트재팬 전 CFO 체포도 부담`),
  d:T(`ソフトバンクグループ株は10/2に6.0%安の6,296円で取引を終えた。総額300億ドルに上るOpenAIへの投資プログラムが完了したことを受け市場が株価を再評価したことに加え、同社のクレジット・デフォルト・スワップ(CDS)が2023年以来の高水準に急上昇しAI投資を賄う積極的なレバレッジ戦略への不安が広がった。さらに子会社EMネットジャパンの元CFOが10/1に逮捕され約1億7,000万円の横領事件が発覚したこともガバナンス面の懸念材料となった。前日に大幅高となった日経225全体の利益確定売りの流れも重なった。`,
      `SoftBank Group shares fell 6.0% to ¥6,296 on 10/2. The stock was reassessed after the company completed its $30 billion OpenAI investment program, while credit default swaps on the company spiked to their highest level since 2023, stoking concern over the aggressive leverage used to fund its AI bets. A separate governance concern emerged after the former CFO of subsidiary EM Net Japan was arrested on 10/1 over an embezzlement case involving roughly ¥170 million. The decline also coincided with broader profit-taking after the Nikkei 225's sharp rise the prior day.`,
@@ -702,30 +753,29 @@ down:[
  src:[[`Robinhood`,`https://robinhood.com/us/en/stocks/SOUN/`],[`CNN`,`https://www.cnn.com/markets/stocks/SOUN`]]}
 ]};
 const MACRO=[
-{id:`x15`,important:true,date:`10/14`,imp:3,
- h:T(`米9月CPIは日本時間10/14夜に発表、10月利上げ確率は約2割へ低下`,`US September CPI due tonight Tokyo time; October hike odds fall to about 20%`,`미 9월 CPI는 일본 시간 10/14 밤 발표, 10월 인상 확률 약 20%로 하락`),
- s:T(`予想は総合が前年比3.6〜3.7%、コアが前月比0.2%。ウィリアムズ総裁は年内あと1回の利上げが適切、2027年は不要。`,`Forecasts: headline 3.6-3.7% y/y, core 0.2% m/m. Williams: one more hike this year is appropriate, none in 2027.`,`예상은 총합 전년 대비 3.6~3.7%, 근원 전월 대비 0.2%. 윌리엄스: 연내 한 번 더 인상이 적절, 2027년은 불필요.`),
- d:T(`【発表予定】米労働省が10/14に9月CPIを発表する(日本時間では夜)。各社予想は、総合が前月比+0.6%・前年比+3.6〜3.7%(8月は3.4%)、コアが前月比+0.2%(8月は0.3%)でエネルギー価格が総合を押し上げる見通し。10/27〜28のFOMC前の最後の主要インフレ指標とされる。
-【FRB高官発言】時事通信によると、先物市場の10月利上げ確率は一時7割に達したが高官発言などで2割弱に低下した。ウィリアムズNY連銀総裁は10/13、年内にもう1回の利上げが適切としつつ「2027年の利上げは必要ない」との見解を示した。ウォラー理事は、連続した会合で利上げする必要はないとの趣旨を述べた。9月会合の議事要旨では、大多数が年内の追加利上げを想定していた。
-【市場】10/13終値は米10年債利回り5.21%(-0.03%)、ドル円158.33円。バークレイズは12月の25bp利上げを基本シナリオとしている。`,
-     `[Schedule] The US Labor Department publishes September CPI on 10/14 (evening in Tokyo). Forecasts are +0.6% m/m and +3.6-3.7% y/y for the headline (3.4% in August) and +0.2% m/m for core (0.3% in August), with energy lifting the headline. It is seen as the last major inflation reading before the 10/27-28 FOMC.
-[Fed comments] Jiji reports futures odds of an October hike once reached 70% but fell below 20% after officials' remarks. NY Fed President Williams said on 10/13 that one more hike this year is appropriate but "no hike is needed in 2027." Governor Waller said hikes need not come at consecutive meetings. The minutes of the September meeting showed a large majority expected another hike this year.
-[Market] 10/13 closes: US 10-year yield 5.21% (-0.03 points), USD/JPY 158.33. Barclays' base case is a 25bp hike in December.`,
-     `[발표 예정] 미 노동부는 10/14 9월 CPI를 발표한다(일본 시간 저녁). 각사 예상은 총합이 전월 대비 +0.6%·전년 대비 +3.6~3.7%(8월 3.4%), 근원이 전월 대비 +0.2%(8월 0.3%)이며 에너지 가격이 총합을 끌어올릴 전망이다. 10/27~28 FOMC 전 마지막 주요 인플레이션 지표로 꼽힌다.
-[연준 인사 발언] 시사통신에 따르면 선물 시장의 10월 인상 확률은 한때 70%에 달했으나 고위 인사 발언 등으로 20% 미만으로 내려갔다. 윌리엄스 뉴욕 연은 총재는 10/13 연내 한 번 더 인상이 적절하지만 '2027년 인상은 필요 없다'는 견해를 밝혔다. 월러 이사는 연속 회의에서 인상할 필요는 없다는 취지로 말했다. 9월 회의 의사요지에서는 대다수가 연내 추가 인상을 예상했다.
-[시장] 10/13 종가는 미 10년물 금리 5.21%(-0.03%포인트), 달러/엔 158.33엔. 바클레이즈는 12월 25bp 인상을 기본 시나리오로 본다.`),
- src:[[`時事通信`,`https://www.jiji.com/jc/article?k=2026101300647&g=int`],[`トレーダーズ・ウェブ(Yahoo!ニュース)`,`https://finance.yahoo.co.jp/news/detail/f0422f559b1d5b8ca503f1cdc90ca7b47c723fbb`],[`OANDA(NYマーケットダイジェスト)`,`https://www.oanda.jp/lab-education/market_news/mn_1038730_202610140620/`],[`TradingKey(CPIプレビュー)`,`https://www.tradingkey.com/jp/analysis/economic/indicators/262213240-us-september-cpi-outlook-inflation-us-stocks-dollar-gold-reaction-tradingkey`]]},
-{id:`x16`,date:`10/13`,imp:3,
- h:T(`WTIは94.14ドル(+0.43%)、金は4,177ドル(-0.32%) 中東情勢の緊迫が続く`,`WTI at $94.14 (+0.43%), gold at $4,177 (-0.32%) as Middle East tension persists`,`WTI 94.14달러(+0.43%), 금 4,177달러(-0.32%), 중동 정세 긴장 지속`),
- s:T(`円は日銀の10月利上げ見送り観測も売り材料。トランプ氏は中ロのイラン支援に懐疑的な見方。`,`The yen was also sold on speculation the BOJ will skip a hike this month; Trump doubted China and Russia are helping Iran.`,`엔화는 일본은행의 10월 인상 보류 관측도 매도 요인. 트럼프는 중·러의 이란 지원에 회의적.`),
- d:T(`【市況】10/13のNY原油先物(WTI11月物)は前日比0.40ドル高の94.14ドル、COMEX金12月限は13.30ドル安の4,177.30ドルで引けた。FiscoのNY為替概況は、中東情勢の紛争激化を背景とした原油高と米中古住宅販売件数の上振れでドル買いが強まり、ドル円が158.09〜158.47円で推移したと伝えた。日銀が今月会合で利上げを見送るとの観測も円売り要因とされた。日本株では中東情勢の緊迫化による運賃上昇期待で川崎汽船が上昇した。
-【発言】AFPによると、トランプ米大統領は10/12、中国とロシアがイランを支援しているとは考えていないと述べ、「失うものが大きすぎる」とSNSに投稿した。関係組織が米軍への攻撃を目的とした情報をイランに提供したと報じられており、対応を迫られている。本カードは報道ベースで、攻撃の事実関係や国際情勢の詳細は確認していない。`,
-     `[Markets] On 10/13 NY crude futures (WTI November) closed up $0.40 at $94.14 and COMEX December gold closed down $13.30 at $4,177.30. Fisco's New York FX wrap said dollar buying strengthened on higher oil amid escalating Middle East conflict and a stronger-than-expected US existing home sales report, with USD/JPY trading between 158.09 and 158.47. Speculation that the BOJ will skip a hike at this month's meeting also weighed on the yen. In Tokyo, Kawasaki Kisen rose on expectations of higher freight rates from the Middle East tension.
-[Remarks] AFP reports that President Trump said on 10/12 he does not believe China and Russia are helping Iran, posting that they "have too much to lose." Organizations have reportedly given Iran information aimed at attacking US forces, putting pressure on him to respond. This card is report-based; the facts of attacks and wider details were not verified.`,
-     `[시황] 10/13 뉴욕 원유 선물(WTI 11월물)은 전일 대비 0.40달러 오른 94.14달러, COMEX 금 12월물은 13.30달러 내린 4,177.30달러로 마감했다. Fisco의 뉴욕 외환 개황은 중동 정세 분쟁 격화를 배경으로 한 유가 상승과 미 기존주택 판매 호조로 달러 매수가 강해져 달러/엔이 158.09~158.47엔에서 움직였다고 전했다. 일본은행이 이달 회의에서 금리 인상을 보류한다는 관측도 엔화 매도 요인으로 꼽혔다. 도쿄에서는 중동 긴장에 따른 운임 상승 기대로 가와사키 기센이 올랐다.
-[발언] AFP에 따르면 트럼프 미국 대통령은 10/12 중국과 러시아가 이란을 지원하고 있다고 생각하지 않는다며 '잃을 것이 너무 많다'고 SNS에 올렸다. 관련 조직이 미군 공격을 목적으로 한 정보를 이란에 제공했다고 보도돼 대응 압박을 받고 있다. 이 카드는 보도 기준이며 공격의 사실관계와 국제 정세 세부 내용은 확인하지 못했다.`),
- src:[[`みんかぶ(NY原油終値)`,`https://fx.minkabu.jp/news/381453`],[`みんかぶ(NY金概況)`,`https://fx.minkabu.jp/news/381465`],[`財経新聞(NY為替概況)`,`https://www.zaikei.co.jp/article/20261014/873304.html`],[`AFP`,`https://afpbb.com/articles/-/3657371`]]},
-{id:`x12`,important:true,date:`10/08`,imp:3,
+{id:`x15`,important:true,date:`10/15`,imp:3,
+ h:T(`米9月CPIは前年比3.7%に加速、PPIも4年ぶり高水準 10月利上げ確率は一時5割超`,`US September CPI accelerates to 3.7% and producer prices hit a four-year high; October hike odds topped 50% at one point`,`미 9월 CPI 전년 대비 3.7%로 가속, 생산자물가도 4년 만의 최고, 10월 인상 확률 한때 50% 넘어`),
+ s:T(`CPIは予想超え(総合3.7%、コア2.6%)。10年債利回りは10/14に5.29%付近、10/15は5.06%へ低下。`,`CPI beat forecasts (3.7% headline, 2.6% core); the 10-year yield hit about 5.29% on 10/14 and fell to 5.06% on 10/15.`,`CPI는 예상 상회(총합 3.7%, 근원 2.6%). 10년물 금리는 10/14 5.29% 부근, 10/15 5.06%로 하락.`),
+ d:T(`【CPI(10/14発表)】9月CPIは前月比+0.6%(8月は+0.4%)、前年比+3.7%(予想3.6%、8月は3.4%)。ガソリンが前月比+9.1%、エネルギー指数が+5.2%で押し上げた。コアは前月比+0.3%、前年比+2.6%(予想2.5%)。CMEのFedWatchでは、10月の0.25ポイント利上げ確率がCPI前の22.1%から発表直後に5割超まで跳ね、午後には30%台へ戻った。
+【PPI・小売(10/15発表)】9月PPIは4年ぶり高水準となり、食品・エネルギー・貿易サービスを除く最終需要は前月比+0.5%、前年比+5.0%と報じられた。小売売上高も発表されたが、評価は報道で分かれる。株式市場の反応は限定的で、AI投資への信用不安から長期債が買われた。
+【今後】FOMCは10/27〜28。10/13にウィリアムズNY連銀総裁は、年内あと1回の利上げが適切とする一方、2027年の利上げは不要との見解を示した。`,
+     `[CPI (10/14)] September CPI rose 0.6% m/m (0.4% in August) and 3.7% y/y (forecast 3.6%, August 3.4%), lifted by gasoline (+9.1% m/m) and the energy index (+5.2%). Core rose 0.3% m/m and 2.6% y/y (forecast 2.5%). On CME FedWatch the odds of a 25bp hike in October jumped from 22.1% before the release to above 50% right after, then fell back to the 30% range in the afternoon.
+[PPI and retail sales (10/15)] September PPI hit a four-year high; final demand excluding food, energy and trade services was reported at +0.5% m/m and +5.0% y/y. Retail sales were also released, though reports differ on how to read them. The stock market reaction was limited, and long-dated bonds were bought on credit worries over AI investment.
+[Ahead] The FOMC meets 10/27-28. On 10/13 NY Fed President Williams said one more hike this year is appropriate but none is needed in 2027.`,
+     `[CPI(10/14 발표)] 9월 CPI는 전월 대비 +0.6%(8월 +0.4%), 전년 대비 +3.7%(예상 3.6%, 8월 3.4%). 휘발유가 전월 대비 +9.1%, 에너지 지수가 +5.2%로 끌어올렸다. 근원은 전월 대비 +0.3%, 전년 대비 +2.6%(예상 2.5%). CME FedWatch에서 10월 25bp 인상 확률은 CPI 전 22.1%에서 발표 직후 50% 넘게 뛰었다가 오후에 30%대로 되돌아왔다.
+[PPI·소매(10/15 발표)] 9월 PPI는 4년 만의 최고 수준이었고 식품·에너지·무역 서비스를 제외한 최종 수요는 전월 대비 +0.5%, 전년 대비 +5.0%로 보도됐다. 소매판매도 발표됐으나 해석은 보도마다 갈린다. 주식시장 반응은 제한적이었고 AI 투자 신용 불안에 장기채가 매수됐다.
+[향후] FOMC는 10/27~28. 10/13 윌리엄스 뉴욕 연은 총재는 연내 한 번 더 인상이 적절하지만 2027년 인상은 필요 없다는 견해를 밝혔다.`),
+ src:[[`財経新聞(14日の米国株・CPI)`,`https://www.zaikei.co.jp/article/20261015/873518.html`],[`Bloomingbit(FedWatch)`,`https://jp.bloomingbit.io/feed/news/122239`],[`財経新聞(15日の米国株・PPI)`,`https://www.zaikei.co.jp/article/20261016/873704.html`],[`OANDA(NYマーケットダイジェスト)`,`https://www.oanda.jp/lab-education/market_news/mn_1039183_202610160620/`],[`日本経済新聞(CPI)`,`https://www.nikkei.com/article/DGXZQOFL14BIR0U6A011C2000000/`]]},
+{id:`x16`,date:`10/15`,imp:3,
+ h:T(`WTIは97.97ドル(+3.03%)、金は4,170ドル(+1.51%) 中東・ロシアの供給不安が重なる`,`WTI at $97.97 (+3.03%), gold at $4,170 (+1.51%) as Middle East and Russia supply risks stack up`,`WTI 97.97달러(+3.03%), 금 4,170달러(+1.51%), 중동·러시아 공급 불안 중첩`),
+ s:T(`イランの船舶攻撃、フーシ派のサウジ攻撃、ロシア石油施設攻撃の再開指示報道が材料。`,`Drivers: Iran's ship attacks, Houthi strikes on Saudi Arabia and reports of renewed strikes on Russian oil facilities.`,`이란의 선박 공격, 후티의 사우디 공격, 러시아 석유 시설 공격 재개 지시 보도가 재료.`),
+ d:T(`【原油】10/15のWTI11月物は5営業日続伸した。OANDA・みんかぶの終値は97.97ドル(+2.88ドル)で、Fiscoは通常取引終了を97.60ドルと伝えるなど出典で差がある。時間外を含む取引レンジは93.59〜98.32ドル。イランがホルムズ海峡での船舶攻撃を激化させ、フーシ派によるサウジアラビア攻撃も続く中、ウクライナのゼレンスキー大統領がロシアの石油施設への攻撃再開を指示したと伝わり、供給逼迫懸念が強まった。
+【金・為替】COMEX金12月限は4,170.1ドル(+62.2ドル)で4日ぶりに反発した。米長期金利の低下が背景。ドル円は157.55円まで下げた後、158.25円まで戻し、158.00〜158.09円で引けた。本カードは報道ベースで、攻撃の事実関係は確認していない。`,
+     `[Crude] WTI November futures rose for a fifth straight session on 10/15. OANDA and Minkabu put the close at $97.97 (+$2.88) while Fisco reported $97.60 for regular trading, so sources differ; the range including after-hours was $93.59-98.32. As Iran intensified attacks on ships in the Strait of Hormuz and Houthi attacks on Saudi Arabia continued, reports that Ukraine's President Zelensky ordered a resumption of strikes on Russian oil facilities deepened supply worries.
+[Gold and FX] COMEX December gold rose $62.2 to $4,170.1, its first gain in four days, on lower US long-term yields. USD/JPY fell to 157.55, rebounded to 158.25 and closed at 158.00-158.09. This card is report-based; the facts of the attacks were not verified.`,
+     `[원유] 10/15 WTI 11월물은 5거래일 연속 올랐다. OANDA·민카부의 종가는 97.97달러(+2.88달러)이고 Fisco는 정규 거래 종료가를 97.60달러로 전해 출처마다 차이가 있다. 시간외를 포함한 거래 범위는 93.59~98.32달러. 이란이 호르무즈 해협에서 선박 공격을 격화하고 후티의 사우디 공격도 이어지는 가운데 우크라이나 젤렌스키 대통령이 러시아 석유 시설 공격 재개를 지시했다는 보도로 공급 불안이 커졌다.
+[금·환율] COMEX 금 12월물은 4,170.1달러(+62.2달러)로 4거래일 만에 반등했다. 미 장기 금리 하락이 배경. 달러/엔은 157.55엔까지 내렸다가 158.25엔까지 되돌아 158.00~158.09엔에 마감했다. 이 카드는 보도 기준이며 공격의 사실관계는 확인하지 못했다.`),
+ src:[[`OANDA(NYマーケットダイジェスト)`,`https://www.oanda.jp/lab-education/market_news/mn_1039183_202610160620/`],[`財経新聞/Fisco(米国市場ダイジェスト)`,`https://www.zaikei.co.jp/article/20261016/873667.html`],[`みんかぶ(NY原油終値)`,`https://fx.minkabu.jp/news/381736`],[`MyForex(金先物)`,`https://myforex.com/ja/news/dzh261016050.html`]]},{id:`x12`,important:true,date:`10/08`,imp:3,
  h:T(`WTI原油が+3.6%の91.49ドル、トランプ氏は中間選挙前のイラン攻撃を否定`,`WTI jumps 3.6% to $91.49; Trump says no Iran attack before midterms`,`WTI +3.6% 91.49달러, 트럼프 중간선거 전 이란 공격 부인`),
  s:T(`ホルムズ海峡でのタンカー攻撃増加と戦闘再開観測で上昇後、発言で上げ幅を縮小。`,`Rose on more tanker attacks near Hormuz and talk of renewed fighting, then pared gains after the remarks.`,`호르무즈 해협 유조선 공격 증가와 전투 재개 우려로 올랐다가 발언 후 상승폭 축소.`),
  d:T(`共同通信によると、10/8のNY原油先物(WTI11月渡し)は前日比3.21ドル高の91.49ドルで引けた。ホルムズ海峡でのタンカー攻撃の増加や、米国によるイランへの大規模な戦闘作戦再開の可能性が伝わり買いが膨らんだが、トランプ大統領がイランと建設的な協議が行われていると述べ、11月の中間選挙より前に攻撃しないとSNSで明らかにすると上げ幅が縮んだ。同日のNY為替ではドル円が158.37円まで上昇後に157.52円へ反落した。`,
@@ -836,20 +886,19 @@ Object.assign(UI.tags,{
  outage:T(`業務停止`,`Outages`,`업무 중단`), overseas:T(`海外`,`Overseas`,`해외`)
 });
 const BREACH=[
-{id:`b16`,type:`breach`,tag:`supply`,important:true,date:`10/13`,
- h:T(`防災情報配信「SpeeCAN RAIDEN」に不正アクセス、メールアドレス最大約313万6,000件・自治体約800が利用`,`Disaster-alert service SpeeCAN RAIDEN breached: up to about 3.136M email addresses; roughly 800 local bodies use it`,`방재 정보 배신 'SpeeCAN RAIDEN' 부정 접속, 이메일 주소 최대 약 313만 6,000건·자치체 약 800곳 이용`),
- s:T(`配信停止が自治体に波及。横須賀市では不審な迷惑メールの着信を確認。決済情報は対象外。`,`Alert delivery halted at local governments; Yokosuka confirmed suspicious spam. No payment data involved.`,`배신 중단이 자치체로 파급. 요코스카시에서는 수상한 스팸 메일 수신 확인. 결제 정보는 대상 외.`),
- d:T(`【経緯】運営のアルカディアは10/11 16:30に不審な挙動を確認し、10/12未明に侵入経路を塞ぐ応急措置を実施。10/13 11時に侵入経路となった2サービス(SpeeCAN RAIDENの一部とライデン・スクール)の緊急停止を始め、同日に公表した。復旧時期は未定。
-【被害】漏えいの可能性があるのは6ドメインのサービスの連絡先データ・担当者・契約者情報と配信履歴の本文。最大件数は、メールアドレス約313万6,000件、電話番号約10万5,000件、FAX番号約1万5,000件(推定値、調査継続)。決済情報は扱っていない。同社のシステムを使う自治体などは全国で約800とされる。
-【影響】防災メールの配信停止、職員への配備体制の一斉連絡やダム放流通知の電話連絡ができない自治体も出た。横須賀市は登録者に不審な迷惑メールが届いていると公表し、市や事業者を装うメールに注意を呼びかけている。`,
-     `[Timeline] Operator Arcadia spotted suspicious activity at 16:30 on 10/11 and applied an emergency fix to the intrusion route in the early hours of 10/12. At 11:00 on 10/13 it began emergency shutdowns of two services used as the route (part of SpeeCAN RAIDEN and Raiden School) and disclosed the incident that day. No restoration date has been set.
-[Damage] Contact data, contact persons, contractor information and the text of delivery history across six domains may have leaked. Maximum counts are about 3.136 million email addresses, 105,000 phone numbers and 15,000 fax numbers (estimates; investigation continues). No payment data is handled. Roughly 800 local governments and bodies nationwide use the system.
-[Impact] Some local governments could not send disaster-alert emails, mass-notify staff of deployment readiness or phone dam-release notices. Yokosuka City said registrants have already received suspicious spam and urged caution about emails posing as the city or the vendor.`,
-     `[경위] 운영사 아르카디아는 10/11 16:30 수상한 동작을 확인하고 10/12 새벽 침입 경로를 막는 응급 조치를 했다. 10/13 11시 침입 경로가 된 2개 서비스(SpeeCAN RAIDEN 일부와 라이덴 스쿨)의 긴급 정지를 시작했고 같은 날 공표했다. 복구 시기는 미정.
-[피해] 6개 도메인 서비스의 연락처 데이터·담당자·계약자 정보와 배신 이력 본문이 유출됐을 가능성이 있다. 최대 건수는 이메일 주소 약 313만 6,000건, 전화번호 약 10만 5,000건, 팩스 번호 약 1만 5,000건(추정치, 조사 계속). 결제 정보는 취급하지 않는다. 이 시스템을 쓰는 자치체 등은 전국 약 800곳으로 알려졌다.
-[영향] 방재 메일 배신 중단, 직원 배치 체제 일제 연락이나 댐 방류 통지 전화 연락이 불가능한 자치체도 나왔다. 요코스카시는 등록자에게 수상한 스팸 메일이 이미 도착했다고 공표하고 시나 사업자를 사칭한 메일에 주의하라고 당부했다.`),
- src:[[`アルカディア公式`,`https://www.arcadia.co.jp/info/4076`],[`piyolog(まとめ)`,`https://piyolog.hatenadiary.jp/entry/2026/10/14/014350`],[`NHK`,`https://news.web.nhk/newsweb/na/nd-20261013de58789`],[`横須賀市`,`https://www.city.yokosuka.kanagawa.jp/0525/nagekomi/20261013_roueinoosore.html`]]},
-{id:`b17`,type:`breach`,tag:`leak`,date:`10/13`,
+{id:`b16`,type:`breach`,tag:`supply`,important:true,date:`10/15`,
+ h:T(`防災情報配信「SpeeCAN RAIDEN」に不正アクセス、メールアドレス最大約313万6,000件 全サービスは10/15に復旧`,`Disaster-alert service SpeeCAN RAIDEN breached: up to about 3.136M email addresses; all services restored on 10/15`,`방재 정보 배신 'SpeeCAN RAIDEN' 부정 접속, 이메일 주소 최대 약 313만 6,000건, 10/15 전 서비스 복구`),
+ s:T(`追加調査でNET119・119RAIDENにも不正アクセスの形跡。125の行政主体が公表。漏えい範囲は調査中。`,`Further checks found traces of intrusion at NET119 and 119RAIDEN too; 125 public bodies have issued notices. The scope of leakage is still under investigation.`,`추가 조사에서 NET119·119RAIDEN에도 부정 접속 흔적. 125개 행정 주체가 공표. 유출 범위는 조사 중.`),
+ d:T(`【経緯】運営のアルカディアは10/11 16:30に不審な挙動を確認し、10/12未明に応急措置を実施。10/13 11時に侵入経路となった2サービスを緊急停止し、同日公表した。10/14の追加調査で、聴覚障害者向け119番通報サービス「NET119」と「119RAIDEN」にも不正アクセスの形跡があり、個人情報が漏えいした可能性があると公表した。10/15 10:12に個人情報保護委員会へ報告し、警察などに相談した。10/15 15時ごろに停止していた2サービスが復旧し、全サービスが復旧した。
+【被害】漏えいの可能性があるのは連絡先データ・担当者・契約者情報と配信履歴の本文。10/13公表の最大推定件数は、メールアドレス約313万6,000件、電話番号約10万5,000件、FAX番号約1万5,000件で、実際の流出確認数ではない。決済情報は扱っていない。侵入経路は遮断し不正なプログラムがないことを確認したが、漏えい範囲は引き続き調査中で、全顧客にログインパスワードの変更を求めている。
+【影響】利用する自治体など全国約800のうち、10/15までに125の行政主体が停止・漏えい可能性・注意喚起などを公表した(セキュリティ対策Labの集計)。横須賀市は防災情報メールで4万7,065件のメールアドレスなどが漏えいしたおそれがあるとし、登録者に不審な迷惑メールが届いていると公表した。`,
+     `[Timeline] Operator Arcadia spotted suspicious activity at 16:30 on 10/11, applied an emergency fix in the early hours of 10/12, shut down the two services used as the route at 11:00 on 10/13 and disclosed it that day. Further checks on 10/14 showed traces of intrusion at "NET119," a 119 emergency-call service for hearing-impaired users, and "119RAIDEN" as well, with possible leakage of personal data. It reported to the Personal Information Protection Commission at 10:12 on 10/15 and consulted police. The two stopped services were restored around 15:00 on 10/15, completing restoration of all services.
+[Damage] Contact data, contact persons, contractor information and delivery-history text may have leaked. The maximum estimates announced on 10/13 were about 3.136 million email addresses, 105,000 phone numbers and 15,000 fax numbers, not confirmed leaks. No payment data is handled. The intrusion route was closed and no malicious programs were found, but the scope of leakage is still under investigation and all customers are asked to change their login passwords.
+[Impact] Of roughly 800 local governments and bodies using it nationwide, 125 public bodies had announced suspensions, possible leaks or warnings by 10/15 (Security Taisaku Lab's count). Yokosuka City said up to 47,065 email addresses and more may have leaked from its disaster-info mail service and that registrants have received suspicious spam.`,
+     `[경위] 운영사 아르카디아는 10/11 16:30 수상한 동작을 확인하고 10/12 새벽 응급 조치를 했으며 10/13 11시 침입 경로가 된 2개 서비스를 긴급 정지하고 같은 날 공표했다. 10/14 추가 조사에서 청각장애인용 119 신고 서비스 'NET119'와 '119RAIDEN'에도 부정 접속 흔적이 있어 개인정보가 유출됐을 가능성이 있다고 공표했다. 10/15 10:12 개인정보보호위원회에 보고하고 경찰에 상담했다. 10/15 15시경 정지됐던 2개 서비스가 복구되어 전 서비스가 복구됐다.
+[피해] 연락처 데이터·담당자·계약자 정보와 배신 이력 본문이 유출됐을 가능성이 있다. 10/13 공표된 최대 추정 건수는 이메일 주소 약 313만 6,000건, 전화번호 약 10만 5,000건, 팩스 번호 약 1만 5,000건이며 실제 유출 확인 건수가 아니다. 결제 정보는 취급하지 않는다. 침입 경로를 차단하고 악성 프로그램이 없음을 확인했지만 유출 범위는 계속 조사 중이며 전 고객에게 로그인 비밀번호 변경을 요청했다.
+[영향] 이용하는 전국 약 800개 자치체 등 가운데 10/15까지 125개 행정 주체가 정지·유출 가능성·주의 환기 등을 공표했다(보안대책 Lab 집계). 요코스카시는 방재 정보 메일에서 4만 7,065건의 이메일 주소 등이 유출됐을 우려가 있다고 밝히고 등록자에게 수상한 스팸 메일이 도착했다고 공표했다.`),
+ src:[[`アルカディア公式ブログ(第9報)`,`https://raiden.site.ktaiwork.jp/archives/4597`],[`セキュリティ対策Lab(125の行政主体)`,`https://rocket-boys.co.jp/security-measures-lab/speecan_raiden_arcadia_cyberattack_affected_municipalitie/`],[`piyolog(まとめ)`,`https://piyolog.hatenadiary.jp/entry/2026/10/14/014350`],[`INTERNET Watch`,`https://internet.watch.impress.co.jp/docs/news/2148069.html`]]},{id:`b17`,type:`breach`,tag:`leak`,date:`10/13`,
  h:T(`10/12〜10/13の新規公表:第一生命グループ、ヤマハ発動機、JR東海の通販サイト`,`New disclosures 10/12-10/13: Dai-ichi Life Group, Yamaha Motor and JR Central's online shops`,`10/12~10/13 신규 공표: 다이이치생명 그룹, 야마하발동기, JR도카이 쇼핑몰`),
  s:T(`従業員・退職者約12万人、会員約1,600人、通販約1万5,000件。いずれも見出し・要約ベース。`,`About 120,000 employees and retirees, about 1,600 members and about 15,000 shop records; headline-level information only.`,`직원·퇴직자 약 12만 명, 회원 약 1,600명, 쇼핑몰 약 1만 5,000건. 모두 헤드라인·요약 수준.`),
  d:T(`【第一ライフグループ・第一生命(10/12)】不正アクセスにより、従業員・退職者約12万人の個人情報が流出した可能性があると公表された(見出しレベルの確認)。
